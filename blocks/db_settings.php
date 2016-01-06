@@ -1,0 +1,10 @@
+<?
+$SETTINGS=array(
+    'DB_CON'=>array(
+        'DB_NAME'=>'skeitol_sitebd',
+        'HOSTNAME'=>'localhost',
+        'USERNAME'=>'skeitol_sitebd',
+        'PASSWORD'=>'o4Ehx4Dk',
+    )
+);
+?>

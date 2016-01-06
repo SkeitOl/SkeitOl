@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<style>
+	#search_block{position:fixed;width:80%;min-width:500px;height:40px;background:#F0F8FA;max-width:650px;line-height: 40px;}
+	#search_word {margin: 0 5px 0;
+    padding: 0 20px 0 0;
+    height: 16px;}
+	#search_button{position: absolute;
+    top: 1px;
+    right: 6px;
+    height: 18px;
+    border: none;}
+    #search_block button{cursor: pointer;}
+    #close_search_block {
+    border: 0;
+    background: transparent;
+    color: red;
+    font-size: 1rem;
+}#close_search_block:hover{font-weight:bold}
+	</style>
+	
+	<div id='search_block'><span style="position:relative"><input id="search_word" type="text"><button id="search_button" onclick="javascript: FindOnPage('search_word'); return false;">🔍</button></span><span><input type="checkbox" id="match_case"><label for="match_case">match case</label></span><span><input type="checkbox" id="whole_word"><label for="whole_word">whole word</label></span><input type="checkbox" id="regular_expression"><label for="regular_expression">regular expression</label></span><span><button id="control_up">&uarr;</button></span><span><button id="control_down">&darr;</button></span><span><button id="close_search_block">&times;</button></span></div>
+
+	<script type="text/javascript">
+	
+	document.body.innerHTML +="";
+
+		document.getElementById('close_search_block').onclick = function() {
+			document.getElementById('search_block').style.display="none";
+			return false;
+		}
+
+
+    document.onkeydown = function(e) {
+      if ((e.ctrlKey && e.keyCode == 'F'.charCodeAt(0))) {
+        edit();
+        return false;
+      }
+    }
+
+    function edit() {
+    	if(document.getElementById('search_block').style.display=="none")
+    		{document.getElementById('search_block').style.display="block";
+    		document.getElementById('search_word').focus();
+    	}
+    	else{
+    		document.getElementById('search_block').style.display="none";
+
+    	}
+    }
+
+
+         var lastResFind = ""; // последний удачный результат
+         var copy_page = ""; // копия страницы в ихсодном виде
+         function TrimStr(s) {
+            /* s = s.replace(/^\s+/g, '');
+             return s.replace(/\s+$/g, '');*/
+              return s;
+         }
+
+         var found_index=[];
+         var control_index=-1;
+
+         function FindOnPage(inputId) {//ищет текст на странице, в параметр передается ID поля для ввода
+             var obj = window.document.getElementById(inputId);
+             var textToFind;
+
+             if (obj) {
+                 textToFind = TrimStr(obj.value);//обрезаем пробелы
+             } else {
+                 alert("Введенная фраза не найдена");
+                 return;
+             }
+             if (textToFind == "") {
+                 alert("Вы ничего не ввели");
+                 return;
+             }
+
+             if (textToFind.length < 2) {
+                 alert("Слишком короткий текст")
+                 return;
+             }
+
+             if (copy_page.length > 0)
+                 document.body.innerHTML = copy_page;
+             else copy_page = document.body.innerHTML;
+         	var doc=document.body.innerHTML;
+         	var start_i=doc.indexOf(textToFind);
+         	found_index=[];
+         	if(start_i>=0)
+         	{
+
+         		found_index.push(start_i);
+     			i=start_i+textToFind.length-1;
+     			while(i<doc.length)
+         		{
+         			start_i=doc.indexOf(textToFind,i);
+         			if(start_i>=0)
+         			{
+         				found_index.push(start_i);
+         				i=start_i+textToFind.length-1;
+         			}
+         			else break;
+         		}
+         	}
+
+         	if(!found_index.length){
+         		document.getElementById('search_word').style.background="red";
+         		disableControlElement();
+         	}else{
+         		alert("Найдено "+found_index.length+" совпадений.");
+         		control_index=0;
+         		showControl();
+         	}
+
+             document.body.innerHTML = document.body.innerHTML.replace(eval("/name=" + lastResFind + "/gi"), " ");//стираем предыдущие якори для скрола
+             document.body.innerHTML = document.body.innerHTML.replace(eval("/" + textToFind + "/gi"), "<a name=" + textToFind + " style='background:yellow; font-size:15px'>" + textToFind + "</a>"); //Заменяем найденный текст ссылками с якорем;
+             lastResFind = textToFind; // сохраняем фразу для поиска, чтобы в дальнейшем по ней стереть все ссылки
+             window.location = '#' + textToFind;//перемещаем скрол к последнему найденному совпадению
+
+         }
+
+         function showControl(){
+         	//document.body.innerHTML
+         }
+
+         function disableControlElement(){
+         	document.getElementById('control_up').disabled=true;
+         	document.getElementById('control_down').disabled=true;
+         }
+
+	</script>
+
+	<p></p>
+	<br>
+	<br>
+	<br>
+	<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами.</p>
+	<p> Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот. Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни. Однажды одна маленькая строчка рыбного текста по имени Lorem ipsum решила выйти в большой мир грамматики. Великий Оксмокс предупреждал ее о злых запятых, диких знаках вопроса и коварных точках с запятой, но текст не дал сбить себя с толку. Он собрал семь своих заглавных букв, подпоясал инициал за пояс и пустился в дорогу.</p>
+	<p>Взобравшись на первую вершину курсивных гор, бросил он последний взгляд назад, на силуэт своего родного города Буквоград, на заголовок деревни Алфавит и на подзаголовок своего переулка Строчка.</p>
+	<h1>Грустный реторический вопрос скатился по его щеке и он продолжил свой путь.</h1>
+	<p>По дороге встретил текст рукопись. Она предупредила его: «В моей стране все переписывается по несколько раз. Единственное, что от меня осталось, это приставка «и». Возвращайся ты лучше в свою безопасную страну». Не послушавшись рукописи, наш текст продолжил свой путь. Вскоре ему повстречался коварный составитель</p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteRule ^articles([^/]*)\.html$ /articles.php?id=$1 [L]
+RewriteRule ^news([^/]*)\.html$ /news.php?id=$1 [L]
+RewriteRule ^site-map([^/]*)\.html$ /site-map.php?id=$1 [L]
+RewriteRule ^program([^/]*)\.html$ /programm.php?id=$1 [L]
+RewriteRule ^pages([^/]*)\.html$ /index.php?id=$1 [L]
+
+RewriteRule ^eula/?$ index.php?id=1
+
+RewriteRule ^articles/rss/?$ articles_rss.php
+
+RewriteRule ^program/?$ programm.php
+RewriteRule ^program/timer_off/?$ programm.php?id=1
+RewriteRule ^program/sked/?$ programm.php?id=2
+RewriteRule ^program/htmlcolor/?$ programm.php?id=4
+RewriteRule ^program/baldahelper/?$ programm.php?id=3
+
+RewriteRule ^news/?$ news.php
+RewriteRule ^news/([-_A-z0-9]+)/?$ news.php?id=$1 [L]
+RewriteRule ^articles/?$ articles.php
+RewriteRule ^articles/([-_A-z0-9]+)/?$ articles.php?id=$1 [L]
+
+RewriteRule ^pages/([-_A-z0-9]+)/?$ index.php?id=$1 [L]

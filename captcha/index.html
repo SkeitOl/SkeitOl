@@ -1,0 +1,18 @@
+<html>
+
+<head>
+</head>
+
+<img src="captcha.php" id="captcha-img" /><button onclick="UpdateImg();">Обновить</button>
+<script type="text/javascript">
+    function UpdateImg() {
+        document.images["captcha-img"].src = 'captcha.php';
+    }
+</script>
+<form action="check.php" method="POST">
+    <input type="text" name="captcha_code">
+    
+    <input type="submit" value="OK" name="req">
+</form>
+
+</html>

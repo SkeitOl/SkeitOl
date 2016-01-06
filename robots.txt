@@ -1,0 +1,15 @@
+User-agent: Yandex
+Allow: /
+Disallow: /admin
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Host: skeitol.ru
+
+Sitemap: http://skeitol.ru/sitemap.xml
