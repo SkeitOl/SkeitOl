@@ -81,7 +81,7 @@ $DEFAULT_AUTHOR="SkeitOl";
 				case "a-out": textarea.value=htmlInBig(textarea,"<a href=\'\' target=\'_blank\' class=\'link-out\'>","</a>"); break;
 				case "h1": textarea.value=htmlInBig(textarea,"<h1>","</h1>");break;
 				case "h2": textarea.value=htmlInBig(textarea,"<h2>","</h2>"); break;
-				case "h3": textarea.value=htmlInBig(textarea,"<h3>","</h3>"); break;
+				case "h3": textarea.value=htmlInBig(textarea,"<h3>","</h3>"); break; 
 			}
 		}
 		function htmlInBig(el,startTag,endTag){
