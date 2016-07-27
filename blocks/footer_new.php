@@ -2,17 +2,17 @@
 html, body {
 height: 100%;
 }
-#content_r{overflow:auto;padding-bottom: 195px;}
-#content_r_long{overflow:auto;padding-bottom:240px;}
+#content_r{overflow:auto;padding-bottom: 170px;}
+#content_r_long{overflow:auto;padding-bottom:217px;}
 .wrapper-container {
 min-height: 100%;
 }
 .footer_new{
 position: relative;
-margin-top: -195px;
-height: 195px;
+margin-top: -170px;
+height: 170px;
 clear:both;}
-body .long_footer{margin-top:-240px;height:240px;}
+body .long_footer{margin-top:-217px;height:217px;}
 @media screen and (max-width: 620px){
 	.footer_new,body .long_footer{position:relative;margin:0;height:auto;clear:both;}
 	.wrapper-container {min-height:auto;}
@@ -58,7 +58,7 @@ body .long_footer{margin-top:-240px;height:240px;}
 				</div>
 			</div>*/?>
 			<div class="clear"></div>
-			<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - 2015</p></div>
+			<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?=date('Y')?></p></div>
 		</div>
 		</div>
 	</section>

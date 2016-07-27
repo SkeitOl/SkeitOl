@@ -86,3 +86,12 @@ echo"</pre>";
 	?>
 	<input type="submit">
 </form>*/
+echo'<br>test';
+for(;false;){
+	echo'123';
+}
+echo'<br>';
+$s=12;
+echo'Bit $s';
+echo'<br>';
+echo"Bit $s";

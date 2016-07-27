@@ -49,7 +49,7 @@ function printXMLData($tp,$site_url, $db)
 	$s_map .= '<!-- '.$tp.' -->'."\r\n";
 	$s_map .= '<url>'."\r\n";
 	$s_map .= '<loc>'.$site_url.$tp.'/</loc>'."\r\n";	
-	$s_map .= '<lastmod>'.(date_format(date_create($row['date']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
+	$s_map .= '<lastmod>'.(date_format(date_create($row['TIMESTAMP_X']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
 	$s_map .= '<changefreq>weekly</changefreq>'."\r\n";
 	$s_map .= '<priority>0.90</priority>'."\r\n";
 	$s_map .= '</url>'."\r\n";
@@ -59,7 +59,7 @@ function printXMLData($tp,$site_url, $db)
 		if(!empty($row['url']))$url_page=$row['url'].'/';else $url_page=$row['id'].'/';
 		$s_map .= '<url>'."\r\n";
 		$s_map .= '<loc>'.$site_url.$tp.'/'.$url_page.'</loc>'."\r\n";	
-		$s_map .= '<lastmod>'.(date_format(date_create($row['date']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
+		$s_map .= '<lastmod>'.(date_format(date_create($row['TIMESTAMP_X']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
 		$s_map .= '<changefreq>weekly</changefreq>'."\r\n";
 		$s_map .= '<priority>0.50</priority>'."\r\n";
 		$s_map .= '</url>'."\r\n";

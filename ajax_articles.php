@@ -1,5 +1,32 @@
 <?
+include_once($_SERVER['DOCUMENT_ROOT']."/blocks/bd.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/modules/functions.php");
 
+$sql_sort_name='date';//Сортировка по умолчанию
+if(!empty($sort["VALUE"]))$sql_sort_name=$sort["VALUE"];
+if (isset($_GET['list']))
+	$list = htmlspecialchars($_GET['list']);
+else
+	$list = 1;
+$step = 10;
+$startI = 0;
+$endI = $step - 1;
+if (isset($list)) {
+	if ($list <= 0) {
+		echo"Нет такой страницы!!!<br>Вывод первой страницы";
+	}
+	else {
+		$startI = ($list - 1) * $step;
+		$endI = $startI + $step;
+	}
+}
+$result = mysql_query("SELECT * FROM articles WHERE active=1 ORDER
+				BY ".$sql_sort_name." DESC LIMIT $startI,$endI", $db);
+$myrow = mysql_fetch_array($result);
+
+$article = new Articles();
+$article->showArticlesList($myrow, $db);
+/*
 if (isset($_GET['list']))
     $list = htmlspecialchars($_GET['list']);
 else
@@ -7,10 +34,9 @@ else
 
 include_once("blocks/bd.php");
 
-/*Вывод записини*/
 function PrintArticlesItem($myrow,$db){
 	$array1 = array();
-	$array1 = unserialize($myrow['category']); /**/
+	$array1 = unserialize($myrow['category']);
 	$category_string='';
 	if (count($array1) > 0) {
 		$category_string="<div>
@@ -76,5 +102,5 @@ $result = mysql_query("SELECT * FROM articles WHERE active=1 ORDER
 		PrintArticlesItem($myrow,$db);
 		$in++;
 	} while ($in <= $step && $myrow = mysql_fetch_array($result));
-
+*/
 ?>

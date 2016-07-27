@@ -41,6 +41,8 @@ else
 echo "Неудача, почтовая система не работает, попробуйте еще!";
 */
 
+echo $_SERVER['DOCUMENT_ROOT']."";
+
 $array = array('1' =>3 ,'2'=>2 );
 echo"<pre>";
 print_r($array);

@@ -18,7 +18,7 @@
         </div>
     </noidex>
 </div>
-*/?>
+
 <div class='small-block'>
     <noidex>
     <div class='title-small-block'>Популярные категории:</div>
@@ -29,7 +29,8 @@
             <a href='/articles/?category=8'><span class="sml_bl_item"><span class="sml_bl_item_con" style="background-image:url('/images/articles/windows-8-logo.png')"></span></span></a>
         </div>
 	</noidex>
-</div>
+</div>*/?>
+<?/*if(!isset($id)):?>
  <div class="small-block" <?if(!isset($_GET['show_test']))echo'style="display:none"';?>>
         <noidex>
         <h4>Фильтр</h4>
@@ -89,7 +90,7 @@
         </script>
         </noidex>
     </div>
-
+<?endif;*/?>
 <div class='small-block'>	
 	<div class='title-small-block'><a href="/articles/">Последние статьи</a></div>
 	<noidex><ul class="list-right-blocks"><?php
@@ -100,20 +101,23 @@
 		if(!empty($myrow['url']))$url_page=$myrow['url'];else $url_page=$myrow['id'];
 		printf("<li><a href='/articles/%s/'>%s</a></li>",$url_page,$myrow['title']);}while($myrow=mysql_fetch_array($result))?></ul></noidex>
 </div>
+<style>
 
-<div class='small-block'>
-	<div class='title-small-block'>Тэги</div><noidex>
+</style>
+<div class='small-block selector <?if(isset($id)):?>hide<?endif;?>'>
+	<div class='title-small-block' onclick="diplayShowHide(this)">Тэги</div>
+    <noidex>
+        <div class="con_small_block">
+            <script type='text/javascript'>
+                function diplayShowHide(obj) {
+                    console.log(obj);//.find('.category-view')
+                    $(obj).parent().toggleClass('hide');
+                }
+            </script>
 <?
 //Все категории
                             /*echo"
-                            <script type='text/javascript'>
-    function diplay_hide() {
-        if ($('#block_id').css('display') == 'none')
-            $('#block_id').animate({ height: 'show' }, 400);
-        else
-            $('#block_id').animate({ height: 'hide' }, 400);
-    }
-</script>
+
 <p><span class='links'><a href='#'onclick='diplay_hide();return false;'><b></b></a></span></p>
 <div id='block_id'>";*/
         echo"<div class='category-view'>
@@ -129,7 +133,7 @@
             </div>
         </div>";
         // 
-?>
+?></div>
 	</noidex>
 
 </div>

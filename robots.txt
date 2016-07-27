@@ -1,14 +1,17 @@
 User-agent: Yandex
 Allow: /
 Disallow: /admin
+Disallow: /elc
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
+Disallow: /elc
 
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /elc
 
 Host: skeitol.ru
 

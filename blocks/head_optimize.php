@@ -7,8 +7,7 @@
   // Последняя часть запроса (путь и GET-параметры).
   $result .= $_SERVER['REQUEST_URI'];  
   return $result;
-}?>
-<head>
+}?><head>
 	<title><?echo(!empty($sys_title))?$sys_title:"SkeitOl - Soft";?></title>
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="<?echo(!empty($sys_title))?$sys_title:"SkeitOl - Soft";?>">
@@ -48,10 +47,15 @@
 			}
 		}
 	}?>
-	<!---->
 	<!-- Apple Touch Icons -->
 	<link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
-	<?if(!empty($sys_special_head_text))echo $sys_special_head_text;?>
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" /><?
+		$file_style=$_SERVER['DOCUMENT_ROOT'].'/style/style.css';
+	if(file_exists($file_style)){
+		echo'<style>'.file_get_contents($file_style).'</style>';
+	}/*
+	<link rel='stylesheet' type='text/css' href='/style/style.css<?
+	$file_name=$_SERVER['DOCUMENT_ROOT'].'/style/style.css';if(file_exists($file_name))echo'?'.filemtime($file_name);?>' />
+	<?*/if(!empty($sys_special_head_text))echo $sys_special_head_text;?>
 </head>

@@ -1,18 +1,33 @@
-﻿html, body {background-color: #fff;width: 100%;height: 100%;margin: 0px;padding: 0px;font:14px 'Calibri','Century Gothic';font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;line-height: 1.38461538;color: #333;}
+﻿html, body {background-color: #fff;width: 100%;height: 100%;margin: 0px;padding: 0px;
+    font:14px 'Calibri','Century Gothic';
+line-height: 1.38461538;color: #333;
+background: #efefef;
+font-family: 'Open Sans', sans-serif;
+    color: #777;}
 textarea {width: 95%;}
 p, h3, ul, li {
 padding: 0px;
 margin: 0px;}
-
+h2{font-weight: 600;}
 h3 a{color: #258521;}
 h3 a:hover{text-decoration:none;}
 img{border:none;}
+strong, b {font-weight: 600;}
+input, textarea, keygen, select, button {font-family: 'Open Sans', sans-serif;}
+td,tr,th,tbody,thead,body{font:14px/1.38461538 'Calibri','Century Gothic';font-family: 'Open Sans', sans-serif;}
+input:not([type]), input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"],textarea{
+border: 1px solid #d9d9d9;
+                                                                                                                                                   }
 
 .links a, .link {text-decoration: none;color: #006fae;}
 .links a:hover, .link:hover {color: #686868;}
 .left_menu a{color:#fff!important;}
 
+a {color: #f58220;font-weight:300;text-decoration:none;}
 
+.box{box-shadow: 0 1px 3px rgba(0,0,0,.13);padding:1em;background:#fff;}
+
+.list_ul{padding-left:2rem}
 
 .navigation {margin: 8px;  display: block;}
 .navigation a,.navigation span {margin: 0 4px;text-decoration: none;color: #000;border: 2px solid #ccc;padding: 2px;height: 20px;line-height: 20px;display: inline-block;min-width: 14px;}
@@ -146,7 +161,6 @@ box-shadow:2px 0 3px #ccc;
     */
 /*Content*/
 #content {
-	color: #000;
 	margin: 8px auto 0;
 	max-width: 900px;
 	padding: 0;
@@ -157,9 +171,9 @@ box-shadow:2px 0 3px #ccc;
     }
 .edit-button{background: #f6f5f3;box-shadow:none;margin:0.4em;padding:0.2em;}
 
-.edit-button button {margin: 5px;border: none;background: #fff;padding: 5px 10px;color: #777;cursor:pointer;outline:none;}
-.edit-button button:hover,.edit-button button:focus{background:#ffdb4d;color:#000;}
-.edit-button button:active{box-shadow:0 0 3px #ffdb4d;background:#fff;}
+.edit-button .button ,#bt_full{display: inline-block;margin: 5px;border: none;background: #fff;padding: 5px 10px;color: #777;cursor:pointer;outline:none;}
+.edit-button .button:hover,.edit-button button:focus,#bt_full:hover,#bt_full:focus{background:#ffdb4d;color:#000;}
+.edit-button .button:active,#bt_full:active{box-shadow:0 0 3px #ffdb4d;background:#fff;}
 .form {
     padding: 10px;
 }
@@ -202,67 +216,32 @@ box-shadow:2px 0 3px #ccc;
    
 /*Tab*/
 ul.tabs {
-	margin: 0;
-	padding: 0;
-	float: left;
-	list-style: none;
-	height: 32px; /*--Установка высоты вкладок--*/
-	border-bottom: 1px solid #999;
-	border-left: 1px solid #999;
-	width: 100%;
+margin: 0;
+padding: 0;
+float: left;
+list-style: none;
+height: 32px;
+width: 100%;
 }
-ul.tabs li {
-	float: left;
-	margin: 0;
-	padding: 0;
-	height: 31px; /*--Вычесть 1px от высоты неупорядоченного списка--*/
-	line-height: 31px; /*--Вертикальное выравнивание текста на вкладке--*/
-	border: 1px solid #999;
-	border-left: none;
-	margin-bottom: -1px; /*--Вытягивание списка вниз на 1px--*/
-	overflow: hidden;
-	position: relative;
-	background:#fff;
-}
-ul.tabs li a {
-	text-decoration: none;
-  color:#777;
-	display: block;
-	padding: 0 20px;
-	border: 1px solid #fff; /*--Белая граница в 1px внутри неактивного элемента списка--*/
-	outline: none;
-	margin: 0 0 1em;
-}
-ul.tabs li a:hover {
-	background: #F2EF7C;
-}
-html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Проверяем активность вкладки, делаем не восприимчивой к наведению--*/
-	background: #ffdb4d;
-	border-bottom: 1px solid #fff; /*--Закрываем нижнюю границу, создаём видимость соединения с контентом--*/
-}
-ul.tabs li.active a{color:#000;}
-.tab_container {
-	border: 1px solid #999;
-	border-top: none;
-	overflow: hidden;
-	clear: both;
-	float: left; width: 100%;
-	background: #fff;
-	margin: 0 0 1em;
-	text-overflow: ellipsis;
-}
-.tab_content {
-	padding: 0.5em;
-}
+ul.tabs li {float: left;margin: 0;padding: 0;height: 31px;line-height: 31px;box-shadow: 0 -1px 3px rgba(0,0,0,.13), inset 0 1px 13px rgba(0,0,0,.13);border-left: none;margin-bottom: -1px;overflow: hidden;position: relative;background:#fff;border-right: 1px solid #ccc;}
+ul.tabs li a {text-decoration: none;color:#777;display: block;padding: 0 20px;outline: none;margin:0;}
+ul.tabs li a:hover {background: #F2EF7C;}
+html ul.tabs li.active, html ul.tabs li.active a:hover{background: #fff;border-bottom: 1px solid #fff;box-shadow: 0 -1px 3px rgba(0,0,0,.13);}
+ul.tabs li.active a{color:#f58220;}
+.tab_container{border-top: none;/*overflow: hidden;*/
+clear: both;float: left; width: 100%;background: #fff;margin: 0 0 1em;text-overflow: ellipsis;-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);-moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);box-shadow: 0 1px 3px rgba(0,0,0,.13);}
+.tab_content {padding:1rem;}
 /*.Tab*/
 .small_media ul{  overflow: hidden;
   text-align: center;}
-.small_media li {  width: 100%;
+.small_media li {
+  word-wrap: break-word;
+  width: 100%;
   margin-bottom: 15px;
   max-width: 200px;
   display: inline-block;
-  overflow: hidden;
-  overflow-x: auto;
+  /*overflow: hidden;
+  overflow-x: auto;*/
   text-align: center;} 
 
 /*Button*/
@@ -270,6 +249,7 @@ ul.tabs li.active a{color:#000;}
 .save_bth:hover, .save_bth:focus {background:#86D080;}
 .save_bth:active {background:#519C4C;box-shadow: 0 0 5px #1D6D17;}
 
+footer {color: #777;font-size: 12px;text-align: center;margin-top: 20px;}
 @media screen and (max-width: 550px) {
 	#content{padding:0;}
 	#left_menu {
@@ -283,3 +263,9 @@ ul.tabs li.active a{color:#000;}
 		width:98%!important;		
 	}
 }
+.small_media li{position: relative;height:100px;}
+.small_media li img{max-height: 100px;max-width:180px;}
+.small_media li .hover_con{display: none}
+.small_media li:hover .hover_con{display:block;}
+.small_media li .con{background: #fff;border:1px solid #ccc;position: absolute;top: 0px;padding: 5px;left: 0px;right: 0px;min-height:100px;background-color: #fff;z-index: 1;}
+.small_media li:hover .con{border-color:#ffdb4d;z-index: 2;}

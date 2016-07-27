@@ -33,15 +33,13 @@ var pagePreload={
 		document.getElementById("preload_overload").style.display="block";
 	},
 	endLoad: function(){
-		window.onload=function() {
-			$("head").append("<link rel='stylesheet' type='text/css' href='/style/style-1450046583053.css?06' />");
+			//$("head").append("");
 			setTimeout(function(){
 				$( "#preload_overload" ).animate({opacity:0},100,"linear",function(){
 					document.body.style.overflow="visible";
 					document.getElementById("preload_overload").style.display="none";	
 				});
 			},1);
-		};
 	},
 	
 	parent:this,
@@ -53,17 +51,16 @@ var pagePreload={
 	         $img
 	            .on('load',imgLoaded($img[0]))
 	            //.attr('src',src);
-	            .attr('style','background-image:url('+src+');');
+	            .attr('style','background-image:url("'+src+'");background-color:transparent');
 	            //.css('background-image',src);
 	    });
 	},
 	init: function() {
-		this.start();
+		//this.start();
 	},
 	
 };
 	pagePreload.init();
-	
 </script>
 	<div style="width: 100%;height: 100%;text-align: center;">
 		<div class="child"><img src="/images/preloader_32.gif" alt="Загрузка страницы.."></div>

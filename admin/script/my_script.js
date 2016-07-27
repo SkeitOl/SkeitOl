@@ -1,7 +1,14 @@
 $("#sub").click(function(){
-	$("#result").html("<p>Сохранение данных...</p>");
-$.post($("#myForm").attr("action"),$("#myForm :input").serializeArray(),function(info){ $("#result").html(info); });
-clearInput();
+	$("#result").html("<p>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ...</p>");
+
+//$.post($("#myForm").attr("action"),$("#myForm :input").serializeArray(),function(info){ $("#result").html(info); });
+    var formData = new FormData($('#myForm')[0]);
+    $.post($("#myForm").attr("action"),formData,function(info){
+        $("#result").html(info);
+        console.log(info);
+    });
+
+    clearInput();
 });
 
 $("#myForm").submit(function(){

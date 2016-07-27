@@ -1,0 +1,87 @@
+.text-input{width:90%;padding:3px;max-width:600px;height:2em;}
+.align-left{text-align:left;}
+
+.bloks-small{width:100%;max-width:900px;}
+.bloks-small h2 {margin: 3px 0;color: #4A4A4A;}
+.bloks-small li{width:47%;float:left;margin:1%;}
+.bloks-small li a{text-decoration: none;color: #006fae;}
+.bloks-small li a:hover{text-decoration: underline;color:#686868;}
+.clear{clear:both}
+
+.quick_blok{margin:0.5em 0;padding:0.5em;clear:both;background: #F2F2B5;overflow: hidden;display: inline-block;box-shadow: 0 1px 3px rgba(0,0,0,.13);}
+.quick_blok p{border-bottom: 1px solid #F79A53;font-weight:bold;}
+.quick_blok .icon{padding: 8px 0 0;}.quick_blok .icon a{color:#777;}
+.quick_blok .icon.add a:hover{color:#519C4C;}
+.quick_blok .icon.list a:hover{color:#3875D7;}
+.quick_blok .icon.delete a:hover{color:#FF3300;}
+.quick_blok li{list-style-type:none;float:left;margin:0 6px;}
+.quick_blok img{width:30px;}
+.clear{clear:both;}
+#ComboBox1{text-align:center;}
+.small_search{font-size: 13px;width: 200px;position:relative;background: #fff;transition-duration: 0.5s, 0.5s;line-height: 15px;}
+.small_search_hover{width: 280px;}
+.search__input{display: block;width: 100%;height: 30px;border: 0;padding: 5px 10px 6px;background: 0 0;outline: none;font-family: Helvetica Neue Light, Arial, Tahoma, sans-serif;font-size: 15px;line-height: 19px;color: #333;}
+.toolbar__search{position: relative;display: inline-block;height: 30px;vertical-align: top;font-size: 15px;line-height: 19px;}
+.search__button {position: absolute;right: 0;top: 0;height: 30px;width: auto;border: 0;margin: 0;padding: 0 10px;background: #fff;cursor: pointer;outline: none;-webkit-border-radius: 0 2px 2px 0;border-radius: 0 2px 2px 0;}
+.search__button{background: #ffa930;}
+.search__button button{color:#fff;background:transparent;padding: 5px 2px;border:none;font-family: Helvetica Neue Light, Arial, Tahoma, sans-serif;font-size: 15px;cursor:pointer;line-height: 19px;}
+
+.edit_box_admin td b{ text-align:right;}
+textarea{width:100%}
+.gen_url{position: relative}
+.gen_url span {
+    border: none;
+    background: #fff;
+    outline: none;
+    color: #ccc;
+    position: absolute;
+    top: 50%;
+    height: 10px;
+    padding: 0;
+    margin: 0;
+    width: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    right: 0;cursor: pointer;
+}
+.block_change_preview_img{
+    position: relative;display: inline-block;
+}
+#change_preview_img {
+     position: absolute;
+     top: 0;
+     background: rgba(0, 0, 0, 0.34);
+     color: #fff;
+     line-height: 80px;
+     text-align: center;
+     left: 0;
+     right: 0;
+     cursor: pointer;display: none;
+ }
+.block_change_preview_img:hover #change_preview_img{display: block}
+.gen_url textarea,.gen_url input[type="text"]{width: 100%}
+.gen_url span:hover{    box-shadow: 0 2px 6px #f58220;}
+.gen_url span.active{color: #0baf45}
+#new_preview_img{display: none}
+.editor_sidebar{overflow:hidden;background: #f6f5f3;}
+#text_box_admin{position:relative;}
+#text_box_admin:hover #edit_panel_box{display:block;}
+#edit_panel_box{position:relative;height:50px;top:0;right:0;left:0;}
+#bt_full {margin:0;position: absolute;right: 5px;top: 5px; cursor:pointer;border: 1px solid #D9D9D9;padding: 3px 4px;border-radius: 5px;}
+
+.editor_area_con{padding:0;}
+.editor_full_window{top: 0;right: 0;left: 0;position: fixed!important;bottom: 0;z-index:100;background: #fff;}
+.editor_full_window .editor_sidebar{float: left;width: 100%;position: relative;height: 50px;}
+.editor_full_window .editor_area{float: left;width: 100%;overflow: hidden;position: relative;display: block;height: calc(100% - 50px);}
+.editor_full_window  #text-box{width: 100%;height: calc(100% - 10px);resize: none;border: 1px solid #D0D0D0;}
+.editor_full_window .editor_area_con{padding:5px;}
+.editor_full_window #bt_full {background: #ffdb4d;border: 1px solid #ffdb4d;}
+
+input[type="text"]{box-sizing: border-box;
+padding: 3px 8px;min-height: 30px}
+.fancybox_img_src_preview img{margin:0 0 5px;max-width: 150px;max-height: 100px;}
+.del_preview_img a{border-bottom:1px dashed #00b4ae;color:#00b4ae;cursor: pointer;}
+
+.help_text{font-size: 8px;color: #fff;display: inline-block;background: #2A42BC;width: 10px;height: 10px;text-align: center;border-radius: 50%;margin: 0 0 0 5px;cursor: default;vertical-align: top;}
+
+span.count {font-size: 0.8rem;background: #696565;color: #fff;border-radius: 50%;padding: 1px 5px;position: absolute;}

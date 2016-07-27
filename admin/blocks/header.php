@@ -6,6 +6,7 @@
 	</div>
 	<div class="boxs-exit">
 		<?
+		if($_SERVER['PHP_AUTH_USER']):
 			$query = "SELECT * FROM userlist WHERE user='".$_SERVER['PHP_AUTH_USER']."'";
 			$lst = @mysql_query($query);
 			if (mysql_num_rows($lst) == 0) exit();
@@ -13,6 +14,7 @@
 			$user_name= $arr['FIRST_NAME'];
 			$img_src= $arr['IMG_SRC'];
 			$user_id= $arr['id'];
+		endif;
 		?>
 		<ul>
 			<li class="box-ava">

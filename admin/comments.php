@@ -31,10 +31,11 @@ if(!empty($_POST)){
         $DATE_TIME=htmlspecialchars($_POST[DATE_TIME]);
         $ID_ITEMS=($_POST['ID']);
         $SRC_IMG=mysql_real_escape_string($_POST['SRC_IMG']);
+        $DEPTH_LEVEL=htmlspecialchars($_POST[DEPTH_LEVEL]);
         $APPROVED=(!empty($_POST[APPROVED]))?"1":"0";
         foreach ($ID_ITEMS as $key => $value) {
             $result = mysql_query("UPDATE comments_articles SET NICK='$NICK',TEXT='$TEXT',DATE_TIME='$DATE_TIME',APPROVED='$APPROVED'
-            ,SRC_IMG='$SRC_IMG' where ID=".htmlspecialchars($value) ,$db);
+            ,SRC_IMG='$SRC_IMG',DEPTH_LEVEL=$DEPTH_LEVEL where ID=".htmlspecialchars($value) ,$db);
         }
         if(!$result) echo"Не удалось обновить";
         else echo"Данные были успешно обновлены";
@@ -208,21 +209,16 @@ include('blocks/head.php'); ?>
                     background: #25A91B;
                     box-shadow: 0 0 5px #1D6D17;
                 }
+                .com_text{width: 185px; height: 55px; margin: 0}
         </style>
         
         <? if(!empty($ID)){ ?>
-            <h2>Комментарий №<?=$ID?>:</h2>
             <p><a href="/admin/comments.php" class="link">Весь список</a></p>
             <form action="" method="post">
             <table class="small-table links">
                 <thead>
                     <tr>
-                        <th>Имя</th>
-                        <th>Текст</th>
-                        <th>Дата</th>
-                        <th>Одобрен</th>
-                        <th>SRC img</th>
-                        <th>ItemID</th>
+                        <th>Комментарий №<?=$ID?>:</th>
                     </tr>
                 </thead>
                 <?
@@ -233,14 +229,46 @@ include('blocks/head.php'); ?>
                     $myrow=mysql_fetch_array($result);                              
                     do
                     {?><tr>
-                                <td class='align-center'><input type="text" name="NICK" value="<?=$myrow['NICK']?>"></td>
-                                <td class='align-center'><textarea name="TEXT"><?=htmlspecialchars($myrow['TEXT'])?></textarea></td>
-                                <td class='align-center'><input type="text" name="DATE_TIME" value="<?=$myrow['DATE_TIME']?>"></td>                           
-                                <td class='align-center'><input name="APPROVED" type='checkbox'<?
+                            <td class='align-center'>
+                            Имя <br>
+                            <input type="text" name="NICK" value="<?=$myrow['NICK']?>"></td>
+                        </tr>
+                        <tr>
+                            <td class='align-center'>
+                            Текст<br>
+                            <textarea class="com_text" name="TEXT"><?=htmlspecialchars($myrow['TEXT'])?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class='align-center'>
+                            Дата<br>
+                            <input type="text" name="DATE_TIME" value="<?=$myrow['DATE_TIME']?>"></td>
+                        </tr>
+                        <tr>
+                            <td class='align-center'>
+                            email<br>
+                            <input type="text" name="EMAIL" value="<?=$myrow['EMAIL']?>"></td>
+                        </tr>
+                        <tr>
+                                <td class='align-center'>
+                                Одобрен <br>
+                                <input name="APPROVED" type='checkbox'<?
                                 echo(($myrow[APPROVED])?"checked":"");?>></td>
-                                <td><input type="text" name="SRC_IMG" value="<?=$myrow['SRC_IMG']?>"></td>
-                                <td><input type="text" name="ID_ARTICLES" value="<?=$myrow['ID_ARTICLES']?>"></td>
-                            </tr>
+                        </tr>
+                        <tr>
+                                <td>
+                                SRC img <br>
+                                <input type="text" name="SRC_IMG" value="<?=$myrow['SRC_IMG']?>"></td>
+                        </tr>
+                        <tr>
+                                <td>
+                                DEPTH_LEVEL<br>
+                                <input type="text" name="DEPTH_LEVEL" value="<?=$myrow['DEPTH_LEVEL']?>"></td>
+                        </tr>
+                        <tr>
+                                <td>
+                                <a href="/articles/<?=$myrow['ID_ARTICLES']?>/" target='_blank'>ID_ARTICLES</a><br>
+                                <input type="text" name="ID_ARTICLES" value="<?=$myrow['ID_ARTICLES']?>"></td>
+                        </tr>
                         <input type="hidden" name="ID[]" value="<?=$myrow['ID']?>">
                         <?
                     }

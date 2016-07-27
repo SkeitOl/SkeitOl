@@ -22,11 +22,14 @@
 	<meta name="author" content="SkeitOl">
 	<meta name="copyright" content="Все права принадлежат SkeitOl">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>style/style-1450046583053.css?v06" />
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- -->
-	<link rel="shortcut icon" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>favicon.ico" type="image/x-icon" /><?
+	$file_style=$_SERVER['DOCUMENT_ROOT'].'/style/style.css';
+	if(file_exists($file_style)){
+		echo'<style>'.file_get_contents($file_style).'</style>';
+	}/*
+	<link rel="stylesheet" type="text/css" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>style/style-1450046583053.css?v06" />*/?>
 	<!--EDGE-->
 	<meta name="msapplication-TileColor"content="#fff"/>
 	<meta name="msapplication-square150x150logo" content="/images/favicon/apple-touch-icon-152x152.png"/>

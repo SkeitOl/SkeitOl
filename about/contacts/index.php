@@ -1,10 +1,5 @@
 <?php header('Content-Type: text/html; charset= utf-8');
-function GetDocRoot(){
-	$needle="public_html";
-	return substr(__DIR__,0,strlen(__DIR__)+strlen($needle)+2-strpos(__DIR__,$needle))."/";
-}
-?>
-<!DOCTYPE>
+?><!DOCTYPE>
 <html>
 	<?php
 	$sys_description="Контакты SkeitOl";
@@ -15,13 +10,13 @@ function GetDocRoot(){
 	$sys_special_head_text='
 
 		';
-	include_once(GetDocRoot()."blocks/head.php");
+	include_once($_SERVER['DOCUMENT_ROOT']."/blocks/head.php");
 		 ?>
 <body>
 <div class="wrapper-container">
 	<div id="content_r">
 		<div class="wrap_con">
-		<?php include(GetDocRoot()."blocks/header.php");?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/blocks/header.php");?>
 		<section class="services">
 			<div class="container">
 				<div class="col-lg-12 text-center">
@@ -40,7 +35,7 @@ function GetDocRoot(){
 
 				</style>
 					<ul class="con_list">
-						<li><a href="mailto:skeit.ol@mail.ru">
+						<li><a href="mailto:info@skeitol.ru">
 							<span class="img_b"><img src="/images/email-32.png" class="social-links-f e-mail"></span>
 							<span class="text_n">skeit.ol@mail.ru</span></a></li>
 						<li><a href="http://vk.com/skeitol" target="_blank"><span class="img_b">
@@ -57,6 +52,6 @@ function GetDocRoot(){
 		</div>
 	</div>
 </div>	
-	<?php include(GetDocRoot()."blocks/footer_new.php"); ?>
+	<?php include($_SERVER['DOCUMENT_ROOT']."/blocks/footer_new.php"); ?>
 </body>
 </html>

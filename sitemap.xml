@@ -1,16 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+	http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://skeitol.ru/</loc>
+        <lastmod>2016-04-11T00:43:52+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.00</priority>
+    </url>
+    <url>
     <loc>http://skeitol.ru/</loc>
-    <lastmod>2015-07-22T09:34:10+03:00</lastmod>
+    <lastmod>2016-05-27T01:45:48+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
 </url>
+<!-- articles -->
 <url>
 <loc>http://skeitol.ru/articles/</loc>
-<lastmod>2016-01-06T00:39:55+03:00</lastmod>
+<lastmod>2016-05-27T01:45:48+03:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.90</priority>
+</url><url>
+<loc>http://skeitol.ru/articles/bitriks_odin_iz_sposobov_perenesti_js_v_niz_sajta/</loc>
+<lastmod>2016-05-27T01:16:48+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/</loc>
+<lastmod>2016-05-27T01:08:35+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/adaptivnye_taby_vkladki/</loc>
+<lastmod>2016-05-26T23:23:08+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/jquery_kak_vybrat_vse_input_type_text/</loc>
+<lastmod>2016-05-26T23:23:09+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/bitriks_kak_vybrat_vse_zapolnennye_znacheniya_svojstva_infobloka/</loc>
+<lastmod>2016-05-26T23:24:27+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/regulyarnoe_vyrazheniya_dlya_poiska_i_zameny_div_s_opredelennym_klasom/</loc>
+<lastmod>2016-05-25T15:49:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/jquery_kak_zadat_universalnoe_sobytie_on_click_dlya_elementa/</loc>
+<lastmod>2016-05-26T18:11:31+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/bitriks_dobavlyaem_v_head_og_title_i_og_description/</loc>
+<lastmod>2016-05-27T01:00:14+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>http://skeitol.ru/articles/adaptivnye-slajdery-i-galerei-izobrazhenij/</loc>
+<lastmod>2016-05-26T18:47:35+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+    <url>
+    <loc>http://skeitol.ru/articles/plavnyj_skroll_posle_nazhatiya_na_yakornuyu_ssylku/</loc>
+    <lastmod>2016-04-11T00:38:08+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://skeitol.ru/articles/bitriks_ne_prihodyat_na_pochtu/</loc>
+        <lastmod>2016-03-21T10:03:20+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://skeitol.ru/articles/glupye_mify_o_nashem_mire_v_kotorye_veryat_pochti_vse/</loc>
+        <lastmod>2016-03-19T19:03:50+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://skeitol.ru/articles/1s_bitriks_kak_vyvesti_soderzhimoe_highloadblock/</loc>
+        <lastmod>2016-03-03T17:03:40+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://skeitol.ru/articles/kak_udalit_neskolko_sleshej_tire_v_urle/</loc>
+        <lastmod>2016-03-03T15:03:14+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://skeitol.ru/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/</loc>
+        <lastmod>2016-02-25T12:00:00+03:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.50</priority>
+    </url>
+<url>
+    <loc>http://skeitol.ru/articles/bitriks_podklyuchenie_css_i_js_fajlov_v_shablone_komponenta/</loc>
+    <lastmod>2016-02-12T10:02:40+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/udaleni_tablicy_iz_mysql_pri_pomoshi_php/</loc>
+    <lastmod>2016-02-08T12:02:26+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/aktivaciya_phpstorm_7_8_9_10/</loc>
+    <lastmod>2016-02-08T09:02:36+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/izbavlyaemsya_ot_referalnogo_spama/</loc>
+    <lastmod>2016-01-28T16:01:02+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/izmenenie_fona_dlya_vhoda_v_sistemu_v_windows_7/</loc>
+    <lastmod>2016-01-26T10:01:08+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/creat_event_on_click_at_cms_1s_bitriks/</loc>
+    <lastmod>2016-01-26T09:01:15+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
+</url>
+<url>
+    <loc>http://skeitol.ru/articles/search_and_replace_sublime_text_3/</loc>
+    <lastmod>2016-01-13T08:01:07+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.50</priority>
 </url>
 <url>
 <loc>http://skeitol.ru/articles/bash-udalit-papku-i-vse-fajly-v-nej/</loc>
@@ -80,7 +222,7 @@
 </url>
 <url>
 <loc>http://skeitol.ru/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/</loc>
-<lastmod>2015-09-21T00:09:44+03:00</lastmod>
+<lastmod>2016-02-24T22:18:00+03:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.50</priority>
 </url>

@@ -2,17 +2,17 @@
 html, body {
 height: 100%;
 }
-#content_r{overflow:auto;padding-bottom: 195px;}
-#content_r_long{overflow:auto;padding-bottom:240px;}
+#content_r{overflow:auto;padding-bottom: 170px;}
+#content_r_long{overflow:auto;padding-bottom:217px;}
 .wrapper-container {
 min-height: 100%;
 }
 .footer_new{
 position: relative;
-margin-top: -195px;
-height: 195px;
+margin-top: -170px;
+height: 170px;
 clear:both;}
-body .long_footer{margin-top:-240px;height:240px;}
+body .long_footer{margin-top:-217px;height:217px;}
 @media screen and (max-width: 620px){
 	.footer_new,body .long_footer{position:relative;margin:0;height:auto;clear:both;}
 	.wrapper-container {min-height:auto;}
@@ -58,7 +58,7 @@ body .long_footer{margin-top:-240px;height:240px;}
 				</div>
 			</div>*/?>
 			<div class="clear"></div>
-			<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - 2015</p></div>
+			<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?=date('Y')?></p></div>
 		</div>
 		</div>
 	</section>
@@ -67,32 +67,36 @@ body .long_footer{margin-top:-240px;height:240px;}
 		#upbutton:hover {background: #000;opacity: 0.6;}
 		#upbutton img {opacity: 0.6;}
 	</style>
-
-	
-	<script src="/js/jquery-1.7.2.min.js" async></script>
-	<script>
-		//$("body").append("<link rel='stylesheet' type='text/css' href='style/style-1450046583053.css?v06' />");
-		/**/
-	</script>
-	<link rel="stylesheet" type="text/css" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>style/style-1450046583053.css?v06" />
-	<?if(!empty($sys_special_footer_text))echo $sys_special_footer_text;?>
-<script type="text/javascript">
-/*Navi*/$(function () {var pull = $('#pull');menu = $('nav ul');menuHeight = menu.height();$(pull).on('click', function (e) {e.preventDefault();menu.slideToggle();});$(window).resize(function () {var w = $(window).width();if (w > 320 && menu.is(':hidden')) {menu.removeAttr('style');}});});
-</script>
 <div id="upbutton">
     <img src="/images/up2.png" width="25" height="25" style="margin: 5px;" />
 </div>
-<script>        $(document).ready(function () { $("#upbutton").hide(); $(function () { $(window).scroll(function () { if ($(this).scrollTop() > 80) { $('#upbutton').fadeIn(); } else { $('#upbutton').fadeOut(); } }); $('#upbutton').click(function () { $('body,html').animate({ scrollTop: 0 }, 500); return false; }); }); });    </script>
 <!-- End UpButton-->
 <div style="display:none"><!-- Google analyticstracking -->
 <?php include_once("analyticstracking.php") ?>
 <!-- .Google analyticstracking -->
-<!-- Yandex.Metrika informer --><a href="https://metrika.yandex.ru/stat/?id=24809018&amp;from=informer"target="_blank" rel="nofollow"><img src="https://mc.yandex.ru/informer/24809018/3_0_FFFFFFFF_FFFFFFFF_0_pageviews"style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a><!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter24809018 = new Ya.Metrika({ id:24809018, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/24809018" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+<!-- Yandex.Metrika informer --><a async href="https://metrika.yandex.ru/stat/?id=24809018&amp;from=informer"target="_blank" rel="nofollow"><img src="https://mc.yandex.ru/informer/24809018/3_0_FFFFFFFF_FFFFFFFF_0_pageviews"style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a><!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter24809018 = new Ya.Metrika({ id:24809018, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/24809018" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 </div>
+<script src="/js/jquery-1.7.2.min.js" async></script>
+<script>function initUpButton() { $("#upbutton").hide(); $(function () { $(window).scroll(function () { if ($(this).scrollTop() > 80) { $('#upbutton').fadeIn(); } else { $('#upbutton').fadeOut(); } }); $('#upbutton').click(function () { $('body,html').animate({ scrollTop: 0 }, 500); return false; }); }); }</script>
+<?/*<script>//$("body").append("<link rel='stylesheet' type='text/css' href='style/style-1450046583053.css?v06' />");</script>
+<link rel="stylesheet" type="text/css" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>style/style-1450046583053.css?v06" />*/?>
+<?if(!empty($sys_special_footer_text))echo $sys_special_footer_text;?>
 <script>
-$(document).ready(function () {
+/*Navi*/
+function initJsMenu() {
+var pull = $('#pull');
+menu = $('nav ul');
+menuHeight = menu.height();
+$(pull).on('click', function (e) {e.preventDefault();menu.slideToggle();});
+$(window).resize(function () {var w = $(window).width();if (w > 320 && menu.is(':hidden')) {menu.removeAttr('style');}});
+}
+window.onload = function(){
+	//pagePreload.endLoad();
 	pagePreload.lazyLoad();
-});
-pagePreload.endLoad();
-
+	initUpButton();
+	initJsMenu();
+	if (typeof initArticlesEvent == 'function') {
+		initArticlesEvent();
+	}
+};
 </script>

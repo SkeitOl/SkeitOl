@@ -26,9 +26,10 @@ echo 'Имя скрипта: '.$_SERVER['SCRIPT_NAME'].'<br>';*/
 				
 				if (move_uploaded_file($_FILES['filename']['tmp_name'][$k], $uploaddir.$_FILES['filename']['name'][$k])){
 					echo '<li>Файл: <span class="file_name">'.$_FILES['filename']['name'][$k].'</span> загружен в <span class="file_src">'.$uploaddir.'</span>';
-					?>
+					$url=str_replace($_SERVER['DOCUMENT_ROOT'],"",$uploaddir.$_FILES['filename']['name'][$k]);
+					?><img src="<?=$url?>" height="30px" alt="">
 					<p>Ссылка на файл: </p>
-					<pre><?echo $uploaddir.$_FILES['filename']['name'][$k]?></pre></li>
+					<pre><?=$url?></pre></li>
 					<?
 				}
 				else echo 'Error upload file: '.$_FILES['filename']['name'][$k].'.<br />';

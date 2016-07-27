@@ -1,0 +1,34 @@
+﻿body{font: 14px Verdana, Tahoma, Arial, Helvetica, sans-serif;font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;}
+.menu{background:#fff;}
+.navbar-inverse .navbar-nav>li>a{color:#eb3027;}
+.navbar-inverse .navbar-nav>li>a:hover{color:#eb3027;text-decoration:underline;}
+/*header*/
+.header{
+	height: 500px;position: relative;
+    background: #014681 url(http://m.morozko5.ru/img/header-bg.jpg) 50% 50% no-repeat;
+    background-size: cover;
+}
+.header h1, .header h2, .phone p.num, .num {
+font-size: 1.9rem;
+font-weight: bold;
+text-shadow: #000 2px 2px 5px;
+color: #fff;
+}
+.header h1,.header h2{text-align: center;}
+.header h1 {
+	font-size: 2.4rem;
+	margin: 0;
+	padding: 0;
+	}
+.header h2 {font-size: 2rem;}
+.tel {
+    color: #fff;
+    text-decoration: none;
+    background: url(http://ozyildirim-insaat.com/tel.png) 0 center no-repeat;
+    padding-left: 30px;
+    background-size: 23px;
+    background-position: 0px 11px;
+}
+/**/
+.red{background: #CE6464}
+.blue{background: #6464E0}

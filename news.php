@@ -1,29 +1,55 @@
-<?php header('Content-Type: text/html; charset= utf-8');
+<?php 
+//header('Content-Type: text/html; charset= utf-8');
  if(isset($_GET['list']))$list=$_GET['list'];else $list=1;
  if(isset($_GET['id'])){$id=$_GET['id'];}if($id=='') unset($id);
  include("blocks/bd.php");
- include("blocks/func/func.php"); ?>
-<!DOCTYPE html>
-<html>
-	<?
-	$sys_description="Новости и информационные ресурсы SkeitOl";
+ include("blocks/func/func.php"); 
+
+ $sys_description="Новости и информационные ресурсы SkeitOl";
 	$sys_keywords="News SkeitOl, Новости, Новости SkeitOl, Новости SkeitOl Soft, skeitol";
 	$sys_pages="news";
 	$sys_pages_print="Новости";
+
 	if (isset($id)) {
-		$result = mysql_query("SELECT * FROM news WHERE id=$id", $db);
+		$result = mysql_query("SELECT * FROM news WHERE id=$id AND active=1", $db);
 		$myrow = mysql_fetch_array($result);
 		if ($myrow['id'] == '') {
-			unset($id);
-			$sys_title="Новости";
-		} else{
+			//ищем по URL
+			$result = mysql_query("SELECT * FROM news WHERE url='$id' AND active=1", $db);
+			$myrow = mysql_fetch_array($result);
+			if ($myrow['id'] == ''){
+				unset($id);
+				/*выводим 404*/
+				header("HTTP/1.0 404 Not Found"); 
+				header("HTTP/1.1 404 Not Found"); 
+				header("Status: 404 Not Found");
+				header("Location: http://skeitol.ru/error-pages/error404.htm");
+				die(); 
+				/*echo '<pre>';
+				print_r(get_headers('http://skeitol.ru'));*/exit();
+			}
+		} 
+		if ($myrow['id']){
+$id=$myrow['id'];
+				/*UPD 2016.02.24*/
+				$lastModified=strtotime($myrow['date']);
+				header("Cache-Control: public");
+				header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
+				if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $lastModified) {
+	                header('HTTP/1.1 304 Not Modified');
+    	            exit();
+            	}
+
 			$sys_title= strip_tags($myrow['title']);
 			if(!empty($myrow['meta_keywords']))$sys_keywords=$myrow['meta_keywords'];
 			if(!empty($myrow['meta_description']))$sys_description=$myrow['meta_description'];
 		}
 	}
 	else $sys_title="Новости";
-	
+?>
+<!DOCTYPE html>
+<html>
+	<?
 	$sys_special_head_text='<!-- Plagin view image -->
         <script src="/js/jquery-1.7.2.min.js"></script>
         <script src="/js/lightbox.js"></script>
@@ -43,7 +69,7 @@
 	<?//include_once("blocks/breadcrumb.php");?>
 	<div id='content'>
         <div class='left-con'>
-			
+			<div class="left-con-block">
 			<div class='con-block box-shadow2'>
 			<?php 
 			if(!isset($id))//Выводит список news
@@ -98,7 +124,7 @@
 								echo'
 								<div class="col-sm-4 links-news wow slideInUp">
 									<div class="preview_block">
-										<a href="/news/'.$myrow['id'].'/">											
+										<a href="/news/'.$url_page.'/">											
 											<span class="photo_img" style="background-image: url('.strip_tags($myrow['src_preview']).')"></span>
 											<span class="title">'.strip_tags($myrow['title']).'</span>
 										</a>
@@ -120,7 +146,7 @@
 				</section>
 				<?
 				//
-				$result = mysql_query("SELECT COUNT(*) as count FROM news",$db);	  
+				$result = mysql_query("SELECT COUNT(*) as count FROM news WHERE active=1",$db);	  
 				$row=mysql_fetch_array($result);
 				if($row['count']>$step)//"Записей больше".$step;
 				{
@@ -162,7 +188,7 @@
 				 text-decoration: none;
 				}
 				</style>";
-				echo"<br><div class='author-view'>".$myrow['url']."</div><br/>";
+				echo"<br><div class='author-view'>".$myrow['author']."</div><br/>";
 				/*Navigaciya*/
 				echo "
 				<style>
@@ -176,18 +202,20 @@ float: left;}
 				}
 				</style>
 				<div class='navig links'>";				
-				$result = mysql_query("SELECT id,title FROM news WHERE id < ".$myrow['id']." ORDER BY id DESC LIMIT 1;",$db);
+				$result = mysql_query("SELECT id,title,url FROM news WHERE active=1 AND id < ".$myrow['id']." ORDER BY id DESC LIMIT 1;",$db);
 				$row=mysql_fetch_array($result);
 				echo"<div>";
 				if($row['id']!=""){
-					echo "<a href='/news/".$row['id']."/' name='".strip_tags($row['title'])."' title='".strip_tags($row['title'])."'>Предыдущая новость</a>";
+					if(!empty($row['url']))$url_page=$row['url'];else $url_page=$row['id'];
+					echo "<a href='/news/".$url_page."/' name='".strip_tags($row['title'])."' title='".strip_tags($row['title'])."'>Предыдущая новость</a>";
 				}
 				echo"</div>";
-				$result = mysql_query("SELECT id,title FROM news WHERE id > ".$myrow['id']." ORDER BY id LIMIT 1;",$db);
+				$result = mysql_query("SELECT id,title,url FROM news WHERE id > ".$myrow['id']." ORDER BY id LIMIT 1;",$db);
 				$row=mysql_fetch_array($result);
 				echo"<div>";
 				if($row['id']!=""){
-					echo"<a href='/news/".$row['id']."/' name='".strip_tags($row['title'])."' title='".strip_tags($row['title'])."'>Следующая новость</a>";
+					if(!empty($row['url']))$url_page=$row['url'];else $url_page=$row['id'];
+					echo"<a href='/news/".$url_page."/' name='".strip_tags($row['title'])."' title='".strip_tags($row['title'])."'>Следующая новость</a>";
 				}
 				echo"</div>";
 				
@@ -212,10 +240,10 @@ VK.Widgets.Comments('vk_comments', {limit: 10, width: '*', attach: '*'});
 				
 			}?> 
 			
-        </div>
+        </div></div>
 		</div>
 		<div class='right-con'>
-			<?php include("blocks/rightblock.php");?>		
+			<div class="right-con-block"><?php include("blocks/rightblock.php");?></div>	
 		</div>
 	</div>
 	</div>

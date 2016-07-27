@@ -5,10 +5,10 @@
 	<meta name="author" content="SkeitOl">
 	<meta name="copyright" content="Все права принадлежат SkeitOl">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="Stylesheet" type="text/css" href="style.css?005" />
-	
+	<link rel="Stylesheet" type="text/css" href="/admin/css/font-awesome.min.css" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>/favicon.ico?001" type="image/x-icon" />
 
 	<!--<script src="script/jquery-1.8.3.js"></script>-->

@@ -21,3 +21,5 @@ RewriteRule ^articles/?$ articles.php
 RewriteRule ^articles/([-_A-z0-9]+)/?$ articles.php?id=$1 [L]
 
 RewriteRule ^pages/([-_A-z0-9]+)/?$ index.php?id=$1 [L]
+AddDefaultCharset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml

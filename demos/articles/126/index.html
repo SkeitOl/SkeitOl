@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex"/>
+    <title>Демо - пример. Плавный скролл после нажатия на якорную ссылку</title>
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script>$(document).ready(function () {
+        $("#menu").on("click", "a", function (event) {
+            //отменяем стандартную обработку нажатия по ссылке
+            event.preventDefault();
+
+            //забираем идентификатор бока с атрибута href
+            var id = $(this).attr('href'),
+
+            //узнаем высоту от начала страницы до блока на который ссылается якорь
+                    top = $(id).offset().top;
+
+            //анимируем переход на расстояние - top за 500 мс
+            $('body,html').animate({scrollTop: top}, 500);
+        });
+    });</script>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            width: 100%;
+            height: 100%;    background: #efefef;
+            color: #777;
+            font: 14px 'Calibri', 'Century Gothic';
+            font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;
+        }footer {
+             color: #777;
+             font-size: 12px;
+             text-align: center;
+             margin-top: 20px;
+         }
+        footer a {
+            color: #f58220;
+            font-weight: 300;
+            text-decoration: none;
+        }
+        .header {
+            margin: 0;
+            padding: 0;
+            background: #455868;
+            color: #fff;
+        }.header p {
+             margin: 0;
+             padding: 8px;
+         }
+        .header a{color:#fff}
+        .links a, .link {
+            text-decoration: none;
+            color: #006fae;
+        }.links a:hover, .link:hover {
+             text-decoration: underline;
+             color: #2b2929;
+         }
+
+        #menu > ul {
+            margin: 0;
+            padding: 0;
+        }
+        #menu > ul:after {
+            content: " ";
+            display: block;
+            line-height: 0;
+            height: 0;
+            width: 100%;
+            clear: both;
+        }
+
+
+        #menu > ul > li > a {
+            display: block;
+            padding: 6px 12px;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;color: #006fae;
+            transition: all .3s;
+        }
+
+        #menu > ul > li > a:hover {
+            color: #000;
+        }
+
+        .post {
+            width: 43%;
+            padding:2%;
+            margin:1%;
+            float: left;
+            text-align: justify;
+            border: 1px solid rgba(223,223,223,0.96);
+            box-shadow: 0 1px 2px rgba(0,0,0,.1);
+            background: #fff;
+        }
+
+        .post.last {
+            margin-right: 0;
+        }
+        section h2{margin: 10px 0 5px;background: #ec7430;
+color: #fff;
+padding: 10px;}
+        .post .post-title {
+            text-transform: uppercase;
+            color: #878984;
+        }
+
+        #block2 .post,
+        #block3 .post {
+            width: 96%;
+        }
+
+        .separator {
+            clear: both;
+            overflow: hidden;
+            height: 50px;
+        }
+
+        @media only screen and (max-width: 960px) {
+            #inner-wrapper {
+                width: 80%;
+            }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            z-index: 999;
+            display: none;
+            bottom: 70px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        #back-to-top i {
+            width: 50px;
+            height: 50px;
+            display: block;
+            color: #fff;
+            background: #26ADE4;
+            text-align: center;
+            font-size: 16px;
+            line-height: 50px;
+            border-radius: 5px;
+            -webkit-transition: .3s all;
+            -moz-transition: .3s all;
+            -ms-transition: .3s all;
+            -o-transition: .3s all;
+            transition: .3s all;
+        }
+
+        #back-to-top i:hover {
+            background: #333;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p style="text-align:center"><a href="/articles/plavnyj_skroll_posle_nazhatiya_na_yakornuyu_ssylku/"
+                                    title="Плавный скролл после нажатия на якорную ссылку" class="link">вернуться к статье</a></p>
+</div>
+<div class="content">
+
+    <h1>Демо</h1>
+    <p>Демо к статье <a href="/articles/plavnyj_skroll_posle_nazhatiya_na_yakornuyu_ssylku/" class="link">плавный скролл после нажатия на якорную ссылку</a>.</p>
+    <br><br><hr>
+    <h2>Меню с якорными ссылками</h2>
+    <nav id="menu">
+        <ul>
+            <li><a href="#block1">Блок №1</a></li>
+            <li><a href="#block2">Блок №2</a></li>
+            <li><a href="#block3">Блок №3</a></li>
+            <li><a href="#block4">Блок №4</a></li>
+            <li><a href="#block5">Блок №5</a></li>
+        </ul>
+    </nav>
+    <h2>Текст с якорными ссылками</h2>
+    <div id="content">
+        <section id="block1">
+            <h2>Блок с ID="block1"</h2>
+            <article class="post">
+                <h3 class="post-title">Что такое Lorem Ipsum?</h3>
+                <p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                    стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник
+                    создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов.
+                    Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в
+                    электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами
+                    Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus
+                    PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
+            </article>
+            <article class="post">
+                <h3 class="post-title">Почему он используется?</h3>
+                <p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem
+                    Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а
+                    также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации
+                    "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
+                    редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым
+                    словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего
+                    рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по
+                    ошибке, некоторые - намеренно (например, юмористические варианты).</p>
+            </article>
+
+
+        </section>
+        <div class="separator"></div>
+        <section id="block2">
+            <h2>Блок с ID="block2"</h2>
+            <article class="post" style="width:48%">
+                <h3 class="post-title">Откуда он появился?</h3>
+                <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                    Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий
+                    назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из
+                    самых странных слов в Lorem Ipsum, "consectetur", и занялся его поисками в классической латинской
+                    литературе. В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33
+                    книги "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году
+                    н.э. Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem
+                    Ipsum, "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32
+
+                    Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже. Также даны разделы 1.10.32 и
+                    1.10.33 "de Finibus Bonorum et Malorum" Цицерона и их английский перевод, сделанный H. Rackham, 1914
+                    год.</p>
+            </article>
+        </section>
+        <div class="separator"></div>
+        <section id="block3">
+            <h2>Блок с ID="block3"</h2>
+            <article class="post">
+                <h3 class="post-title">Где его взять?</h3>
+                <p>
+                    Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации,
+                    например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам
+                    нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в
+                    середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст,
+                    который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь
+                    генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200
+                    латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит
+                    правдоподобно, не имеет повторяющихся абзацей или "невозможных" слов.</p>
+            </article>
+        </section>
+        <div class="separator"></div>
+        <section id="block4">
+            <h2>Блок с ID="block4"</h2>
+            <article class="post">
+                <h3 class="post-title">Классический текст Lorem Ipsum, используемый с XVI века</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </article>
+        </section>
+        <div class="separator"></div>
+        <section id="block5">
+            <h2>Блок с ID="block5"</h2>
+            <article class="post">
+                <h3 class="post-title">Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.</h3>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+            </article>
+            <article class="post">
+                <h3 class="post-title">Английский перевод 1914 года, H. Rackham</h3>
+                <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+            </article>
+            <div style="clear: both"></div>
+            <article class="post" style="width:33%">
+                <h3 class="post-title">Абзац 1.10.33 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.</h3>
+                <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+            </article>
+            <article class="post" style="width:53%">
+                <h3 class="post-title">Английский перевод 1914 года, H. Rackham</h3>
+                <p>"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</p>
+            </article>
+        </section>
+        <div class="separator"></div>
+
+    </div>
+</div>
+<footer>
+    <p>© 2016 <a href="http://skeitol.ru/">skeitol.ru</a>. Все права защищены.</p>
+</footer>
+</body>
+</html>
