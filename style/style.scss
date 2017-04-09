@@ -2,7 +2,13 @@ html, body, #header, #mainmenu {
   margin: 0;
   padding: 0
 }
-
+body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font: 14px 'Calibri', 'Century Gothic';
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif
+}
 #content {
   position: relative;
 }
@@ -16,15 +22,7 @@ html, body, #header, #mainmenu {
   transition-duration: .5s, 0.5s;
 }
 
-body {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  font: 14px 'Calibri', 'Century Gothic';
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif
-}
-
-a img {
+a img,img {
   border: 0
 }
 
@@ -34,7 +32,8 @@ h1 {
   font-weight: 200;
   color: #676a6c
 }
-
+h2{font-weight: 300;}
+strong,b{font-weight: 600;}
 #footer, #header, #content {
   width: 100%;
   margin: 0 auto
@@ -1516,16 +1515,32 @@ section.module p, section.module a {
   background: #075f21
 }
 
+.comment_block{
+  background: #efefef;
+  padding: 19px;
+  border: 0;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+  .comment_block-title{
+    margin: 0 0 1rem;
+    padding: 0;
+    color:#000000;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+}
 .form_com input[type="text"], .form_com textarea {
   outline: 0;
-  border: 1px solid #9b9a9a;
-  padding: 1%;
-  padding: 1%;
+  border: 1px solid #d9d9d9;
+  padding: 8px;
+  box-sizing: border-box;
   width: 98%
 }
 
 .form_com input[type="text"]:hover, .form_com input[type="text"]:active, .form_com textarea:hover, .form_com textarea:active {
-  border: 1px solid #16b379
+  border: 1px solid #dad7d7;
+  box-shadow:0 1px 3px rgba(0,0,0,0.13)
 }
 
 .form_com input[type="text"]:focus, .form_com textarea:focus {
@@ -1834,4 +1849,17 @@ pre {
     padding: 3%;
     font-size: 1rem;
   }
+}
+.spoiler-wrap{background:#fff;transition: all .3s ease-in;margin: 0 0 8px;border:1px solid #efefef}
+.spoiler-head{background:#efefef;cursor:pointer;padding:5px;transition: all .3s ease-in}
+.spoiler-body{padding:10px}
+.spoiler-wrap.disabled .spoiler-body{display:none}
+.spoiler-wrap.active{border-color:#57AA43}
+.spoiler-wrap.active .spoiler-head{background:#57AA43;color:#fff}
+.demos_links {
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  padding: 10px;
+  margin: 5px 10px;
+  text-align: center;
 }

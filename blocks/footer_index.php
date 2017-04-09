@@ -133,22 +133,8 @@
 <div id="upbutton">
     <img src="/images/up2.png" width="25" height="25" style="margin: 5px;" alt="Up"/>
 </div>
-<script src="/js/jquery-1.7.2.min.js"></script>
-<script>/*Navi*/
-	$(function () {
-		var pull = $('#pull');
-		menu = $('nav ul');
-		menuHeight = menu.height();
-		$(pull).on('click', function (e) {
-			e.preventDefault();
-			menu.slideToggle();
-		});
-		$(window).resize(function () {
-			var w = $(window).width();
-			if (w > 320 && menu.is(':hidden')) {
-				menu.removeAttr('style');
-			}
-		});
-	});
-$(document).ready(function () { $("#upbutton").hide(); $(function () { $(window).scroll(function () { if ($(this).scrollTop() > 80) { $('#upbutton').fadeIn(); } else { $('#upbutton').fadeOut(); } }); $('#upbutton').click(function () { $('body,html').animate({ scrollTop: 0 }, 500); return false; }); }); });    </script>
-<!-- End UpButton-->
+<link rel="stylesheet" href="/bc/slick/slick.css">
+<link rel="stylesheet" href="/bc/slick/slick-theme.css">
+<script defer src="/js/jquery-1.7.2.min.js"></script>
+<script defer src="/bc/slick/slick.min.js"></script>
+<script defer src="/js/all_index.js"></script>

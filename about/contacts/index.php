@@ -7,9 +7,7 @@
 	$sys_pages="contacts";
 	$sys_pages_print="Контакты";
 	$sys_title="Контакты";
-	$sys_special_head_text='
-
-		';
+	$sys_special_head_text='';
 	include_once($_SERVER['DOCUMENT_ROOT']."/blocks/head.php");
 		 ?>
 <body>
@@ -35,17 +33,18 @@
 
 				</style>
 					<ul class="con_list">
-						<li><a href="mailto:info@skeitol.ru">
+						<li><a href="mailto:info@skeitol.ru" target="_blank">
 							<span class="img_b"><img src="/images/email-32.png" class="social-links-f e-mail"></span>
-							<span class="text_n">skeit.ol@mail.ru</span></a></li>
+							<span class="text_n">info@skeitol.ru</span></a></li>
 						<li><a href="http://vk.com/skeitol" target="_blank"><span class="img_b">
 							<img src="/images/vkontakte.png" class="social-links-f vk"></span>
 							<span class="text_n">Вконтакте</span></a></li>
-						<li><a href="http://www.facebook.com/skeit.ol" target="_blank">
+						<?/*<li><a href="http://www.facebook.com/skeit.ol" target="_blank">
 							<span class="img_b">
 								<img src="/images/f32.png" class="social-links-f facebook"></span>
-							<span class="text_n">Facebook</span></a></li>
+							<span class="text_n">Facebook</span></a></li>*/?>
 					</ul>
+					<br><br><br>
 				</div>
 			</div>
 		</section>

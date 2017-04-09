@@ -43,7 +43,27 @@ include("blocks/bd.php");?>
 			}
 			else{
 				?>
-				</div><section class="services">
+				</div>
+	<style>
+		.main_page_slider .item{min-height: 300px;background-position: 50% 50%;background-repeat: no-repeat;background-size: cover;}
+		.main_page_slider{min-height: 300px}
+		.main_page_slider .item .t{    font-size: 1.85rem;
+			text-shadow: 0 1px 3px #000;
+			color: #fff;
+			margin: 1.5em;
+			display: inline-block;
+			text-decoration: none;
+			font-family: "Segoe UI","Helvetica Neue",Helvetica,sans-serif;
+			font-weight: 700;}
+	</style>
+<div class="block_main_slider">
+	<div class="main_page_slider">
+		<div class="item" style="background-image: url('/images/bc/383844447.jpg')"><a class="t" href="/articles/kak-poluchit-prev-yu-kartinku-youtube-rolika/">Как получить превью-картинку youtube-ролика</a></div>
+		<div class="item" style="background-image: url('/images/articles/98/11231231232312123.png')"><a class="t" href="/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/">Sublime Text 2 - 3 Лицензионные ключи</a></div>
+		<div class="item" style="background-image: url('/images/articles/112/bx_click.png')"><a class="t" href="/articles/creat_event_on_click_at_cms_1s_bitriks/">Обработчика события клика в CMS 1С-Битрикс</a></div>
+	</div>
+</div>
+				<section class="services">
 					<div class="container">
 						<div class="col-lg-12 text-center">
 							<h2>Последние статьи</h2>

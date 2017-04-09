@@ -4,6 +4,16 @@
 */
 class Articles
 {
+
+    function includeCoreSkeitOl($fullDoc=false){
+        $src="/skeitol/core/core.php";
+        if($fullDoc){
+            $src=$_SERVER["DOCUMENT_ROOT"].$src;
+        }else{
+         $src="..".$src;
+        }
+        return include_once($src);
+    }
     /*Выводит статьи*/
     public function showArticlesList($myrow, $db)
     {
@@ -36,14 +46,15 @@ class Articles
                     <?}else{?>
                         <a class="link" href="/articles/"rel="nofollow">все</a>
                     <?}?>
-                        <span style="float: right"><a class="link" href="/articles/rss/" title="RSS SKEITOL">rss</a></span>
+                        <?/*<span style="float: right"><a class="link" href="/articles/rss/" title="RSS
+                        SKEITOL">rss</a></span>*/?>
                     </p>
                 </div>
                 <div class='clear'></div><?
             endif;
         }
         if (!isset($_GET['category'])) {
-            $step = 10;
+            $step = 9;
             $startI = 0;
             $endI = $step - 1;
             if (isset($list)) {
@@ -183,6 +194,11 @@ class Articles
 	setlocale(LC_ALL, 'ru_RU.UTF-8');
 	$st_date= strftime('%d %h %Y %H:%M', strtotime($myrow['date']));
 	$date_publisher=(date_format(date_create($myrow['date']), 'Y-m-d'))."T".(date_format(date_create($myrow['date']), 'H:i'));
+
+
+        self::includeCoreSkeitOl(true);
+        $cl= new \SkeitOl\SkeiOl();
+
 	echo"
 	<div itemscope='' itemtype='http://schema.org/Article'>
 		<div class='title-con-block' ><span itemprop='name' itemprop='headline' >".$myrow['title']."</span></div>
@@ -199,81 +215,73 @@ class Articles
 			<meta itemprop="width" content="<?echo(!empty($sizes))?$sizes[1]:"150"?>">
 			<meta itemprop="height" content="<?echo(!empty($sizes))?$sizes[3]:"150"?>">
 		</div>
-		<?
-		echo"<div class='news-data'>
-			<meta itemprop='datePublished' content='".$date_publisher."'/>
-
-			<span itemprop='dateCreated' style='display:none'>".$date_publisher."</span><time datetime='".$date_publisher."'></time>".$st_date."
-			<div class='views-data'>Просмотров: ".$myrow['views']."</div>
+		<div class='news-data'>
+			<meta itemprop='datePublished' content='<?=$date_publisher?>'/>
+			<span itemprop='dateCreated' style='display:none'><?=$date_publisher?></span>
+			<time datetime='<?=$date_publisher?>'></time><?=$st_date?>
+			<div class='views-data'>Просмотров: <?=$myrow['views']?></div>
 
 		</div>
-		<div style='clear:both'></div>";
+		<div style='clear:both'></div>
+		<?
+	$row_count_comments= $cl->SQLQuery("SELECT COUNT(*) FROM comments_articles WHERE APPROVED='1' AND ID_ARTICLES=".$myrow['id']);
+	?>
+	<div itemprop="articleBody"><?=$myrow['text']?></div>
+    <meta itemprop='interactionCount' content='UserComments:<?=$row_count_comments[0]?>'/>
 
-	$count_comments=mysql_query("SELECT COUNT(*) FROM comments_articles WHERE APPROVED='1' AND ID_ARTICLES=".$myrow['id'], $db);
-	$row_count_comments = mysql_fetch_array($count_comments);
-	/*?>
-	<div style='display:none'><pre><?print_r()?></pre></div>
-	<?*/
-	echo '<div itemprop="articleBody">'.$myrow['text']."</div>
-		<meta itemprop='interactionCount' content='UserComments:".$row_count_comments[0]."'/>";
-
-	/* Author */
-	echo"<br><div class='author-view'><span itemprop='author'>".$myrow['author']."</span></div><br/>";
+    <br><div class='author-view'><span itemprop='author'><?=$myrow['author']?></span></div><br/>
+	<?
 	/* Category */
 	if($myrow['category']){
         $arr_category=unserialize($myrow['category']);
         if (count($arr_category) > 0) {
-            echo"<div class='category-view'><p style='border-left: 3px #57AA43 solid;padding-left: 10px;text-indent: 0px;'>";
-            for ($i = 0; $i < count($arr_category); $i++) {
-                $result1 = mysql_query("SELECT * FROM category WHERE id='$arr_category[$i]'", $db);
-                $row1 = mysql_fetch_array($result1);
-                echo "<a href='/articles/?category=" . $row1['id'] . "' title='" . $row1['name'] . "'>" . $row1['name'] . "</a>";
-                //if($i<count($array1)-1)echo ", ";
+            $row1=$cl->GetList("category",array("filter"=>array("id"=>$arr_category)));
+            if($row1){
+                ?>
+                <div class='category-view'>
+                <p style='border-left: 3px #57AA43 solid;padding-left: 10px;text-indent: 0px;'>
+                <?
+                foreach($row1 as $arCat){
+                    ?>
+                    <script>document.write("<a href='/articles/?category=<?=$arCat['id']?>' title='тег <?=$arCat['name'] ?>'><?=$arCat['name']?></a>");</script>
+                    <?
+                }
             }
-            echo"</p></div>";
+/*
+           if($_SERVER['REMOTE_ADDR']=="5.158.233.184"){
+                \SkeitOl\SkeiOl::dump($arr_category);
+                \SkeitOl\SkeiOl::dump($row1);
+            }*/
+
+            ?></p></div><?
         }
 	}
 	?></div><?
 	/* Navigaciya */
 	?>
 	</div>
-	<?
-   /* if($myrow['category'])
-	    if(($_REQUEST['PHPSESSID']=='987cadf9db12024bf2b22535253c7b14')):?><!--
-	<div class="con-block box-shadow2">
-        <h4 class="socl">Статьи на эту же тему:</h4>
-        <?/*print_r(unserialize($myrow['category']));
-
-        $count_length=$arr_category;
-        if($count_length>0){
-            for($i=0;$i<$count_length;$i++)
-                $arRandomCategory[]=$arr_category[rand(0,$count_length)];
-            foreach($arRandomCategory as $item){
-                $result1 = mysql_query("SELECT * FROM articles WHERE id<>".$myrow['id']." AND category like '%\"$item\"%' order by date", $db);
-                $row1 = mysql_fetch_array($result1);
-            }
-        }
-
-        ?>
-        <ul>
-        <li></li>
-        </ul>
-    </div>
-    --><?endif;*/?>
 	<div class="con-block box-shadow2">
 		<div class='navig links'>
-			<? $result = mysql_query("SELECT id,title,url FROM articles WHERE id<". $myrow['id']." AND active=1 ORDER BY id DESC LIMIT 1;", $db);
-			$row = mysql_fetch_array($result);
+			<?
+			$row=$cl->GetList("articles",array("order"=>array("id"=>"DESC"),"select"=>array("id","title","url"),"filter"=>array("<=id"=>(int)$myrow['id'],"active"=>1),"limit"=>array("top"=>'1','bottom'=>"1"),));
+
+//			if($_SERVER['REMOTE_ADDR']=="5.158.233.184"){
+//                \SkeitOl\SkeiOl::dump($row);
+//            }
 			echo"<div>";
-			if ($row['id'] != "") {
+			if ($row) {
+			    $row=$row[0];
 				if(!empty($row['url']))$url_page=$row['url'];else $url_page=$row['id'];
 				echo "<a href='/articles/".$url_page."/' name='" . strip_tags($row['title']) . "' title='" . strip_tags($row['title']) . "'>Предыдущая статья<abbr>".strip_tags($row['title'])."</abbr></a>";
 			}
 			echo"</div>";
-			$result = mysql_query("SELECT id,title,url FROM articles WHERE id>".$myrow['id']." AND active=1 ORDER BY id LIMIT 1;", $db);
-			$row = mysql_fetch_array($result);
+
+			$row=$cl->GetList("articles",array("order"=>array("id"=>""),"select"=>array("id","title","url"),"filter"=>array(">=id"=>(int)$myrow['id'],"active"=>1),"limit"=>array("top"=>'1','bottom'=>"2"),));
+
 			echo"<div>";
-			if ($row['id'] != "") {
+
+			if ($row) {
+			    $row=$row[0];
 				if(!empty($row['url']))$url_page=$row['url'];else $url_page=$row['id'];
 				echo"<a href='/articles/".$url_page."/' name='" . strip_tags($row['title']) . "' title='" . strip_tags($row['title']) . "'>Следующая статья<abbr>".strip_tags($row['title'])."</abbr></a>";
 			}?>
@@ -292,24 +300,8 @@ class Articles
 	</div>*/?>
 
 	<div class="con-block box-shadow2">
-
-		<?/*
-		<!-- Put this div tag to the place, where the Comments block will be -->
-		<div id='vk_comments'></div>
-		<script type='text/javascript'>
-			VK.Widgets.Comments('vk_comments', {limit: 10, width: '*', attach: '*'});
-		</script>*/
-		//Отправляем запрос есть на получение комментарий:
-		$com_res = mysql_query("SELECT * FROM comments_articles WHERE APPROVED='1' AND ID_ARTICLES=".$myrow['id'], $db);
-		$row = mysql_fetch_array($com_res);
-		do {
-		    if($row)
-		    $ar_comments[]=$row;
-		}while ($row = mysql_fetch_array($com_res));
-
-		/*echo"<pre>";
-		print_r($row);
-		echo"</pre>";*/
+		<?
+		$ar_comments=$cl->GetList("comments_articles",array("order"=>array("id"=>"desc"),"filter"=>array("ID_ARTICLES"=>$myrow['id'],"APPROVED"=>'1'),"limit"=>array("top"=>'0','bottom'=>"10")));
 		?>
 		<h4 class='socl'>Комментарии: <span itemprop="interactionCount"><?=count($ar_comments)?></span></h4>
 		<?
@@ -347,26 +339,14 @@ class Articles
 		</div>
 		<?}?>
 		<div>
-			<div><p class="add_com_link" onclick="ShowHideElement('#block_add_com')">Добавить комментарий</p></div>
-			<div id="block_add_com" style="display:none">
-			<?/*
-				<!-- Put this script tag to the <head> of your page -->
-				<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
-				<script type="text/javascript">
-				  VK.init({apiId: 4759039});
-				</script>
-				<!-- Put this div tag to the place, where Auth block will be -->
-				<div id="vk_auth"></div>
-				<script type="text/javascript">
-				VK.Widgets.Auth("vk_auth", {width: "200px", authUrl: '/auth/'});
-				</script>*/?>
-
+		<div class="comment_block">
+			<h3 class="comment_block-title<?/*add_com_link*/?>" <?/*onclick="ShowHideElement('#block_add_com')">*/?>>Добавить комментарий</h3>
+			<div id="block_add_com"<? /*style="display:none"*/?>>
 				<form action="/add_comment.php" id="form_add_com" class="form_com" method="post" onsubmit="submitS(this);return false">
 					<input type="hidden" name="IP" value="<?=$_SERVER['REMOTE_ADDR']?>">
 					<input type="hidden" name="ITEM_ID" value="<?=$myrow['id']?>">
 					<input type="hidden" name="type" value="articles">
 					<input type="hidden" name="HASH" value="<?=md5($myrow['id'])?>">
-
 					<div class="row">
 						<div class="col-4 col-xs-1"><div class="row con-pg"><label for="com_name">Имя<span class="required">*</span>:</label></div></div>
 						<div class="col-4 col-xs-1"><div class="row con-pg"><input required id="com_nick" type="text" name="NICK"></div></div>
@@ -393,36 +373,32 @@ class Articles
 				</form>
 				<div id="res_comm"></div>
 			</div>
+			</div>
 		</div>
 	 </div>
-<?if($myrow['RECOMMENDATIONS'])
+    <?if($myrow['RECOMMENDATIONS'])
 	 {
 	    $RECOMMENDATIONS_ID_ARR= unserialize($myrow['RECOMMENDATIONS']);
 	    if(is_array($RECOMMENDATIONS_ID_ARR)&&count($RECOMMENDATIONS_ID_ARR)>0){
-            $s_id_arr='';
-	        foreach($RECOMMENDATIONS_ID_ARR as $v)$s_id_arr.=$v.',';
+	        $RECOMMENDATIONS=$cl->GetList("articles",array("select"=>array("id","title","date","url","category","views","src_preview"),"order"=>array("date"=>"desc"),"filter"=>array("id"=>$RECOMMENDATIONS_ID_ARR,"active"=>'1'),"limit"=>array("top"=>'0','bottom'=>"10")));
+            if($RECOMMENDATIONS){
+            ?>
+            <div>
+                <div class=""><h3>Читайте так же:</h3>
+                <?
 
-	        $s_id_arr=substr($s_id_arr,0,-1);
-	        ?><pre style="display: none"><?print_r($s_id_arr)?></pre><?
-	        $res_arr = mysql_query("SELECT id,title,date,url,category,views,src_preview FROM articles WHERE id in(".$s_id_arr.") AND active=1 ORDER BY date DESC ;", $db);
-			$t_arr_recomen = mysql_fetch_array($res_arr);
-			do{
-			    $RECOMMENDATIONS[]=$t_arr_recomen;
-			} while ($t_arr_recomen = mysql_fetch_array($res_arr));
-
-			?><div>
-			<div class=""><h3>Читайте так же:</h3>
-			<?
-			?><pre style="display: none"><?print_r($RECOMMENDATIONS)?></pre><?
-			foreach($RECOMMENDATIONS as $article){
-			   self::PrintArticlesItem($article,$db);
-			}
-			?></div></div>
-			<div class="clear"></div><?
+                foreach($RECOMMENDATIONS as $article){
+                self::PrintArticlesItem($article,$db);
+                }
+                ?>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <?
+            }
 	    }
-	 }?>
-
-	 <?/*EndStartIDArticlesShow*/
+	 }
+	 /*EndStartIDArticlesShow*/
 }
 
     /*Вывод записи*/
@@ -475,4 +451,3 @@ class Articles
         <?
     }
 }
-?>

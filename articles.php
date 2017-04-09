@@ -51,7 +51,7 @@ if($_SESSION['view'][$id]!=1 && $_SESSION['view'][$id]!="1")
 	$_SESSION['view'][$id]=1;	
 	$result3 = mysql_query("UPDATE articles SET views=views+1 WHERE id='$id'", $db);
 }
-include("blocks/func/func.php");
+//include("blocks/func/func.php");
 ?><!DOCTYPE html>
 <html>
 <?php
@@ -59,7 +59,8 @@ include("blocks/func/func.php");
 	if(empty($sys_keywords))$sys_keywords="Articles SkeitOl, Статьи, Статьи SkeitOl,Статьи SkeitOl Soft";
 	$sys_pages="articles";
 	if(empty($sys_pages_print))$sys_pages_print="Статьи";
-	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v3" async></script><script src="https://www.google.com/recaptcha/api.js" async></script>';
+	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v4" async></script><script 
+	src="https://www.google.com/recaptcha/api.js" async></script>';
 	include_once("blocks/head_optimize.php");
 ?>
 <body>
@@ -86,7 +87,5 @@ include("blocks/func/func.php");
 		</div>
 	 </div>
 	</div>
-		<?php //include("blocks/footer.php"); ?>
-		<?php $long_footer=true; include("blocks/footer_optimize.php"); ?>
-    </body>
-</html>
+	<?php //include("blocks/footer.php"); ?>
+<?php $long_footer=true; include("blocks/footer_optimize.php");

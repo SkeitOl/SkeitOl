@@ -101,19 +101,22 @@ function scrollToElement(idElement) {
 		$('html').animate({ scrollTop: destination }, 500);
 	}
 }
+
 function submitS(obj) {
- $("#form_add_com").submit(function () {
- $.post($("#form_add_com").attr("action"), $("#form_add_com").find('input,textarea').serialize()
-	 //$("#form_add_com :input, #form_add_com :textarea").serializeArray()
- , function (info) {
- if(info=="1"){
- $("#form_add_com").remove();
- $("#res_comm").html("<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>");}
- else $("#res_comm").html(info);
- });
- });
+
  return false;
-}
+}/*
+$("#form_add_com").submit(function (e) {
+	e.preventDefault();
+	$.post($("#form_add_com").attr("action"), $("#form_add_com").find('input,textarea').serialize()
+		//$("#form_add_com :input, #form_add_com :textarea").serializeArray()
+		, function (info) {
+			if(info=="1"){
+				$("#form_add_com").remove();
+				$("#res_comm").html("<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>");}
+			else {$("#res_comm").html(info);	grecaptcha.reset();}
+		});
+});*/
 function ShowHideElement (id) {
 	$(id).slideToggle();
 	/*
@@ -134,13 +137,31 @@ function initArticlesEvent(){
 			setTimeout(function(){$("#com_text").removeAttr("style");$("#res_comm").hide();}, 3000);
 			return false;
 		}
-
 		$.post($("#form_add_com").attr("action"), $("#form_add_com").find('input,textarea').serialize()//$("#form_add_com :input, #form_add_com :textarea").serializeArray()
 			, function (info) {
 				if(info=="1"){
 					$("#form_add_com").remove();
 					$("#res_comm").html("<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>");}
-				else $("#res_comm").html(info);
+				else {$("#res_comm").html(info);
+					grecaptcha.reset();
+				}
 			});
 	});
 }
+/*
+jQuery(document).ready(function(){
+	// Скрываем все спойлеры
+	jQuery('.spoiler-body').hide(300);
+	jQuery('.spoiler-head').click(function(){
+		$(this).parents('.spoiler-wrap')
+		.toggleClass("active")
+		.find('.spoiler-body').slideToggle();
+	})
+})*/
+$(function () {
+	$('.spoiler-body').hide(300);
+	$(document).on('click','.spoiler-head',function (e) {
+		e.preventDefault()
+		$(this).parents('.spoiler-wrap').toggleClass("active").find('.spoiler-body').slideToggle();
+	})
+})
