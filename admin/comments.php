@@ -306,9 +306,40 @@ include('blocks/head.php'); ?>
                 </tr>
                 </thead>
                 <?
-                $result = mysql_query("SELECT * FROM comments_articles ORDER BY ID DESC", $db);
-                $myrow = mysql_fetch_array($result);
-                do {
+
+                if(!require_once($_SERVER["DOCUMENT_ROOT"]."/skeitol/core/core.php"));
+                $cl= new \SkeitOl\SkeiOl();
+
+
+
+                if (isset($_GET['list']))
+                    $list = htmlspecialchars($_GET['list']);
+                else
+                    $list = 1;
+                $step = 9;
+                $startI = 0;
+                $endI = $step - 1;
+                if (isset($list)) {
+                    if ($list <= 0) {
+                        echo"Нет такой страницы!!!<br>Вывод первой страницы";
+                    } else {
+                        $startI = ($list - 1) * $step;
+                        $endI = $startI + $step;
+                    }
+                }
+
+                $arComments=$cl->GetList("comments_articles",array(
+                    //"filter"=>array("id"=>$arr_category)
+                    "order"=>array("id"=>"DESC"),
+                    "limit"=>array("top"=>$startI,"bottom"=>$endI)
+
+                ));
+
+               // $result = mysql_query("SELECT * FROM comments_articles ORDER BY ID DESC", $db);
+                //$myrow = mysql_fetch_array($result);
+                //do
+                foreach($arComments as $myrow)
+                {
                     ?>
                     <tr>
                     <td><input type="checkbox" name="ID[]" value="<?= $myrow['ID'] ?>"></td>
@@ -323,12 +354,48 @@ include('blocks/head.php'); ?>
                             <? echo(($myrow[APPROVED]) ? "checked" : ""); ?>></td>
                     <td class='align-center'><?= $myrow['IP'] ?></td>
                     </tr><?
-                } while ($myrow = mysql_fetch_array($result));
+                }
+                //while ($myrow = mysql_fetch_array($result));
+
+                //Вывод списка
+                $row= $cl->SQLQuery("SELECT COUNT(*) as count FROM comments_articles")[0];
+                if ($row['count'] > $step) {//"Записей больше".$step;
+                    $page_url="/admin/comments.php";
+                    $i = 1;
+                    $special_sort='';
+                    if(!empty($sort))$special_sort='&sort='.$sort["NAME"];
+
+                ?><p class="no-text-indent">Всего записей: <?=$row['count']?><br>Страница №<?=$list?></p>
+                <div style='position: relative;width: 100%; margin: 0px auto;text-align: center;overflow: auto;'>
+                        <span class='navigation'><?
+                            if ($list == 1)
+                                echo"<span class='no-link'><</span>";
+                            else
+                                echo"<a href='".$page_url."?list=".($list - 1).$special_sort."' data-list='".($list - 1)."' class='ajax_nav_links'><</a>";
+                            $n = (int) ($row['count'] / $step);
+                            if ($row['count'] % $step > 0)
+                                $n++;
+                            for ($i = 1; $i <= $n; $i++)
+                                if ($i != $list)
+                                    echo"<a href='".$page_url."?list=" . ($i).$special_sort."' data-list='".($i)."' class='ajax_nav_links'>" . ($i) . "</a>";
+                                else
+                                    echo"<span class='no-link'>" . ($i) . "</span>";
+                            if ($list == $n)
+                                echo"<span class='no-link'>></span>";
+                            else
+                                echo"<a href='".$page_url."?list=" . ($list + 1) .$special_sort."' data-list='".($list+1)."' class='ajax_nav_links'>></a>";
+                            echo"</span>";
+                            echo"</div>";
+                    }
+
+
                 ?>
             </table>
-            <input type="submit" name="delete" value="Удалить выделенное"
+            <div class="m-b-10 m-t-10">
+            <input class="btn btn_delete" type="submit" name="delete" value="Удалить выделенное"
                    onclick="if(!confirm('вы уверены что хотите удалить элементы?'))return false;">
-            <input type="submit" name="CHANGE_APPROVED_TRUE" value="Одобрить выделенное">
+            <input class="btn btn_save" type="submit" name="CHANGE_APPROVED_TRUE" value="Одобрить выделенное">
+            </div>
         </form>
     <? } ?>
 </div>

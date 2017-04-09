@@ -470,8 +470,9 @@ ul.tabs li.active a {
   text-align: center;
 }
 
-/*Button*/
-.save_bth, .btn {
+/*Buttons*/
+
+.save_bth, .btn ,.btn_save{
   background: #519C4C;
   border: none;
   padding: 5px 10px;
@@ -488,7 +489,7 @@ ul.tabs li.active a {
     box-shadow: 0 0 5px #1D6D17;
   }
 }
-.del_bth{
+.del_bth,.btn_delete{
   background: #ec4b31;
   &:hover, &:focus {
     background: #f37662;
@@ -498,6 +499,7 @@ ul.tabs li.active a {
     box-shadow: 0 0 5px #d41d00;
   }
 }
+
 
 footer {
   color: #777;
@@ -557,3 +559,5 @@ footer {
   border-color: #ffdb4d;
   z-index: 2;
 }
+.m-b-10{margin-bottom:10px}
+.m-t-10{margin-top:10px}

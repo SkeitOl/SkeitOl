@@ -149,6 +149,41 @@ function Msg(m){
 				<li><a class="link" href="/admin/sxd/">Sypex Dumper 2.0.11</a></li>
 			</ul>
 		</div>
+		 <div>
+			 <?
+			 $comments_articles=array();
+			 $result = mysql_query("SELECT * FROM comments_articles WHERE APPROVED<>1 ORDER BY ID DESC LIMIT 0,5",$db);
+			 $myrow=mysql_fetch_array($result);
+			 do{
+				 if($myrow)
+					 $comments_articles[]=$myrow;
+			 }
+			 while($myrow=mysql_fetch_array($result));
+			 $count_comments_articles=count($comments_articles);?>
+			 <h2>Новые <a href="/admin/comments.php" class="link">комментарии</a><span class="count"><?=$count_comments_articles?></span></h2>
+			 <?if($count_comments_articles>0):?>
+				 <table class="small-table links">
+					 <thead>
+					 <tr>
+						 <th>Имя</th>
+						 <th>Текст</th>
+						 <th>Дата</th>
+						 <th>Одобрен</th>
+					 </tr>
+					 </thead>
+					 <?foreach($comments_articles as $key=>$myrow)
+					 {
+						 echo"<tr>
+								<td class='align-center'>".$myrow['NICK']."</td>
+								<td class='align-center'><a href='/admin/comments.php?ID=".$myrow['ID']."'>".htmlspecialchars(substr($myrow['TEXT'],0,30))."</a></td>
+								<td class='align-center'>".$myrow['DATE_TIME']."</td>
+								<td class='align-center'><input type='checkbox' disabled='disabled'";
+						 echo(($myrow['APPROVED'])?"checked":"");echo"></td>
+							</tr>";
+					 }?>
+				 </table>
+			 <?endif;?>
+		 </div>
 		<ul class="bloks-small">
 			<li>
 				<h2><a href="index.php?act=update&tp=articles" title="Статьи">Статьи</a></h2>
@@ -169,41 +204,7 @@ function Msg(m){
 			</li>
 		</ul>
 		<div class="clear"></div>
-		<div>
-			<?
-			$comments_articles=array();
-			$result = mysql_query("SELECT * FROM comments_articles WHERE APPROVED<>1 ORDER BY ID DESC LIMIT 0,5",$db);
-			$myrow=mysql_fetch_array($result);
-			do{
-				if($myrow)
-					$comments_articles[]=$myrow;
-			}
-			while($myrow=mysql_fetch_array($result));
-			$count_comments_articles=count($comments_articles);?>
-			<h2>Новые <a href="/admin/comments.php" class="link">комментарии</a><span class="count"><?=$count_comments_articles?></span></h2>
-			<?if($count_comments_articles>0):?>
-				<table class="small-table links">
-					<thead>
-						<tr>
-							<th>Имя</th>
-							<th>Текст</th>
-							<th>Дата</th>
-							<th>Одобрен</th>
-						</tr>
-					</thead>
-					<?foreach($comments_articles as $key=>$myrow)
-					{
-						echo"<tr>
-								<td class='align-center'>".$myrow['NICK']."</td>
-								<td class='align-center'><a href='/admin/comments.php?ID=".$myrow['ID']."'>".htmlspecialchars(substr($myrow['TEXT'],0,30))."</a></td>
-								<td class='align-center'>".$myrow['DATE_TIME']."</td>
-								<td class='align-center'><input type='checkbox' disabled='disabled'";
-								echo(($myrow['APPROVED'])?"checked":"");echo"></td>
-							</tr>";
-					}?>
-				</table>
-		 	<?endif;?>
-		</div>
+
 		<?
     }
     else

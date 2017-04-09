@@ -36,12 +36,40 @@ if(!empty($recaptcha))
 		//mysql_query("SET NAMES utf8");
 		header('Content-Type: text/html; charset= utf-8');
 		include_once("blocks/bd.php");
+		$ip=$_SERVER["REMOTE_ADDR"];
 		$sql="INSERT INTO comments_articles (ID_ARTICLES,TEXT,NICK,EMAIL,DATE_TIME,APPROVED,IP) VALUES
 				  ('$id_item','$text','$name','$email','$dt','0','$_SERVER[REMOTE_ADDR]')";
 	 // echo$sql."<br>";
 		//$result = mysql_query($sql, $db) or die('Запрос не удался: ' .
-		if(mysql_query($sql, $db))
-				echo "1";//<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>";
+		if(mysql_query($sql, $db)){
+			$to = "skeit.ol@mail.ru";
+			$subject =  'Новый комментарий на сайте';
+			// текст письма
+			$message = '<html>
+<head>
+  <title>Новый комментарий на сайте</title>
+  <style>tr:nth-child(even) {background-color: #f2f2f2}</style>
+</head>
+<body>
+  <p>Добавлен новый комментарий на сайте.</p>
+  <table style="width:100%;border-color:#4c4c4c" cellpadding="5" border="1">
+    <tr>
+      <th><b>Дата</b></th><th><b>Имя</b></th><th><b>Комменнтарий</b></th><th><b>IP</b></th>
+    </tr>
+    <tr>
+      <td>'.date("Y-m-d H:i:s").'</td><td>'.$name.'</td><td>'.$text.'</td><td>'.$ip.'</td>
+    </tr>
+  </table>
+</body>
+</html>
+';
+			$headers = "From: " . strip_tags('info@skeitol.ru') . "\r\n";
+			$headers .= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+			//$headers[] = 'Bcc: birthdaycheck@example.com';
+			mail($to,$subject, $message, $headers);
+				echo "1";//<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>";4
+		}
 		else echo "<span style='color:#ff0000;'>Ошибка отправление сообщения=(</span>";
 	}
 	
