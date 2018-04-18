@@ -307,8 +307,8 @@ include('blocks/head.php'); ?>
                 </thead>
                 <?
 
-                if(!require_once($_SERVER["DOCUMENT_ROOT"]."/skeitol/core/core.php"));
-                $cl= new \SkeitOl\SkeiOl();
+                if(!require_once($_SERVER["DOCUMENT_ROOT"] . "/skeitol/core/Core.php"));
+                $cl= new \SkeitOl\Core();
 
 
 

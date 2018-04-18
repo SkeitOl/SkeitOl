@@ -9,5 +9,5 @@ define("SITE_TEMPLATE_PATH","/skeitol/templates/main/");
 
 
 //Шаблон
-if(!require_once($_SERVER["DOCUMENT_ROOT"]."/skeitol/templates/main/header.php"))
+if(!require_once($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."header.php"))
     die("Error include template");

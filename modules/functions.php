@@ -6,7 +6,7 @@ class Articles
 {
 
     function includeCoreSkeitOl($fullDoc=false){
-        $src="/skeitol/core/core.php";
+        $src= "/skeitol/core/Core.php";
         if($fullDoc){
             $src=$_SERVER["DOCUMENT_ROOT"].$src;
         }else{
@@ -197,7 +197,7 @@ class Articles
 
 
         self::includeCoreSkeitOl(true);
-        $cl= new \SkeitOl\SkeiOl();
+        $cl= new \SkeitOl\Core();
 
 	echo"
 	<div itemscope='' itemtype='http://schema.org/Article'>
