@@ -20,7 +20,7 @@ class DBArticles
 		$this->DB = new Core();
 	}
 
-	public function GetArrResult(&$arParams)
+	public function getArrResult(&$arParams)
 	{
 		$arResult = array();
 		//сортировка по умолчанию
@@ -44,7 +44,7 @@ class DBArticles
 //        }
 
 
-		$table_name = ($arParams["TABLE_NAME"]) ? $arParams["TABLE_NAME"] : DBArticles::$DB_NAME;
+		$table_name = ($arParams["TABLE_NAME"]) ? $arParams["TABLE_NAME"] : self::$DB_NAME;
 		$count_elements = 10;
 		if ($arParams["COUNT"] && is_numeric($arParams["COUNT"])) {
 			if ($arParams["COUNT"] > 0) $count_elements = $arParams["COUNT"];
@@ -63,13 +63,15 @@ class DBArticles
 
 		//$sql_query="SELECT * FROM articles WHERE active=1 ORDER BY ".$sql_sort_name." DESC LIMIT $startI,$endI";
 
-		$SkeiOl = new Core();
+		$SkeitOlCore = new Core();
 
-		$arResult["ITEMS"] = $SkeiOl->GetList($table_name, array(
+		$arResult["ITEMS"] = $SkeitOlCore->GetList($table_name, array(
 			"filter" => array("active" => 1),
 			"order" => array($sql_sort_by => $sql_sort_order),
 			"limit" => array("top" => $startI, "bottom" => $endI),
 			"select" => $arParams["SELECT_CODE"]));
+
+		unset($SkeitOlCore);
 
 		return $arResult;
 	}
@@ -82,18 +84,20 @@ class DBArticles
 		"SORT_BY" => "desc",
 	))
 	{
-		DBArticles::GetTemplate(DBArticles::GetArrResult($arParams));
+		$obArticles= new namespace\DBArticles();
+		$obArticles->getTemplate($obArticles->getArrResult($arParams));
 
+		unset($obArticles);
 	}
 
-	public function GetTemplate(&$arResult)
+	public function getTemplate(&$arResult)
 	{
 		if ($arResult["ITEMS"]) {
 			foreach ($arResult["ITEMS"] as $item) {
 				//SkeiOl::dump($item);
 
 
-				/*$array1 = array();
+				/**/$array1 = array();
 				$array1 = unserialize($item['category']);
 				$category_string = '';
 				if (count($array1) > 0) {
@@ -105,7 +109,7 @@ class DBArticles
 						//if($i<count($array1)-1)echo ", ";
 					}
 					$category_string .= "</div>";
-				}*/
+				}
 
 
 				if (!empty($item['url'])) $url_page = $item['url']; else $url_page = $item['id'];

@@ -4,6 +4,8 @@
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 
+use SkeitOl\DBArticles;
+
 require_once($_SERVER["DOCUMENT_ROOT"]."/skeitol/header.php");
 ?>
 <pre>
