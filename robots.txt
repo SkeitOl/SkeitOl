@@ -13,6 +13,6 @@ Allow: /
 Disallow: /admin
 Disallow: /elc
 
-Host: skeitol.ru
+Host: https://skeitol.ru
 
-Sitemap: http://skeitol.ru/sitemap.xml
+Sitemap: https://skeitol.ru/sitemap.xml

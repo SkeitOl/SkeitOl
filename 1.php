@@ -1,57 +1,22 @@
 <?php
-/*
-ini_set("display_errors",1);
-error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-function IsPalindrom($s){
-	$ret=false;
-	if(strlen($s)>=2){
-		$ret=true;
-		$n=mb_strlen($s);
-		for($i=0;$i<$n/2;$i++)
-			if(mb_substr($s,$i,1,'utf-8')!=mb_substr($s,$n-1-$i,1,'utf-8'))
-			{
-				$ret=false;break;
-			}
+Class HUMAN{
+	public $name="Вася";
+	const name2="Вася";
+	public  function HELLO(){
+		echo "asdas ".$this->name;
 	}
- 	return $ret;
+	public  function GOODBYE(){
+		echo "asdas ".$this->name;
+	}
+	public static function DI2E(){
+		echo "asda".self::name2;
+	}
 }
 
-$s="pdp";
-echo"s=$s<br>";
-echo (IsPalindrom($s))?"true":"false";
-/*
-header("HTTP/1.0 404 Not Found"); 
-header("HTTP/1.1 404 Not Found"); 
-//header("Status: 404 Not Found"); 
-die();
+$b = new HUMAN();
 
-echo 'HTTP_HOST: '.$_SERVER['HTTP_HOST'].'<br>REQUEST_URI: '.$_SERVER['REQUEST_URI'].'<br>';
-
-
-if(stristr($_SERVER['REQUEST_URI'], 'ThankYou.php') == true)
-{
- echo '"earth" найдена в строке';
-}
-else  echo '"earth" не найдена в строке';*/
-/*
-if(mail("eraga.oleg@gmail.com", "TEST SUBJECT", "TEST BODY"))
-echo "Почтовая система работает!";
-else
-echo "Неудача, почтовая система не работает, попробуйте еще!";
-*/
-
-echo $_SERVER['DOCUMENT_ROOT']."";
-
-$array = array('1' =>3 ,'2'=>2 );
-echo"<pre>";
-print_r($array);
-echo"</pre>";
-foreach ($array as $key => &$value) {
-	$value*=3;
-}
-unset($value);
-echo"<pre>";
-var_dump($array);
-echo"</pre>";
-?>
+$b->DI2E();

@@ -360,6 +360,10 @@ class Articles
 						<div class="col-4 col-xs-1"><div class="row con-pg"><label for="com_captch">CAPTCHA<span class="required">*</span>:</label></div></div>
 						<div class="col-8 col-xs-1"><div class="row con-pg"><div class="g-recaptcha" data-sitekey="6LeaFBETAAAAABDp57Hgrxg7A6y5vSlu0QhV5zg-"></div></div></div>
 					</div>
+					<div class="row">
+						<div class="col-4 col-xs-1"><div class="row con-pg"></div></div>
+						<div class="col-8 col-xs-1"><div class="row con-pg"><label for="checkbox-agree"><input id="checkbox-agree" type="checkbox" class="form__input" name="agree" value="Y" required="" aria-required="true">Я согласен с условиями <a target="_blank" class="link" href="/privacy.php">политики конфиденциальности</label></div></div>
+					</div>
 					<?/*
 					<p><label for="com_name">Имя: </label><input required id="com_nick" type="text" name="NICK"></p>
 					<p></p>

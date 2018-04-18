@@ -14,6 +14,7 @@
 					<span><a href="/about/">О нас</a></span>
 					<div class="clear"></div>
 					<p><a href='/pages/5/'>Условия использования информации</a></p>
+
 				</div>
 				
 			</div>
@@ -122,6 +123,7 @@
 				
 				</div>				
 				<div class="clear"></div>
+                <p>Отправляя любую форму на сайте,<br>вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</a></p>
 				<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?php echo date('Y')?></p></div>
 			</div>
 		</div>

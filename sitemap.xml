@@ -1,813 +1,886 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
 	http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <url>
-        <loc>http://skeitol.ru/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.00</priority>
-    </url>
-    <!-- articles -->
-    <url>
-        <loc>http://skeitol.ru/articles/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/optimizaciya_izobrazhenij_s_pomoshyu_jpegoptim_i_optipng_google_page_speed/</loc>
-        <lastmod>2017-03-06T00:18:23+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kak_ubrat_glyuk_s_raskladkoj_v_phpstorm/</loc>
-        <lastmod>2017-03-05T17:51:56+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/skype_odno_iz_reshenij_problemy_ne_rabochej_kamery_/</loc>
-        <lastmod>2017-03-05T17:51:57+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s_bitriks_udalenie_nachalnyh_i_konechnyh_probelov_iz_svojstva/</loc>
-        <lastmod>2017-03-05T11:35:02+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/php_vklyuchit_pokaz_preduprezhdenij_i_oshibok_php/</loc>
-        <lastmod>2017-03-05T12:39:16+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/krasivyj_spojler_na_jquery/</loc>
-        <lastmod>2017-03-05T21:58:14+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/klyuchi_sublime_text_3/</loc>
-        <lastmod>2017-03-05T23:17:13+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitrix_numeraciya_elementov_pri_postranichnoj_navigacii_news_list/</loc>
-        <lastmod>2017-03-05T23:17:14+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s_bitriks_print_catcha/</loc>
-        <lastmod>2017-03-05T03:59:48+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s_bitriks_yandeks_karty_nastraivaemaya_karta/</loc>
-        <lastmod>2017-03-05T20:25:59+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_kak_ubrat_hlebnye_kroshki_na_stranice_ili_v_razdele/</loc>
-        <lastmod>2017-03-05T20:26:01+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_odin_iz_sposobov_perenesti_js_v_niz_sajta/</loc>
-        <lastmod>2017-03-05T16:46:51+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/</loc>
-        <lastmod>2017-03-05T23:51:24+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/adaptivnye_taby_vkladki/</loc>
-        <lastmod>2017-03-05T21:45:49+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/jquery_kak_vybrat_vse_input_type_text/</loc>
-        <lastmod>2017-03-05T21:45:48+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_kak_vybrat_vse_zapolnennye_znacheniya_svojstva_infobloka/</loc>
-        <lastmod>2017-03-04T13:21:15+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/regulyarnoe_vyrazheniya_dlya_poiska_i_zameny_div_s_opredelennym_klasom/</loc>
-        <lastmod>2017-03-05T21:55:38+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/jquery_kak_zadat_universalnoe_sobytie_on_click_dlya_elementa/</loc>
-        <lastmod>2017-03-05T13:55:36+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_dobavlyaem_v_head_og_title_i_og_description/</loc>
-        <lastmod>2017-03-04T15:50:33+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/adaptivnye-slajdery-i-galerei-izobrazhenij/</loc>
-        <lastmod>2017-03-05T21:31:05+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/plavnyj_skroll_posle_nazhatiya_na_yakornuyu_ssylku/</loc>
-        <lastmod>2017-03-04T14:05:54+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_ne_prihodyat_na_pochtu/</loc>
-        <lastmod>2017-03-05T12:42:53+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/glupye_mify_o_nashem_mire_v_kotorye_veryat_pochti_vse/</loc>
-        <lastmod>2017-03-03T21:55:09+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s_bitriks_kak_vyvesti_soderzhimoe_highloadblock/</loc>
-        <lastmod>2017-03-04T20:12:15+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kak_udalit_neskolko_sleshej_tire_v_urle/</loc>
-        <lastmod>2017-03-05T21:47:17+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks_podklyuchenie_css_i_js_fajlov_v_shablone_komponenta/</loc>
-        <lastmod>2017-03-05T20:16:56+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/udaleni_tablicy_iz_mysql_pri_pomoshi_php/</loc>
-        <lastmod>2017-03-05T13:00:58+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/aktivaciya_phpstorm_7_8_9_10/</loc>
-        <lastmod>2017-03-05T23:31:24+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/izbavlyaemsya_ot_referalnogo_spama/</loc>
-        <lastmod>2017-03-05T23:31:24+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/izmenenie_fona_dlya_vhoda_v_sistemu_v_windows_7/</loc>
-        <lastmod>2017-03-05T14:17:16+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/creat_event_on_click_at_cms_1s_bitriks/</loc>
-        <lastmod>2017-03-05T13:47:19+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/search_and_replace_sublime_text_3/</loc>
-        <lastmod>2017-03-05T17:02:12+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bash-udalit-papku-i-vse-fajly-v-nej/</loc>
-        <lastmod>2017-03-05T03:58:01+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bitriks-obuchenie/</loc>
-        <lastmod>2017-03-05T22:19:53+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/php-pravil-nyj-perebor-massivov/</loc>
-        <lastmod>2017-03-05T13:22:26+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/otladka-v-cms-1c-bitrix-addmessage2log/</loc>
-        <lastmod>2017-03-05T23:27:05+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s-bitriks-kak-vosstanovit-parol-administratora/</loc>
-        <lastmod>2017-03-05T14:29:48+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kak-legko-i-bystro-postavit-svoj-preloader-na-standartnyj-ajax-bitriksa/</loc>
-        <lastmod>2017-03-04T18:50:44+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ubuntu-kak-dobavit-udalit-pol-zovatelya-v-mysql-iz-konsoli/</loc>
-        <lastmod>2017-03-05T19:49:26+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s-bitriks-vyvod-http-zagolovok-last-modified-i-if-modified-since-na-stranice-tovara/</loc>
-        <lastmod>2017-03-05T22:18:43+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/sinij-ekran-smerti-bsod-rasshifrovka/</loc>
-        <lastmod>2017-03-05T13:39:36+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ustanovka-phpstorm-na-ubuntu/</loc>
-        <lastmod>2017-03-05T13:39:35+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/upravlenie-zagruzkoj-izobrazhenij/</loc>
-        <lastmod>2017-03-05T23:01:51+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/restajling-dejstvuyushih-modelej-lada-kak-eto-budet/</loc>
-        <lastmod>2017-03-05T14:35:49+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/php-get-url/</loc>
-        <lastmod>2017-03-05T16:50:33+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kak-poluchit-prev-yu-kartinku-youtube-rolika/</loc>
-        <lastmod>2017-03-03T21:54:55+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/php-otpravka-post-zaprosa-cherez-funkciyu-file-get-contents/</loc>
-        <lastmod>2017-03-03T21:54:34+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/perestal-rabotat-pravyj-alt-shift-pri-pereklyuchenii-yazyka/</loc>
-        <lastmod>2017-03-05T09:56:22+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/vosstanovlenie-prav-administratora-na-microsoft-sql-server-2008-2005/</loc>
-        <lastmod>2017-03-05T14:55:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/excel-vba-cikl-v-makrose/</loc>
-        <lastmod>2017-03-05T14:46:03+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kazhdomu-po-landing-page-nabolevshee/</loc>
-        <lastmod>2017-03-04T23:23:58+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/animaciya-ikonki-zagruzki-pri-pomoshi-css/</loc>
-        <lastmod>2017-03-04T13:54:19+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/kak-bystro-sdelat-rezervnuyu-kopiyu-sajta/</loc>
-        <lastmod>2017-03-05T03:00:21+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/wordpress-ssylka-v-menyu-otkryvayushayasya-v-novoj-vkladke/</loc>
-        <lastmod>2017-03-05T10:05:03+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ms-sql-izmenenie-vyvoda-v-select/</loc>
-        <lastmod>2017-03-04T14:12:52+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/shablon-zayavleniya-v-gibdd-na-narushitelya-pdd/</loc>
-        <lastmod>2017-03-05T21:43:54+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/vsplyvayushee-okno-s-formoj-obratnoj-svyazi-bitriks/</loc>
-        <lastmod>2017-03-05T22:20:35+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s-bitriks-znak-rublya/</loc>
-        <lastmod>2017-03-05T22:20:35+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/komp-yuternye-rozygryshi-kotorye-prigodyatsya-vam-1-aprelya/</loc>
-        <lastmod>2017-03-04T16:01:37+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/plavnaya-smena-kartinok-pri-navedenii-kursora/</loc>
-        <lastmod>2017-03-05T23:57:18+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/prilipanie-menyu-pri-prokrutke-css-js/</loc>
-        <lastmod>2017-03-05T23:57:18+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/polet-tovara-v-korzinu/</loc>
-        <lastmod>2017-03-05T03:08:23+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/bystryj-prosmotr-v-1s-bitriks/</loc>
-        <lastmod>2017-03-05T23:42:05+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/universal-nyj-validator-mikrorazmetki/</loc>
-        <lastmod>2017-03-05T22:20:00+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/71/</loc>
-        <lastmod>2017-03-05T14:47:25+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/chelovecheskaya-zaglushka-vmesto-site-under-construction/</loc>
-        <lastmod>2017-03-05T17:56:24+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/1s-bitriks-osnovy-raboty-so-svojstvami-infoblokov/</loc>
-        <lastmod>2017-03-05T10:14:50+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/integer-pul-pool/</loc>
-        <lastmod>2017-03-05T21:32:26+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/vosstanovlenie-dostupa-k-uchetnoj-zapisi-windows-7/</loc>
-        <lastmod>2017-03-05T21:33:02+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/krasivaya-html-forma-podpiski-na-rassylku/</loc>
-        <lastmod>2017-03-05T21:32:58+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/64/</loc>
-        <lastmod>2017-03-06T00:21:27+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/63/</loc>
-        <lastmod>2017-03-06T00:21:35+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/prizhimaem-futer-k-nizu/</loc>
-        <lastmod>2017-03-04T19:15:54+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/csharp-dictionary-tkey-tvalue-сlass/</loc>
-        <lastmod>2017-03-04T16:10:37+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/c-sharp-otpravka-e-mail/</loc>
-        <lastmod>2017-03-05T13:29:29+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/hranimye_funkcii_transact_sql/</loc>
-        <lastmod>2017-03-04T20:38:29+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/58/</loc>
-        <lastmod>2017-03-05T11:05:47+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/56/</loc>
-        <lastmod>2017-03-05T11:16:50+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/nezavisimye-krash-testy-komu-verit/</loc>
-        <lastmod>2017-03-03T21:54:36+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/mysql-i-c_sharp/</loc>
-        <lastmod>2017-03-05T21:53:25+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/53/</loc>
-        <lastmod>2017-03-05T21:08:21+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/52/</loc>
-        <lastmod>2017-03-03T21:55:25+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/samoraspakovyvayushijsya-arhiv/</loc>
-        <lastmod>2017-03-04T23:53:07+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/49/</loc>
-        <lastmod>2017-03-05T21:42:29+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/c_sharp-save-settings-in-xml/</loc>
-        <lastmod>2017-03-05T21:30:15+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/48/</loc>
-        <lastmod>2017-03-05T15:46:41+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/java-rabota-s-massivami-v-jtable-netbeans-8-0/</loc>
-        <lastmod>2017-03-05T16:52:53+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/modelirovanie-geneticheskogo-algoritma-na-c_sharp/</loc>
-        <lastmod>2017-03-04T13:53:09+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/c_sharp-vs-pascal/</loc>
-        <lastmod>2017-03-05T14:30:29+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/c_sharp-chtenie-massiva-iz-stroki/</loc>
-        <lastmod>2017-03-05T10:24:22+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/41/</loc>
-        <lastmod>2017-03-04T15:58:36+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/40/</loc>
-        <lastmod>2017-03-03T21:55:50+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/krasivyj-vyvod-koda-c_shapt-na-html/</loc>
-        <lastmod>2017-03-04T23:42:28+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/primer-seti-hopfilda-na-c_sharp/</loc>
-        <lastmod>2017-03-05T23:47:16+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/37/</loc>
-        <lastmod>2017-03-05T23:47:17+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/35/</loc>
-        <lastmod>2017-03-05T03:00:25+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/34/</loc>
-        <lastmod>2017-03-03T21:55:00+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/32/</loc>
-        <lastmod>2017-03-05T03:48:57+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/30/</loc>
-        <lastmod>2017-03-03T21:55:02+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/byvayut-li-3-h-yadernye-processory/</loc>
-        <lastmod>2017-03-05T05:40:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/23/</loc>
-        <lastmod>2017-03-05T08:33:49+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ne-ustupil-dorogu-peshehodam/</loc>
-        <lastmod>2017-03-04T18:16:48+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/rashodniki-dlya-chevrolet-aveo-1-2-v16/</loc>
-        <lastmod>2017-03-04T13:54:17+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/informaciya-dlya-udaleniya-programm-v-windowsos/</loc>
-        <lastmod>2017-03-05T07:37:31+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/10/</loc>
-        <lastmod>2017-03-04T23:49:01+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/proshivka_samsug_s5620/</loc>
-        <lastmod>2017-03-05T13:45:33+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/7/</loc>
-        <lastmod>2017-03-05T10:25:50+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/6/</loc>
-        <lastmod>2017-03-05T13:55:32+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/krasivyj-vyvod-massiva-c/</loc>
-        <lastmod>2017-03-05T19:46:30+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ddo-c_sharp-part-2/</loc>
-        <lastmod>2017-03-05T19:37:37+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/ddo-c_sharp/</loc>
-        <lastmod>2017-03-04T23:52:22+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/articles/zamena_trosa_scepleniya_na_chevrolet_aveo/</loc>
-        <lastmod>2017-03-06T00:14:54+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <!-- news -->
-    <url>
-        <loc>http://skeitol.ru/news/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/laboratoriya_kasperskogo_free_antivirus/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/s-novym-godom/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/c-professional-nym-prazdnikom/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/66/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/motorola-pogloshaet-lenovo-zuk-poluchit-bol-she-prostora/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/64/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/63/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/62/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/hakery-vzlomali-jeep-cherokee-i-sbrosili-ego-v-kyuvet/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/pyatnadcat/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/vkontakte-stal-populyarnee-televideniya/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/video-dnya-deputat-protiv-sotrudnikov-gibdd/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/how-old_net/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/google-vnes-izmeneniya-v-pol-zu-mobil-nyh-sajtov/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/s-8-marta-milye-damy/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/novinki-mwc-2015/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/motorola-moto-e-android-lollipop-i-lte-za-150/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/moshejniki-my3space-ru/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>http://skeitol.ru/news/open_site/</loc>
-        <lastmod>2017-03-06T00:26:42+03:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.50</priority>
-    </url>
+
+<url>
+    <loc>https://skeitol.ru/</loc>
+    <lastmod>2017-09-21T09:55:32+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+</url>
+<!-- articles -->
+<url>
+<loc>https://skeitol.ru/articles/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.90</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1c_bitrix_proverka_vklyuchen_li_rezhim_pravki/</loc>
+<lastmod>2017-09-21T06:44:51+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak_na_servere_sentos_7_ustanovit_gui_obolochku/</loc>
+<lastmod>2017-09-21T06:44:52+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/how_hide_version_apache_in_page_403_404/</loc>
+<lastmod>2017-09-21T06:44:52+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak_uznat_kakaya_versiya_centos_ustanovlena/</loc>
+<lastmod>2017-09-21T08:51:46+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/linux_bash_poluchit_razmer_fajlov_v_papke_starshe_n_dej/</loc>
+<lastmod>2017-09-20T13:46:24+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak_otklyuchit_avtomaticheskuyu_perezagruzku_windows_10/</loc>
+<lastmod>2017-09-20T22:41:37+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/5_sposobov_sozdaniya_ssylok_yakorej/</loc>
+<lastmod>2017-09-20T18:58:26+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/proverka_nalichiya_jquery_na_stranice/</loc>
+<lastmod>2017-09-20T07:11:58+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/php_json_headers/</loc>
+<lastmod>2017-09-21T00:36:34+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/additional_file_types_for_mod_expires/</loc>
+<lastmod>2017-09-20T15:33:38+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/udalennoe_kopirovanie_fajlov_s_pomoshyu_scp/</loc>
+<lastmod>2017-09-20T18:39:26+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/linux_kak_otredaktirovat_fajl_v_konsolnom_redaktore_vim/</loc>
+<lastmod>2017-09-20T21:05:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/optimizaciya_izobrazhenij_s_pomoshyu_jpegoptim_i_optipng_google_page_speed/</loc>
+<lastmod>2017-09-21T09:30:37+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak_ubrat_glyuk_s_raskladkoj_v_phpstorm/</loc>
+<lastmod>2017-09-21T05:46:40+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/skype_odno_iz_reshenij_problemy_ne_rabochej_kamery_/</loc>
+<lastmod>2017-09-21T07:08:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s_bitriks_udalenie_nachalnyh_i_konechnyh_probelov_iz_svojstva/</loc>
+<lastmod>2017-09-20T20:33:01+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/php_vklyuchit_pokaz_preduprezhdenij_i_oshibok_php/</loc>
+<lastmod>2017-09-20T02:59:23+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/krasivyj_spojler_na_jquery/</loc>
+<lastmod>2017-09-21T09:47:18+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/klyuchi_sublime_text_3/</loc>
+<lastmod>2017-09-21T09:47:17+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitrix_numeraciya_elementov_pri_postranichnoj_navigacii_news_list/</loc>
+<lastmod>2017-09-21T08:49:11+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s_bitriks_print_catcha/</loc>
+<lastmod>2017-09-20T18:45:34+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s_bitriks_yandeks_karty_nastraivaemaya_karta/</loc>
+<lastmod>2017-09-21T06:48:11+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_kak_ubrat_hlebnye_kroshki_na_stranice_ili_v_razdele/</loc>
+<lastmod>2017-09-20T21:05:56+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_odin_iz_sposobov_perenesti_js_v_niz_sajta/</loc>
+<lastmod>2017-09-20T14:55:59+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/</loc>
+<lastmod>2017-09-21T09:53:53+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/adaptivnye_taby_vkladki/</loc>
+<lastmod>2017-09-20T13:35:52+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/jquery_kak_vybrat_vse_input_type_text/</loc>
+<lastmod>2017-09-20T00:50:51+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_kak_vybrat_vse_zapolnennye_znacheniya_svojstva_infobloka/</loc>
+<lastmod>2017-09-20T18:03:06+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/regulyarnoe_vyrazheniya_dlya_poiska_i_zameny_div_s_opredelennym_klasom/</loc>
+<lastmod>2017-09-20T21:44:26+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/jquery_kak_zadat_universalnoe_sobytie_on_click_dlya_elementa/</loc>
+<lastmod>2017-09-20T13:14:11+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_dobavlyaem_v_head_og_title_i_og_description/</loc>
+<lastmod>2017-09-21T09:49:28+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/adaptivnye-slajdery-i-galerei-izobrazhenij/</loc>
+<lastmod>2017-09-21T01:19:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/plavnyj_skroll_posle_nazhatiya_na_yakornuyu_ssylku/</loc>
+<lastmod>2017-09-20T17:03:58+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_ne_prihodyat_na_pochtu/</loc>
+<lastmod>2017-09-20T19:59:17+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/glupye_mify_o_nashem_mire_v_kotorye_veryat_pochti_vse/</loc>
+<lastmod>2017-09-20T11:54:40+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s_bitriks_kak_vyvesti_soderzhimoe_highloadblock/</loc>
+<lastmod>2017-09-20T08:08:45+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak_udalit_neskolko_sleshej_tire_v_urle/</loc>
+<lastmod>2017-09-21T03:46:51+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks_podklyuchenie_css_i_js_fajlov_v_shablone_komponenta/</loc>
+<lastmod>2017-09-21T08:21:26+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/udaleni_tablicy_iz_mysql_pri_pomoshi_php/</loc>
+<lastmod>2017-09-21T04:09:18+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/aktivaciya_phpstorm_7_8_9_10/</loc>
+<lastmod>2017-09-21T09:20:21+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/izbavlyaemsya_ot_referalnogo_spama/</loc>
+<lastmod>2017-09-21T04:16:58+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/izmenenie_fona_dlya_vhoda_v_sistemu_v_windows_7/</loc>
+<lastmod>2017-09-21T09:02:49+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/creat_event_on_click_at_cms_1s_bitriks/</loc>
+<lastmod>2017-09-21T08:55:46+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/search_and_replace_sublime_text_3/</loc>
+<lastmod>2017-09-20T18:17:51+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bash-udalit-papku-i-vse-fajly-v-nej/</loc>
+<lastmod>2017-09-21T09:29:05+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bitriks-obuchenie/</loc>
+<lastmod>2017-09-21T08:40:27+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/php-pravil-nyj-perebor-massivov/</loc>
+<lastmod>2017-09-20T16:20:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/otladka-v-cms-1c-bitrix-addmessage2log/</loc>
+<lastmod>2017-09-20T23:59:02+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s-bitriks-kak-vosstanovit-parol-administratora/</loc>
+<lastmod>2017-09-21T03:18:24+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak-legko-i-bystro-postavit-svoj-preloader-na-standartnyj-ajax-bitriksa/</loc>
+<lastmod>2017-09-20T23:07:48+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ubuntu-kak-dobavit-udalit-pol-zovatelya-v-mysql-iz-konsoli/</loc>
+<lastmod>2017-09-21T02:28:01+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s-bitriks-vyvod-http-zagolovok-last-modified-i-if-modified-since-na-stranice-tovara/</loc>
+<lastmod>2017-09-21T04:07:25+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/sinij-ekran-smerti-bsod-rasshifrovka/</loc>
+<lastmod>2017-09-21T06:02:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ustanovka-phpstorm-na-ubuntu/</loc>
+<lastmod>2017-09-20T17:20:02+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/upravlenie-zagruzkoj-izobrazhenij/</loc>
+<lastmod>2017-09-21T09:53:54+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/restajling-dejstvuyushih-modelej-lada-kak-eto-budet/</loc>
+<lastmod>2017-09-21T09:51:25+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/php-get-url/</loc>
+<lastmod>2017-09-20T14:30:04+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak-poluchit-prev-yu-kartinku-youtube-rolika/</loc>
+<lastmod>2017-09-21T09:17:45+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/php-otpravka-post-zaprosa-cherez-funkciyu-file-get-contents/</loc>
+<lastmod>2017-09-20T07:06:48+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/perestal-rabotat-pravyj-alt-shift-pri-pereklyuchenii-yazyka/</loc>
+<lastmod>2017-09-21T08:53:28+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/vosstanovlenie-prav-administratora-na-microsoft-sql-server-2008-2005/</loc>
+<lastmod>2017-09-21T09:06:08+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/excel-vba-cikl-v-makrose/</loc>
+<lastmod>2017-09-21T08:20:41+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kazhdomu-po-landing-page-nabolevshee/</loc>
+<lastmod>2017-09-20T10:35:37+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/animaciya-ikonki-zagruzki-pri-pomoshi-css/</loc>
+<lastmod>2017-09-21T08:49:33+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/kak-bystro-sdelat-rezervnuyu-kopiyu-sajta/</loc>
+<lastmod>2017-09-20T07:44:44+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/wordpress-ssylka-v-menyu-otkryvayushayasya-v-novoj-vkladke/</loc>
+<lastmod>2017-09-20T17:23:02+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ms-sql-izmenenie-vyvoda-v-select/</loc>
+<lastmod>2017-09-20T22:45:21+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/shablon-zayavleniya-v-gibdd-na-narushitelya-pdd/</loc>
+<lastmod>2017-09-21T05:18:26+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/vsplyvayushee-okno-s-formoj-obratnoj-svyazi-bitriks/</loc>
+<lastmod>2017-09-21T06:01:13+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s-bitriks-znak-rublya/</loc>
+<lastmod>2017-09-21T01:27:29+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/komp-yuternye-rozygryshi-kotorye-prigodyatsya-vam-1-aprelya/</loc>
+<lastmod>2017-09-20T16:28:41+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/plavnaya-smena-kartinok-pri-navedenii-kursora/</loc>
+<lastmod>2017-09-21T05:22:24+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/prilipanie-menyu-pri-prokrutke-css-js/</loc>
+<lastmod>2017-09-21T03:49:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/polet-tovara-v-korzinu/</loc>
+<lastmod>2017-09-20T22:45:09+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/bystryj-prosmotr-v-1s-bitriks/</loc>
+<lastmod>2017-09-21T08:58:19+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/universal-nyj-validator-mikrorazmetki/</loc>
+<lastmod>2017-09-20T17:59:55+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/71/</loc>
+<lastmod>2017-09-20T09:27:46+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/chelovecheskaya-zaglushka-vmesto-site-under-construction/</loc>
+<lastmod>2017-09-21T02:21:19+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/1s-bitriks-osnovy-raboty-so-svojstvami-infoblokov/</loc>
+<lastmod>2017-09-21T08:59:59+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/integer-pul-pool/</loc>
+<lastmod>2017-09-21T08:24:14+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/vosstanovlenie-dostupa-k-uchetnoj-zapisi-windows-7/</loc>
+<lastmod>2017-09-21T08:54:13+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/krasivaya-html-forma-podpiski-na-rassylku/</loc>
+<lastmod>2017-09-21T08:54:14+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/64/</loc>
+<lastmod>2017-09-20T16:27:43+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/63/</loc>
+<lastmod>2017-09-21T01:59:05+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/prizhimaem-futer-k-nizu/</loc>
+<lastmod>2017-09-21T06:37:15+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/csharp-dictionary-tkey-tvalue-сlass/</loc>
+<lastmod>2017-09-21T01:52:01+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/c-sharp-otpravka-e-mail/</loc>
+<lastmod>2017-09-21T04:07:35+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/hranimye_funkcii_transact_sql/</loc>
+<lastmod>2017-09-21T02:14:02+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/58/</loc>
+<lastmod>2017-09-20T16:22:13+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/56/</loc>
+<lastmod>2017-09-20T18:30:31+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/nezavisimye-krash-testy-komu-verit/</loc>
+<lastmod>2017-09-20T18:38:14+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/mysql-i-c_sharp/</loc>
+<lastmod>2017-09-20T05:13:49+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/53/</loc>
+<lastmod>2017-09-21T05:29:23+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/52/</loc>
+<lastmod>2017-09-21T03:44:20+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/samoraspakovyvayushijsya-arhiv/</loc>
+<lastmod>2017-09-20T22:04:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/49/</loc>
+<lastmod>2017-09-21T07:28:05+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/c_sharp-save-settings-in-xml/</loc>
+<lastmod>2017-09-21T01:18:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/48/</loc>
+<lastmod>2017-09-21T06:28:50+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/java-rabota-s-massivami-v-jtable-netbeans-8-0/</loc>
+<lastmod>2017-09-20T05:36:44+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/modelirovanie-geneticheskogo-algoritma-na-c_sharp/</loc>
+<lastmod>2017-09-21T08:47:04+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/c_sharp-vs-pascal/</loc>
+<lastmod>2017-09-20T10:24:35+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/c_sharp-chtenie-massiva-iz-stroki/</loc>
+<lastmod>2017-09-21T08:20:40+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/41/</loc>
+<lastmod>2017-09-21T09:21:37+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/40/</loc>
+<lastmod>2017-09-20T22:44:09+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/krasivyj-vyvod-koda-c_shapt-na-html/</loc>
+<lastmod>2017-09-20T12:04:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/primer-seti-hopfilda-na-c_sharp/</loc>
+<lastmod>2017-09-20T22:46:02+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/37/</loc>
+<lastmod>2017-09-20T19:43:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/35/</loc>
+<lastmod>2017-09-20T22:44:36+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/34/</loc>
+<lastmod>2017-09-20T02:38:23+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/32/</loc>
+<lastmod>2017-09-20T07:28:21+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/30/</loc>
+<lastmod>2017-09-21T07:52:14+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/byvayut-li-3-h-yadernye-processory/</loc>
+<lastmod>2017-09-20T20:15:13+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/23/</loc>
+<lastmod>2017-09-21T00:09:45+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ne-ustupil-dorogu-peshehodam/</loc>
+<lastmod>2017-09-20T16:29:30+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/rashodniki-dlya-chevrolet-aveo-1-2-v16/</loc>
+<lastmod>2017-09-21T00:02:35+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/informaciya-dlya-udaleniya-programm-v-windowsos/</loc>
+<lastmod>2017-09-21T09:51:17+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/10/</loc>
+<lastmod>2017-09-21T06:01:00+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/proshivka_samsug_s5620/</loc>
+<lastmod>2017-09-20T23:04:31+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/7/</loc>
+<lastmod>2017-09-20T13:30:11+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/6/</loc>
+<lastmod>2017-09-21T05:44:11+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/krasivyj-vyvod-massiva-c/</loc>
+<lastmod>2017-09-21T08:04:47+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ddo-c_sharp-part-2/</loc>
+<lastmod>2017-09-21T01:58:36+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/ddo-c_sharp/</loc>
+<lastmod>2017-09-20T20:04:33+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/articles/zamena_trosa_scepleniya_na_chevrolet_aveo/</loc>
+<lastmod>2017-09-21T09:50:03+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<!-- news -->
+<url>
+<loc>https://skeitol.ru/news/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.90</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/laboratoriya_kasperskogo_free_antivirus/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/s-novym-godom/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/c-professional-nym-prazdnikom/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/66/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/motorola-pogloshaet-lenovo-zuk-poluchit-bol-she-prostora/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/64/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/63/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/62/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/hakery-vzlomali-jeep-cherokee-i-sbrosili-ego-v-kyuvet/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/pyatnadcat/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/vkontakte-stal-populyarnee-televideniya/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/video-dnya-deputat-protiv-sotrudnikov-gibdd/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/how-old_net/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/google-vnes-izmeneniya-v-pol-zu-mobil-nyh-sajtov/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/s-8-marta-milye-damy/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/novinki-mwc-2015/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/motorola-moto-e-android-lollipop-i-lte-za-150/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/moshejniki-my3space-ru/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
+<url>
+<loc>https://skeitol.ru/news/open_site/</loc>
+<lastmod>2017-09-21T09:55:32+03:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.50</priority>
+</url>
 </urlset>

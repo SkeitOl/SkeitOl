@@ -29,6 +29,8 @@ $s_map = '<?xml version="1.0" encoding="UTF-8"?>
 $site_url='';
 if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$site_url .= 'https://';
 else  $site_url .= 'http://';
+ //fix
+   $site_url = 'https://';
   $site_url.= $_SERVER['SERVER_NAME'].'/';
 //echo"site_url=$site_url";
 $s_map .= '
