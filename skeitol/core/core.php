@@ -2,15 +2,23 @@
 
 namespace SkeitOl {
 
+    use Exception;
+    use FilesystemIterator;
     use mysqli;
+    use RecursiveDirectoryIterator;
+    use RecursiveIteratorIterator;
 
     define("DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]);
 
     class SkeiOl
     {
+        var $defaultDirCache = "/skeitol/cache/";
+
+        public function getCahcePath(){
+            return $_SERVER["DOCUMENT_ROOT"].$this->defaultDirCache;
+        }
 
         private $DB_CONFIG = array();
-
         function __construct()
         {
             $this->init();
@@ -42,18 +50,18 @@ namespace SkeitOl {
 
         }
 
-        public static function dump($var,$printr=false)
+        public static function dump($var, $printr = false)
         {
-            if(!$printr){
+            if (!$printr) {
                 echo "<pre>";
-                $result='';
+                $result = '';
                 ob_start();
                 var_dump($var);
                 $result = ob_get_clean();
-                echo"$result";
+                echo "$result";
                 echo "</pre>";
-            }else{
-                echo "<pre>" . print_r($var,true) . "</pre>";
+            } else {
+                echo "<pre>" . print_r($var, true) . "</pre>";
             }
         }
 
@@ -164,16 +172,16 @@ namespace SkeitOl {
                                 }
                             }
                             if (!in_array(gettype($item), array('integer', 'double'))) {
-                                if(gettype($item)=="array"){
-                                    $def_operator="in";
-                                    $titem='';
-                                    foreach($item as $arItem){
-                                        $titem.=$arItem.',';
+                                if (gettype($item) == "array") {
+                                    $def_operator = "in";
+                                    $titem = '';
+                                    foreach ($item as $arItem) {
+                                        $titem .= $arItem . ',';
                                     }
-                                    $titem=substr($titem,0,-1);
-                                    $item='('.$titem.')';
-                                }else{
-                                 $item = "'" . htmlspecialchars($item) . "'";
+                                    $titem = substr($titem, 0, -1);
+                                    $item = '(' . $titem . ')';
+                                } else {
+                                    $item = "'" . htmlspecialchars($item) . "'";
                                 }
                             }
 
@@ -230,6 +238,193 @@ namespace SkeitOl {
     }
 
     $SketOl = new SkeiOl;
+
+    class Util{
+        public function getStrFileSize($size, $round=2)
+        {
+            $sizes = array('B', 'Kb', 'Mb', 'Gb', 'Tb', 'Pb', 'Eb', 'Zb', 'Yb');
+            for ($i=0; $size > 1024 && $i < count($sizes) - 1; $i++) $size /= 1024;
+            return round($size,$round)." ".$sizes[$i];
+        }
+        function getSymbolByQuantity($bytes) {
+            $symbols = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB');
+            $exp = floor(log($bytes)/log(1024));
+
+            return sprintf('%.2f '.$symbols[$exp], ($bytes/pow(1024, floor($exp))));
+        }
+        function getFilesSize($path)
+        {
+            $it = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS)
+            );
+
+            $size = 0;
+            foreach ($it as $fi) {
+                $size += $fi->getSize();
+            }
+            return $size;
+        }
+    }
+
+    class CPHPCache
+    {
+        private $time = null;
+        private $id = null;
+        private $dir = null;
+
+        private $fileName = null;
+        private $fullFileName = null;
+        private $dirName = null;
+
+        private $dirMode = 0755;
+        private $fileMD5Str = "file_cache";
+        private $dirSeparator = "/";
+
+        private $defaultDirCache = "/skeitol/cache/cphp/";
+
+        /**
+         * CCachePHP constructor.
+         */
+        public function __construct()
+        {
+        }
+
+        /**
+         * Если кэш валиден
+         */
+        public function InitCache($time, $id, $dir)
+        {
+            $res = false;
+            $this->time = $time;
+            $this->id = $id;
+            $this->dir = $dir;
+
+
+            $this->dirName = $this->getDocumentRoot() . $this->defaultDirCache . $dir;
+
+            if ($this->dirName[strlen($this->dirName) - 1] != $this->dirSeparator) $this->dirName .= $this->dirSeparator;
+
+            $this->fileName = md5($id.$time.$dir. $this->fileMD5Str);
+
+
+            $this->fullFileName = $this->dirName . $this->fileName;
+
+            //Есть ли директория
+            if (!file_exists($this->dirName)) {
+                return false;
+            }
+            //Есть ли файл
+            if (!file_exists($this->fullFileName)) {
+                return false;
+            }
+
+            //Есть ли данные
+            $handle = fopen($this->fullFileName, "r");
+            $s='';
+            while(!feof($handle)) {
+                $s= fgets($handle);
+            }
+            fclose($handle);
+
+            if(!empty($s)){
+                $data = @unserialize($s);
+                if ($data !== false) {
+                    if(!empty($data["timeDestroy"])){
+                        if($data["timeDestroy"]>time() && isset($data["data"])){
+                            return true;
+                        }
+                    }
+                }
+            }
+            return $res;
+        }
+
+        /**
+         * Извлечение переменных из кэша
+         */
+        public function GetVars()
+        {
+            $res=false;
+            //Есть ли файл
+            if (!file_exists($this->fullFileName)) {
+                return false;
+            }
+
+            //Есть ли данные
+            $handle = fopen($this->fullFileName, "r");
+            $s='';
+            while(!feof($handle)) {
+                $s= fgets($handle);
+            }
+            fclose($handle);
+
+            if(!empty($s)){
+                $data = @unserialize($s);
+                if ($data !== false) {
+                    if(isset($data["timeDestroy"]) && isset($data["data"])){
+                        return $data["data"];
+                    }
+
+                }
+            }
+            return $res;
+        }
+
+        /**
+         * кэш валиден
+         * @throws Exception
+         */
+        public function StartDataCache()
+        {
+            $res=true;
+
+            if (!file_exists($this->dirName)) {
+                if (!mkdir($this->dirName
+                    , $this->dirMode, true
+                )
+                ) {
+                    throw new Exception('Не удаётся создать папку в скешем');
+                }
+            }
+            //if (!file_exists($this->fullFileName))return false;
+
+
+            return $res;
+        }
+
+        public function EndDataCache($var)
+        {
+            if (isset($var)) {
+                $fp = fopen($this->fullFileName, "w");
+
+                $timeNow=time();
+                $destroeTime=$timeNow+$this->time;
+
+                $arRes=array("timeDestroy"=>$destroeTime,"data"=>$var);
+
+                $arRes=serialize($arRes);
+
+                // записываем в файл текст
+                fwrite($fp, $arRes);
+                // закрываем
+                fclose($fp);
+                unset($fp);
+
+            } else {
+                return false;
+            }
+        }
+
+        public function Destroy()
+        {
+
+        }
+
+        private function getDocumentRoot()
+        {
+            return $_SERVER["DOCUMENT_ROOT"];
+        }
+    }
 
 
     class DBArticles

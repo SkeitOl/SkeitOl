@@ -147,6 +147,7 @@ function Msg(m){
 				<li><a class="link" target="_blank" href="/admin/create_sitemap_xml.php" title="Генерация sitemap.xml">Генерация <span style="color:#000;">sitemap.xml</span></a></li>
 				<li><a  class="link" href="category.php">Категории[Статьи]</a></li>
 				<li><a class="link" href="/admin/sxd/">Sypex Dumper 2.0.11</a></li>
+				<li><a class="link" href="/admin/cache.php">Cache</a></li>
 			</ul>
 		</div>
 		 <div>

@@ -228,7 +228,6 @@ class Articles
 	?>
 	<div itemprop="articleBody"><?=$myrow['text']?></div>
     <meta itemprop='interactionCount' content='UserComments:<?=$row_count_comments[0]?>'/>
-
     <br><div class='author-view'><span itemprop='author'><?=$myrow['author']?></span></div><br/>
 	<?
 	/* Category */
