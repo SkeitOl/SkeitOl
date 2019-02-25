@@ -20,8 +20,8 @@ if (isset($id)) {
 				header("HTTP/1.0 404 Not Found"); 
 				header("HTTP/1.1 404 Not Found"); 
 				header("Status: 404 Not Found");
-				header("Location: http://skeitol.ru/error-pages/error404.htm");
-				die(); exit();
+				//header("Location: https://skeitol.ru/error-pages/error404.htm");
+				//die(); exit();
 			}
 			else{
 				$id=$myrow['id'];
@@ -59,8 +59,8 @@ if($_SESSION['view'][$id]!=1 && $_SESSION['view'][$id]!="1")
 	if(empty($sys_keywords))$sys_keywords="Articles SkeitOl, Статьи, Статьи SkeitOl,Статьи SkeitOl Soft";
 	$sys_pages="articles";
 	if(empty($sys_pages_print))$sys_pages_print="Статьи";
-	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v4" async></script><script 
-	src="https://www.google.com/recaptcha/api.js" async></script>';
+	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v5" async></script><script 
+	src="//www.google.com/recaptcha/api.js" async></script>';
 	include_once("blocks/head_optimize.php");
 ?>
 <body>

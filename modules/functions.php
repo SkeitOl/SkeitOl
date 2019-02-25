@@ -200,7 +200,7 @@ class Articles
         $cl= new \SkeitOl\Core();
 
 	echo"
-	<div itemscope='' itemtype='http://schema.org/Article'>
+	<div itemscope='' itemtype='https://schema.org/Article'>
 		<div class='title-con-block' ><span itemprop='name' itemprop='headline' >".$myrow['title']."</span></div>
 		<span style='display:none' itemprop='description'>".htmlspecialchars($myrow['description'])."</span>";
 		$photo_img=strip_tags($myrow['src_preview']);
