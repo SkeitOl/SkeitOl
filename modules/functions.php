@@ -259,6 +259,9 @@ class Articles
 	/* Navigaciya */
 	?>
 	</div>
+	<div class="text-center">
+		<a target="_new" href="https://timeweb.com/ru/?i=45228&a=168"><img style="border:0px;" src="https://wm.timeweb.ru/images/posters/600x60/600x60.jpg"></a>
+	</div>
 	<div class="con-block box-shadow2">
 		<div class='navig links'>
 			<?
