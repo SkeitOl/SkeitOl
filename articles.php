@@ -1,8 +1,10 @@
 <?php
-if (isset($_GET['id'])) {
-    $id = htmlspecialchars($_GET['id']);
-}
 include("blocks/bd.php");
+
+if (isset($_GET['id'])) {
+	$id = mysql_real_escape_string($_GET['id']);
+}
+
 include_once($_SERVER['DOCUMENT_ROOT']."/modules/functions.php");
 $article = new Articles();
 if (isset($id)) {
@@ -17,11 +19,14 @@ if (isset($id)) {
 			if ($myrow['id'] == ''){
 				unset($id);
 				/*выводим 404*/
-				header("HTTP/1.0 404 Not Found"); 
-				header("HTTP/1.1 404 Not Found"); 
+				header("HTTP/1.0 404 Not Found");
+				header("HTTP/1.1 404 Not Found");
 				header("Status: 404 Not Found");
 				//header("Location: https://skeitol.ru/error-pages/error404.htm");
 				//die(); exit();
+
+				echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/error-pages/error404.htm');
+				die();
 			}
 			else{
 				$id=$myrow['id'];
@@ -35,7 +40,7 @@ if (isset($id)) {
     	            exit();
             	}
 			}
-		} 
+		}
 		if ($myrow['id'] != ''){
 			$sys_title= ($myrow['meta_title'])?$myrow['meta_title']:strip_tags($myrow['title']);
 			if(!empty($myrow['meta_keywords']))$sys_keywords=strip_tags($myrow['meta_keywords']);
@@ -48,7 +53,7 @@ if (isset($id)) {
 session_start();
 if($_SESSION['view'][$id]!=1 && $_SESSION['view'][$id]!="1")
 {
-	$_SESSION['view'][$id]=1;	
+	$_SESSION['view'][$id]=1;
 	$result3 = mysql_query("UPDATE articles SET views=views+1 WHERE id='$id'", $db);
 }
 //include("blocks/func/func.php");
