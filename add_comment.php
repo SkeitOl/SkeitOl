@@ -4,9 +4,9 @@
 
 
 //if(isset($_POST['CAPTCHA']))
-$recaptcha = $_POST['g-recaptcha-response'];
-if (!$_POST && !empty($recaptcha)) {
-
+$recaptcha = $_REQUEST['g-recaptcha-response'];
+if (!empty($recaptcha)) {
+	
 	include("getCurlData.php");
 	$google_url = "https://www.google.com/recaptcha/api/siteverify";
 	$secret = '6LeaFBETAAAAANFgN9RxAb8-E5_nJjHd6A6wpJjD';
@@ -21,13 +21,13 @@ if (!$_POST && !empty($recaptcha)) {
 		<span class='text_error'>CAPTCHA введена не верно!</span>
 		<?
 	} else {
-
+		
 		//Ядро
 		if (!require $_SERVER['DOCUMENT_ROOT'] . '/skeitol/prolog_before.php') {
 			die('Error include core');
 		}
-
-
+		
+		
 		//Проверим корректность ввода
 		$name = htmlspecialchars($_POST['NICK']);
 		$nLengthName = mb_strlen($name);
@@ -37,7 +37,7 @@ if (!$_POST && !empty($recaptcha)) {
 		if (mb_strlen(strip_tags($name)) !== $nLengthName) {
 			die("<span class='text_error'>HTML теги запрещены!</span>");
 		}
-
+		
 		$text = $_POST['TEXT'];
 		$length = mb_strlen($text);
 		if ($length < 5) {
@@ -46,25 +46,25 @@ if (!$_POST && !empty($recaptcha)) {
 		if (mb_strlen(strip_tags($text)) !== $length) {
 			die("<span class='text_error'>HTML теги запрещены!</span>");
 		}
-
+		
 		$id_item = (int)$_POST['ITEM_ID'];
 		if ($id_item <= 0) {
 			die("<span class='text_error'>ID элемента пуст!</span>");
 		}
-
+		
 		$email = htmlspecialchars($_POST['EMAIL']);
 		if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			die("<span class='text_error'>Не корректный e-mail!</span>");
 		}
-
+		
 		$dt = date("Y-m-d H:i:s");
-
+		
 		//mysql_query("SET NAMES utf8");
 		header('Content-Type: text/html; charset= utf-8');
 		include_once("blocks/bd.php");
-
+		
 		$ip = $_SERVER['REMOTE_ADDR'];
-
+		
 		$sql = "INSERT INTO comments_articles (ID_ARTICLES,TEXT,NICK,EMAIL,DATE_TIME,APPROVED,IP) VALUES
 				  ('$id_item','" . mysql_real_escape_string($text) . "','" . mysql_real_escape_string($name) . "','$email','$dt','0','$ip')";
 		// echo$sql."<br>";
@@ -101,7 +101,7 @@ if (!$_POST && !empty($recaptcha)) {
 			echo "<span style='color:#ff0000;'>Ошибка отправление сообщения=(</span>";
 		}
 	}
-
+	
 } else {
 	echo "<span class='text_error'>Нет CAPTCHA!</span>";
 }

@@ -79,7 +79,7 @@
 		<a href="#" id="pull" style="margin: 0;" title="Раскрыть меню">Меню</a>
 		<ul class="clearfix">
 			<li><a href='/articles/' title="Статьи">Статьи</a></li>
-			<li><a href='http://timeweb.com/ru/services/hosting?utm_source=skeitol&utm_medium=timeweb&utm_campaign=timeweb-bring-a-friend' target="_blank" rel="nofollow" title="Хостинг для сайта">Хостинг для сайта</a></li>
+			<li><a href='https://timeweb.com/ru/services/hosting?utm_source=skeitol&utm_medium=timeweb&utm_campaign=timeweb-bring-a-friend' target="_blank" rel="nofollow" title="Хостинг для сайта">Хостинг для сайта</a></li>
 			<? /*<li><a href='/news/'
 title="Новости">Новости</a></li><li><a href='/program/' title="Программы">Программы</a></li>*/ ?>
 		</ul>

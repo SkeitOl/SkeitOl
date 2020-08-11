@@ -15,7 +15,9 @@ include("blocks/bd.php");?>
 	$sys_keywords="SkeitOl, SkeitOl Soft";
 	$sys_pages="pages";
 	$sys_special_head_text='';
-	include_once("blocks/head.php")?>
+	include_once("blocks/head.php")
+
+?>
 <body><?php
 			if(isset($id)){
 				echo'
@@ -30,16 +32,16 @@ include("blocks/bd.php");?>
 				<div class='con-block links box-shadow2'>";
 				echo"<div class='title-con-block'>".$myrow['title']."</div>
 					<div class='news-data'>".$myrow['date']."</div>";
-					echo"".$myrow['text'];				
+					echo"".$myrow['text'];
 				echo"</div>
 				</div>
-				<div class='right-con'>";				
+				<div class='right-con'>";
 				include("blocks/rightblock.php");
 				echo"</div>
 				</div>
 
 				</div>
-				</div>"; 
+				</div>";
 			}
 			else{
 				?>
@@ -70,8 +72,8 @@ include("blocks/bd.php");?>
 						</div>
 						<div class="row ">
 							<?
-							$result = mysql_query("SELECT * FROM articles WHERE active=1 ORDER BY date DESC LIMIT 0,3",$db);	  
-							$myrow=mysql_fetch_array($result);	
+							$result = mysql_query("SELECT * FROM articles WHERE active=1 ORDER BY date DESC LIMIT 0,3",$db);
+							$myrow=mysql_fetch_array($result);
 							do
 							{
 								if(!empty($myrow['url']))$url_page=$myrow['url'];else $url_page=$myrow['id'];
@@ -90,7 +92,7 @@ include("blocks/bd.php");?>
 								</div>
 								';
 							}
-							while($myrow=mysql_fetch_array($result));	
+							while($myrow=mysql_fetch_array($result));
 							?>
 						</div>
 						<div class="clear"></div>
@@ -104,15 +106,15 @@ include("blocks/bd.php");?>
 						</div>
 						<div class="row">
 							<?
-							$result = mysql_query("SELECT * FROM news WHERE active=1 ORDER BY date DESC LIMIT 0,3",$db);	  
-							$myrow=mysql_fetch_array($result);	
+							$result = mysql_query("SELECT * FROM news WHERE active=1 ORDER BY date DESC LIMIT 0,3",$db);
+							$myrow=mysql_fetch_array($result);
 							do
 							{
 								if(!empty($myrow['url']))$url_page=$myrow['url'];else $url_page=$myrow['id'];
 								echo'
 								<div class="col-sm-4 links-news wow slideInUp">
 									<div class="preview_block">
-										<a href="/news/'.$myrow['id'].'/">											
+										<a href="/news/'.$myrow['id'].'/">
 											<span class="photo_img" style="background-image: url('.strip_tags($myrow['src_preview']).')"></span>
 											<span class="title">'.strip_tags($myrow['title']).'</span>
 										</a>
@@ -123,7 +125,7 @@ include("blocks/bd.php");?>
 								</div>
 								';
 							}
-							while($myrow=mysql_fetch_array($result));	
+							while($myrow=mysql_fetch_array($result));
 							?>
 						</div>
 						<div class="clear"></div>

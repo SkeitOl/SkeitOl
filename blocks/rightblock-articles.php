@@ -1,8 +1,8 @@
 <? /*<div class='small-block'>
-	<div class='title-small-block'><a href="programm.php">Программы</a></div>	
-		<div class='pr'>		
+	<div class='title-small-block'><a href="programm.php">Программы</a></div>
+		<div class='pr'>
 			<noidex>
-			<ul>			
+			<ul>
 			<?php $result = mysql_query("SELECT id,title FROM programm ORDER BY id DESC LIMIT 0,3",$db);	  			$myrow=mysql_fetch_array($result);				do			{				printf("				<img src='/images/anim/%s.gif' alt='%s' widht=15px height=15px  align=left />				<li><a href='/program/%s/'>%s</a></li>",strtolower($myrow['title']),$myrow['title'],mb_strtolower($myrow['title']),$myrow['title']);			}			while($myrow=mysql_fetch_array($result))?>		</ul>
 			</noidex>
 		</div>
@@ -63,7 +63,7 @@
                 <?}
 
                 while ($row1 = mysql_fetch_array($result1));?>
-                <!-- 
+                <!--
                     
                     <a href='/articles/?category="<?=$row1['id']?>' title='<?=$row1['name']?>'><?=$row1['name']?></a> -->
             </div>
@@ -96,8 +96,8 @@
 	<noidex>
 		<ul class="list-right-blocks"><?php
 			$st = '';
-			if (isset($id)) {
-				$st = ' AND id<>' . $id;
+			if ($id !== false) {
+				$st = ' AND id<>\'' . $id.'\'';
 			}
 			$result = mysql_query("SELECT id,title,url FROM articles WHERE active=1 " . $st . " ORDER BY id DESC LIMIT 0,4", $db);
 			$myrow = mysql_fetch_array($result);
@@ -116,7 +116,6 @@
 		<div class="con_small_block">
 			<script type='text/javascript'>
 				function diplayShowHide(obj) {
-					console.log(obj);//.find('.category-view')
 					$(obj).parent().toggleClass('hide');
 				}
 			</script>
