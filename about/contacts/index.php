@@ -22,7 +22,7 @@
 				</div>
 				<div class="row ">
 					<style>
-					.social-links-f{background:#7E7E7E;padding: 4px;border-radius: 50%;}				
+					.social-links-f{background:#7E7E7E;padding: 4px;border-radius: 50%;}
 					.con_list{list-style-type:none;max-width:200px;margin:0 auto;}
 					.con_list li{display: block;float: left;width: 100%;margin: 8px;}
 					.con_list li:hover a{color:#EC7430}
@@ -36,10 +36,10 @@
 						<li><a href="mailto:info@skeitol.ru" target="_blank">
 							<span class="img_b"><img src="/images/email-32.png" class="social-links-f e-mail"></span>
 							<span class="text_n">info@skeitol.ru</span></a></li>
-						<li><a href="http://vk.com/skeitol" target="_blank"><span class="img_b">
+						<li><a href="https://vk.com/skeitol" target="_blank"><span class="img_b">
 							<img src="/images/vkontakte.png" class="social-links-f vk"></span>
 							<span class="text_n">Вконтакте</span></a></li>
-						<?/*<li><a href="http://www.facebook.com/skeit.ol" target="_blank">
+						<?/*<li><a href="https://www.facebook.com/skeit.ol" target="_blank">
 							<span class="img_b">
 								<img src="/images/f32.png" class="social-links-f facebook"></span>
 							<span class="text_n">Facebook</span></a></li>*/?>
@@ -50,7 +50,7 @@
 		</section>
 		</div>
 	</div>
-</div>	
+</div>
 	<?php include($_SERVER['DOCUMENT_ROOT']."/blocks/footer_new.php"); ?>
 </body>
 </html>

@@ -22,7 +22,7 @@
 				</div>
 				<div class="row ">
 					<style>
-					.social-links-f{background:#7E7E7E;padding: 4px;border-radius: 50%;}				
+					.social-links-f{background:#7E7E7E;padding: 4px;border-radius: 50%;}
 					.con_list{list-style-type:none;max-width:200px;margin:0 auto;}
 					.con_list li{display: block;float: left;width: 100%;margin: 8px;}
 					.con_list li:hover a{color:#EC7430}
@@ -40,13 +40,13 @@
 					<p>Если вам понравилась наша система - разместите на своем интернет-ресурсе ссылку на наш проект.</p>
 					<br>
 					<p><a href="/about/contacts/" alt="контакты skeitol" title="контакты skeitol" >Контакты</a></p>
-					<p><a href="http://skeitol.ru/pages/5/" alt="Условия использования информации skeitol" title="Условия использования информации skeitol">Условия использования информации</a></p>
+					<p><a href="https://skeitol.ru/pages/5/" alt="Условия использования информации skeitol" title="Условия использования информации skeitol">Условия использования информации</a></p>
 				</div>
 			</div>
 		</section>
 		</div>
 	</div>
-</div>	
+</div>
 	<?php include($_SERVER["DOCUMENT_ROOT"]."/blocks/footer_optimize.php"); ?>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
 /*Товары*/
 $products=array();
-$lines = file('http://prazdniksnab.com/Store.txt');
+$lines = file('https://prazdniksnab.com/Store.txt');
 foreach ($lines as $key => $value) {
 	$ar_product=explode('@', $value);
 
@@ -19,7 +19,7 @@ foreach ($lines as $key => $value) {
 
 
 /*Лиды*/
-$lines = file('http://prazdniksnab.com/leads.txt');
+$lines = file('https://prazdniksnab.com/leads.txt');
 $leads=array();
 $il=0;
 foreach ($lines as $key => $value) {
@@ -142,7 +142,7 @@ border-collapse: collapse;}
 		<?getLeadToday($leads);?>
 	</div>
 	
-		
+	
 	
 	<div id="air" style="width: 500px; height: 400px;"></div>
 </div>

@@ -78,7 +78,7 @@ $sys_special_head_text=@'
 			}
 			return false;
 		  }
-		});/*End блокировка Ctr+s*/	
+		});/*End блокировка Ctr+s*/
 	</script>
 	';
 include('blocks/head.php'); ?>
@@ -102,11 +102,11 @@ include('blocks/head.php'); ?>
 .users_cart input[type='text']:hover, .users_cart input[type='email']:hover {border: 1px solid #EADD36 !important;box-shadow: none !important;background: #fff;}
 
 #old_password:focus:invalid,.users_cart input[type='text']:focus:invalid, .users_cart input[type='email']:focus:invalid { /* when a field is considered invalid by the browser */
-background: #fff url('http://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/invalid.png') no-repeat 98% center;
+background: #fff url('https://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/invalid.png') no-repeat 98% center;
 box-shadow: 0 0 5px #d45252;border-color: #b03535;}
 
 .users_cart input[type='text']:required:valid, .users_cart input[type='text']:required:valid { /* when a field is considered valid by the browser */
-background: #fff url(http://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/valid.png) no-repeat 98% center;
+background: #fff url(https://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/valid.png) no-repeat 98% center;
 box-shadow: 0 0 2px #5CD053;border-color: #5CD053;}
 
 

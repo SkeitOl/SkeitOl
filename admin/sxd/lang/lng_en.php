@@ -4,7 +4,7 @@ $LNG = array(
 
 // Information about the language file
 'ver'				=> 20005, // Dumper version
-'translated'		=> 'zapimir (http://sypex.net/)', // Contacts
+'translated'		=> 'zapimir (https://sypex.net/)', // Contacts
 'name'				=> 'English', // Lang name
 
 // Toolbar

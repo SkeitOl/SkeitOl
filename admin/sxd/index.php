@@ -1,13 +1,13 @@
 <?php
 /***************************************************************************\
 | Sypex Dumper               version 2.0.11                                 |
-| (c) 2003-2011 zapimir      zapimir@zapimir.net       http://sypex.net/    |
+| (c) 2003-2011 zapimir      zapimir@zapimir.net       https://sypex.net/    |
 | (c) 2005-2011 BINOVATOR    info@sypex.net                                 |
 |---------------------------------------------------------------------------|
 |     created: 2003.09.02 19:07              modified: 2013.08.27 06:27     |
 |---------------------------------------------------------------------------|
 | Sypex Dumper is released under the terms of the BSD license               |
-|   http://sypex.net/bsd_license.txt                                        |
+|   https://sypex.net/bsd_license.txt                                        |
 \***************************************************************************/
 header("Expires: Wed, 19 Nov 2008 19:19:19 GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -20,7 +20,7 @@ register_shutdown_function('sxd_shutdown');
 $SXD = new Sypex_Dumper();
 chdir(dirname(__FILE__));
 $SXD->init(!empty($argc) && $argc > 1 ? $argv : false);
- 
+
 class Sypex_Dumper {
 	function Sypex_Dumper() {
 		define('C_DEFAULT', 1);
@@ -28,7 +28,7 @@ class Sypex_Dumper {
 		define('C_ERROR', 3);
 		define('C_WARNING', 4);
 		define('SXD_DEBUG', false);
-		define('TIMER', array_sum(explode(' ', microtime()))); 
+		define('TIMER', array_sum(explode(' ', microtime())));
 		define('V_SXD', 20011);
 		define('V_PHP', sxd_ver2int(phpversion()));
 		$this->name = 'Sypex Dumper 2.0.11';
@@ -188,9 +188,9 @@ class Sypex_Dumper {
 			define('V_MYSQL', sxd_ver2int(mysql_get_server_info()));
 		}
 		else {
-			define('V_MYSQL', 0); 
+			define('V_MYSQL', 0);
 			$this->error = "sxd.actions.tab_connects();alert(" . sxd_esc(mysql_error()) . ");";
-		}	
+		}
 		$this->try = false;
 		return V_MYSQL ? true: false;
 	}
@@ -201,7 +201,7 @@ class Sypex_Dumper {
 				array('backup', $this->LNG['tbar_backup'], 1, 3),
 				array('restore', $this->LNG['tbar_restore'], 2, 3),
 				array('|'),
-				array('files', $this->LNG['tbar_files'], 3, 1), 
+				array('files', $this->LNG['tbar_files'], 3, 1),
 				array('services', $this->LNG['tbar_services'], 5, 1),
 				array('|'),
 				array('createdb', $this->LNG['tbar_createdb'], 7, 0),
@@ -227,12 +227,12 @@ class Sypex_Dumper {
 		end($zip);
 		$zip[key($zip)] .=  " ({$this->LNG['zip_max']})";
 		$this->VAR['combos'] =
-			$this->addCombo('backup_db', $this->db, 11, 'db', array()/*$this->getDBList()*/) . 
+			$this->addCombo('backup_db', $this->db, 11, 'db', array()/*$this->getDBList()*/) .
 			$this->addCombo('backup_charset', 0, 9, 'charset', $this->getCharsetList()) .
 			$this->addCombo('backup_zip', 7, 10, 'zip', $zip) .
-			$this->addCombo('restore_db', $this->db, 11, 'db') . 
-			$this->addCombo('restore_charset', 0, 9, 'charset') . 
-			$this->addCombo('restore_file', 0, 12, 'files', $this->getFileList()) . 
+			$this->addCombo('restore_db', $this->db, 11, 'db') .
+			$this->addCombo('restore_charset', 0, 9, 'charset') .
+			$this->addCombo('restore_file', 0, 12, 'files', $this->getFileList()) .
 			$this->addCombo('restore_type', 0, 13, 'types', array("CREATE + INSERT ({$this->LNG['default']})", 'TRUNCATE + INSERT', 'REPLACE', 'INSERT IGNORE')) .
 			$this->addCombo('services_db', $this->db, 11, 'db') .
 			$this->addCombo('services_check', 0, 5, 'check', array("- {$this->LNG['default']} -", 'QUICK', 'FAST', 'CHANGED', 'MEDIUM', 'EXTENDED')) .
@@ -259,32 +259,32 @@ class Sypex_Dumper {
 			$req = $this->loadJob($req);
 		}
 		switch($req['act']){
-			case 'load_db': 
+			case 'load_db':
 				$res = $this->getObjects(str_replace('_db', '', $req['name']), $req['value']);
 				break;
-			case 'load_files': 
+			case 'load_files':
 				$res = $this->getFileObjects('restore', $req['value']);
 				break;
-			case 'filelist': 
+			case 'filelist':
 				$res = "sxd.clearOpt('files');sxd.addOpt(" . sxd_php2json(array('files' => $this->getFileList())) . ");";
 				break;
 			case 'dblist':
 				$res = "sxd.clearOpt('db');sxd.addOpt(" . sxd_php2json(array('db' => $this->getDBList())) . ");sxd.combos.restore_db.select(0,'-');sxd.combos.services_db.select(0,'-');sxd.combos.backup_db.select(0,'-');";
 				break;
 			case 'load_connect':
-				$CFG = $this->cfg2js($this->CFG); 
+				$CFG = $this->cfg2js($this->CFG);
 				$res = "z('con_host').value = '{$CFG['my_host']}', z('con_port').value = '{$CFG['my_port']}', z('con_user').value = '{$CFG['my_user']}',
 			z('con_pass').value = '', z('con_comp').checked = {$CFG['my_comp']}, z('con_db').value = '{$CFG['my_db']}', z('con_pass').changed = false;" ;
 				break;
-			case 'save_connect': 
+			case 'save_connect':
 				$res = $this->saveConnect($req);
 				break;
-			case 'save_job': 
+			case 'save_job':
 				unset($req['act']);
 				$this->saveJob('sj_' . $req['job'] , $req);
 				$res = $this->getSavedJobs();
 				break;
-			case 'add_db': 
+			case 'add_db':
 				$res = $this->addDb($req);
 				break;
 			case 'load_options':
@@ -292,7 +292,7 @@ class Sypex_Dumper {
 				$res = "z('time_web').value = '{$CFG['time_web']}', z('time_cron').value = '{$CFG['time_cron']}', z('backup_path').value = '{$CFG['backup_path']}',
 			z('backup_url').value = '{$CFG['backup_url']}', z('globstat').checked = {$CFG['globstat']}, z('charsets').value = '{$CFG['charsets']}', z('only_create').value = '{$CFG['only_create']}', z('auth').value = '{$CFG['auth']}', z('conf_import').checked = {$CFG['confirm']} & 1, z('conf_file').checked = {$CFG['confirm']} & 2, z('conf_db').checked = {$CFG['confirm']} & 4;sxd.confirms = {$this->CFG['confirm']};";
 				break;
-			case 'save_options': 
+			case 'save_options':
 				$res = $this->saveOptions($req);
 				break;
 			case 'delete_file':
@@ -305,26 +305,26 @@ class Sypex_Dumper {
 			case 'delete_db':
 				$res = $this->deleteDB($req['name']);
 				break;
-			case 'load_files_ext': 
+			case 'load_files_ext':
 				$res .= $this->getFileListExtended();
 				break;
-			case 'services': 
+			case 'services':
 				$this->runServices($req);
-				break;	
-			case 'backup': 
+				break;
+			case 'backup':
 				$this->addBackupJob($req);
 				break;
-			case 'restore': 
+			case 'restore':
 				$this->addRestoreJob($req);
 				break;
-			case 'resume': 
+			case 'resume':
 				$this->resumeJob($req);
 				break;
-			case 'exit': 
+			case 'exit':
 				setcookie('sxd', '', 0);
 				$res = "top.location.href = " . sxd_esc($this->CFG['exitURL']) . ";";
 				break;
-		}	
+		}
 		echo $res;
 	}
 	function loadJob($job){
@@ -435,7 +435,7 @@ class Sypex_Dumper {
 			if(!empty($obj[$type])){
 				foreach($obj[$type] AS $v){
 					if(strpos($v, '*') !== false) {
-						$filter[$type][] = str_replace('*', '.*?', $v); 
+						$filter[$type][] = str_replace('*', '.*?', $v);
 					}
 					else {
 						$object[$type][$v] = true;
@@ -447,12 +447,12 @@ class Sypex_Dumper {
 	}
 	function closeConnect(){
 		//return;
-		@ignore_user_abort(1); 
+		@ignore_user_abort(1);
 		header("SXD: {$this->name}");
 		$size = ob_get_length();
 //		@fastcgi_finish_request();
 		header("Content-Length: {$size}");
-		header("Connection: close"); 
+		header("Connection: close");
 		@ob_end_flush();
 		@flush();
 	}
@@ -465,7 +465,7 @@ class Sypex_Dumper {
 		$this->fh_log = fopen($this->JOB['file_log'], 'ab');
 		$t = fgets($this->fh_rtl);
 		if(!empty($t)){
-			$this->rtl = explode("\t", $t);	
+			$this->rtl = explode("\t", $t);
 		}
 		else {
 			$this->addLog($this->LNG['not_found_rtl']);
@@ -549,7 +549,7 @@ class Sypex_Dumper {
 			$this->fh_tmp = $this->openFile($this->JOB['file_tmp'], 'r');
 			fseek($this->fh_tmp, $this->rtl[3]);
 			if(!empty($this->rtl[6])) $this->setNames($this->JOB['correct'] == 1 && !empty($this->JOB['charset']) ? $this->JOB['charset'] : $this->rtl[6]);
-			if($this->rtl[7] < $this->rtl[10]) $ei = true; 
+			if($this->rtl[7] < $this->rtl[10]) $ei = true;
 		}
 		mysql_select_db($this->JOB['db']);
 		if(is_null($this->JOB['obj'])) $this->runRestoreJobForeign($continue);
@@ -590,7 +590,7 @@ class Sypex_Dumper {
 		$fields = '';
 		$time_old = time();
 		$exit_time = $time_old + $this->CFG['time_web'] - 1;
-		while($q = sxd_read_sql($this->fh_tmp, $seek, $ei)){	
+		while($q = sxd_read_sql($this->fh_tmp, $seek, $ei)){
 			if($time_old < time()) {
 				if(file_exists($this->JOB['file_stp'])){
 					$type = file_get_contents($this->JOB['file_stp']);
@@ -599,7 +599,7 @@ class Sypex_Dumper {
 					$this->rtl[1] = time();
 					fwrite($this->fh_rtl, implode("\t", $this->rtl));
 					/*if($type == 1) {
-						
+					
 					}*/
 					unset($this->rtl);
 					exit;
@@ -613,7 +613,7 @@ class Sypex_Dumper {
 					unset($this->rtl);
 					exit;
 				}
-				clearstatcache(); 
+				clearstatcache();
 			}
 			switch($q{0}){
 				case '(':
@@ -624,7 +624,7 @@ class Sypex_Dumper {
 					$q = $insert . $q;
 					$ex = 1;
 					$c = 1;
-					break;	
+					break;
 				case 'I':
 					if (preg_match('/^INSERT( INTO `(.+?)`) VALUES/', $q, $m)) {
 						$insert = $td . $m[1] . $fields . " VALUES \n";
@@ -634,7 +634,7 @@ class Sypex_Dumper {
 						foreach($this->JOB['todo']['TA'] AS $t){
 							if($t[1] == $tab) {
 								$this->rtl[8] = $t[2];
-							}	
+							}
 						}
 						if($this->JOB['strategy']) {
 							$q = substr_replace($q, $insert, 0, strlen($m[0]));
@@ -691,7 +691,7 @@ class Sypex_Dumper {
 					}
 					$ex = 0;
 					break;
-				default: 
+				default:
 					$insert = '';
 					$ex = 1;
 			}
@@ -779,7 +779,7 @@ class Sypex_Dumper {
 					$this->rtl[1] = time();
 					fwrite($this->fh_rtl, implode("\t", $this->rtl));
 					/*if($type == 1) {
-						
+					
 					}*/
 					unset($this->rtl);
 					exit;
@@ -793,7 +793,7 @@ class Sypex_Dumper {
 					unset($this->rtl);
 					exit;
 				}
-				clearstatcache(); 
+				clearstatcache();
 			}
 			do {
 				$repeat = false;
@@ -808,7 +808,7 @@ class Sypex_Dumper {
 						$q = $insert . $q;
 						$ex = 1;
 						$c = 1;
-						break;	
+						break;
 					case 'I':
 					
 						if (preg_match('/^(INSERT( INTO `?(.+?)`?).+?\sVALUES)/s', $q, $m)) {
@@ -852,7 +852,7 @@ class Sypex_Dumper {
 						}
 						else $ex = 1;
 					break;
-					default: 
+					default:
 						$insert = '';
 						$ex = 1;
 						$ei = 0;
@@ -970,7 +970,7 @@ class Sypex_Dumper {
 			$re = "/`{$this->JOB['db']}`.`(.+?)`/";
 			while($item = mysql_fetch_assoc($r)){
 				preg_match_all($re, preg_replace("/^select.+? from/i", '', $item['view_definition']), $m);
-				$used = $m[1];	
+				$used = $m[1];
 				$views_collation[$item['table_name']] = !empty($item['collation_connection']) ? $item['collation_connection'] : '';
 				$views[$item['table_name']] = $used;
 			}
@@ -979,7 +979,7 @@ class Sypex_Dumper {
 				foreach($views AS $n => $view) {
 					$can_dumped = true;
 					foreach($view AS $k) {
-						if (isset($views[$k]) && !isset($dumped[$k])) $can_dumped = false;	
+						if (isset($views[$k]) && !isset($dumped[$k])) $can_dumped = false;
 					}
 					if ($can_dumped) {
 						if(sxd_check($n, $object['VI'], $filter['VI'])){
@@ -1007,7 +1007,7 @@ class Sypex_Dumper {
 		$this->saveJob($this->JOB['job'], $this->JOB);
 		$fcache = implode('|', array('#SXD20', V_SXD, V_MYSQL, V_PHP, date('Y.m.d H:i:s'), $this->JOB['db'], $this->JOB['charset'], $tabs, $rows, sxd_esc($this->JOB['comment'], false))) . "\n";
 		foreach($header AS $t => $o){
-			if (!empty($o)) $fcache .= "#{$t} " . implode('|', $o) . "\n";	
+			if (!empty($o)) $fcache .= "#{$t} " . implode('|', $o) . "\n";
 		}
 		$this->fh_rtl = fopen($this->JOB['file_rtl'], 'wb');
 		$this->fh_log = fopen($this->JOB['file_log'], 'wb');
@@ -1034,7 +1034,7 @@ class Sypex_Dumper {
 		foreach($this->JOB['todo'] AS $t => $o){
 			if (empty($this->rtl[4])) $this->rtl[4] = $t;
 			elseif ($this->rtl[4] != $t) continue;
-			foreach($o AS $n){ 
+			foreach($o AS $n){
 				if (empty($this->rtl[5])) {
 					$this->rtl[5] = $n[1];
 					$this->rtl[7] = 0;
@@ -1044,7 +1044,7 @@ class Sypex_Dumper {
 				// Делаем бэкап
 				switch($n[0]){
 					case 'TC':
-					case 'TD': 				
+					case 'TD':
 					case 'TA':
 						$from = '';
 						if ($n[0] == 'TC' || $this->rtl[7] == 0){
@@ -1053,7 +1053,7 @@ class Sypex_Dumper {
 							$item = mysql_fetch_assoc($r);
 						    $fcache .= "#\tTC`{$n[1]}`{$n[2]}\t;\n{$item['Create Table']}\t;\n";
 						    $this->addLog(sprintf($this->LNG['backup_TC'], $n[1]));
-			            	$this->rtl[7] = 0; 
+			            	$this->rtl[7] = 0;
 						    if($n[0] == 'TC' || !$n[4]) break;
 						    // Бэкапим данные таблицы
 							$fcache .= "#\tTD`{$n[1]}`{$n[2]}\t;\nINSERT INTO `{$n[1]}` VALUES \n";
@@ -1068,7 +1068,7 @@ class Sypex_Dumper {
 			            $fields = 0;
 			            while($col = mysql_fetch_array($r)) {
 			            	// TODO: проверить типы SET, ENUM и BIT
-            				$notNum[$fields] = preg_match("/^(tinyint|smallint|mediumint|bigint|int|float|double|real|decimal|numeric|year)/", $col['Type']) ? 0 : 1; 
+            				$notNum[$fields] = preg_match("/^(tinyint|smallint|mediumint|bigint|int|float|double|real|decimal|numeric|year)/", $col['Type']) ? 0 : 1;
             				$fields++;
 			            }
 			            $time_old = time();
@@ -1084,7 +1084,7 @@ class Sypex_Dumper {
 										$this->rtl[9] = !empty($type) ? $type : 2;
 										$this->write($fcache);
 										if($type == 1) {
-											
+										
 										}
 										unset($this->rtl);
 										exit;
@@ -1096,16 +1096,16 @@ class Sypex_Dumper {
 										unset($this->rtl);
 										exit;
 									}
-									clearstatcache(); 
+									clearstatcache();
 								}
-								$this->write($fcache); 
+								$this->write($fcache);
 							}
 							for($k = 0; $k < $fields; $k++){
 								if(!isset($row[$k])) {$row[$k] = '\N';}
 								elseif($notNum[$k]) {$row[$k] =  '\'' . mysql_real_escape_string($row[$k]) . '\'';} // TODO: Потестить скорость эскэйпинга строк
 							}
 							$fcache .= '(' . implode(',', $row) . "),\n";
-							$this->rtl[7]++;  
+							$this->rtl[7]++;
 							$this->rtl[10]++;
 						}
 						unset($row);
@@ -1152,8 +1152,8 @@ class Sypex_Dumper {
             if ($dh = opendir($this->CFG['backup_path'])) {
                 $files = array();
                 $name = isset($this->JOB['title']) ? $this->JOB['job'] : $this->JOB['db'];
-                while (false !== ($file = readdir($dh))) { 
-                    if (preg_match("/^{$name}_(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})\.sql/", $file, $m)) { 
+                while (false !== ($file = readdir($dh))) {
+                    if (preg_match("/^{$name}_(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})\.sql/", $file, $m)) {
                         if ($deldate && $m[1] < $deldate) {
                             if(unlink($this->CFG['backup_path'] . $file)) $this->addLog(sprintf($this->LNG['del_by_date'], $file));
                             else  $this->addLog(sprintf($this->LNG['del_fail'], $file));
@@ -1168,7 +1168,7 @@ class Sypex_Dumper {
                     ksort($files);
                     $file_to_delete = count($files) - $this->JOB['del_count'];
                     foreach ($files AS $file){
-                        if ($file_to_delete-- > 0){ 
+                        if ($file_to_delete-- > 0){
                         	if(unlink($this->CFG['backup_path'] . $file)) $this->addLog(sprintf($this->LNG['del_by_count'], $file));
                             else  $this->addLog(sprintf($this->LNG['del_fail'], $file));
                             $deleted = true;
@@ -1186,7 +1186,7 @@ class Sypex_Dumper {
 		if($this->rtl[6] != $collation) {
 			mysql_query('SET NAMES \'' . preg_replace('/^(\w+?)_/', '\\1\' COLLATE \'\\1_', $collation) . '\'') or sxd_my_error();
 			/*if(!$this->rtl[7])*/ $this->addLog(sprintf($this->LNG['set_names'], $collation));
-			$this->rtl[6] = $collation;	
+			$this->rtl[6] = $collation;
 		}
 	}
 	function write(&$str){
@@ -1201,7 +1201,7 @@ class Sypex_Dumper {
 	}
 	function getDBList(){
 		$dbs = $items = array();
-        if (!V_MYSQL) return $dbs; 
+        if (!V_MYSQL) return $dbs;
         $qq = (V_MYSQL < 50000) ? '' : '\'';
 		if ($this->CFG['my_db']) {
 			$tmp = explode(',', $this->CFG['my_db']);
@@ -1217,7 +1217,7 @@ class Sypex_Dumper {
     			if($item[0] == 'information_schema' || $item[0] == 'mysql' || $item[0] == 'performance_schema') continue;
     			$items[] = $qq . sxd_esc($item[0], false) . $qq;
     			$dbs[$item[0]] = "{$item[0]} (0)";
-    		}	
+    		}
 		}
 		if(V_MYSQL < 50000){
 			foreach($items AS $item){
@@ -1240,13 +1240,13 @@ class Sypex_Dumper {
 	}
 	function getCharsetList(){
 		$tmp = array(0 => '- auto -');
-		if (!V_MYSQL) return $tmp; 
+		if (!V_MYSQL) return $tmp;
 		if(V_MYSQL > 40101) {
 			$def_charsets = '';
 			if(!empty($this->CFG['charsets'])){
 				$def_charsets = preg_match_all("/([\w*?]+)\s*/", $this->CFG['charsets'], $m, PREG_PATTERN_ORDER) ? '/^(' . str_replace(array('?','*'), array('.','\w+?'), implode('|', $m[1])) . ')$/i' : '';
 			}
-    		$r = mysql_query("SHOW CHARACTER SET") or sxd_my_error(); 
+    		$r = mysql_query("SHOW CHARACTER SET") or sxd_my_error();
     		if ($r) {
     			while($item = mysql_fetch_assoc($r)){
     	  			if (empty($def_charsets) || preg_match($def_charsets, $item['Charset'])) $tmp[$item['Charset']] = "{$item['Charset']}"; // ({$item['Description']})
@@ -1256,17 +1256,17 @@ class Sypex_Dumper {
 	    return $tmp;
 	}
 	function getCollationList(){
-		$tmp = array(); 
-		if (!V_MYSQL) return $tmp; 
+		$tmp = array();
+		if (!V_MYSQL) return $tmp;
 		if(V_MYSQL > 40101) {
 			$def_charsets = '';
 			if(!empty($this->CFG['charsets'])){
 				$def_charsets = preg_match_all("/([\w*?]+)\s*/", $this->CFG['charsets'], $m, PREG_PATTERN_ORDER) ? '/^(' . str_replace(array('?','*'), array('.','\w+?'), implode('|', $m[1])) . ')$/i' : '';
 			}
-    		$r = mysql_query("SHOW COLLATION") or sxd_my_error(); 
+    		$r = mysql_query("SHOW COLLATION") or sxd_my_error();
     		if ($r) {
     			while($item = mysql_fetch_assoc($r)){
-    	  			if (empty($def_charsets) || preg_match($def_charsets, $item['Charset'])) $tmp[$item['Charset']][$item['Collation']] = $item['Default'] == 'Yes' ? 1 : 0; 
+    	  			if (empty($def_charsets) || preg_match($def_charsets, $item['Charset'])) $tmp[$item['Charset']][$item['Collation']] = $item['Default'] == 'Yes' ? 1 : 0;
     			}
 			}
 		}
@@ -1285,12 +1285,12 @@ class Sypex_Dumper {
 				}
 				else{
 					$objects['TA'][] = array($item['Name'], $item['Rows'], $item['Data_length']);
-				} 
+				}
 			}
 			
 			if (V_MYSQL > 50014 && $tree != 'services') {
 				$shows = array(
-					"PROCEDURE STATUS WHERE db='{$db_name}'", 
+					"PROCEDURE STATUS WHERE db='{$db_name}'",
 					"FUNCTION STATUS WHERE db='{$db_name}'",
 					'TRIGGERS'
 				);
@@ -1302,7 +1302,7 @@ class Sypex_Dumper {
 						$col_name = $shows[$i] == 'TRIGGERS' ? 'Trigger' : 'Name';
 						$type = substr($shows[$i], 0, 2);
 						while($item = mysql_fetch_assoc($r)){
-							$objects[$type][] = $item[$col_name];	
+							$objects[$type][] = $item[$col_name];
 						}
 					}
 				}
@@ -1343,10 +1343,10 @@ class Sypex_Dumper {
 		$pid = $row = 1;
 		$info = array(
 			'TA' => array($this->LNG['obj_tables'], 1),
-			'VI' => array($this->LNG['obj_views'], 3), 
-			'PR' => array($this->LNG['obj_procs'], 5), 
-			'FU' => array($this->LNG['obj_funcs'], 7), 
-			'TR' => array($this->LNG['obj_trigs'], 9), 
+			'VI' => array($this->LNG['obj_views'], 3),
+			'PR' => array($this->LNG['obj_procs'], 5),
+			'FU' => array($this->LNG['obj_funcs'], 7),
+			'TR' => array($this->LNG['obj_trigs'], 9),
 			'EV' => array($this->LNG['obj_events'], 11)
 		);
 		// Находим таблицы с префиксами
@@ -1370,8 +1370,8 @@ class Sypex_Dumper {
 				foreach($o['*'] AS $value){
 					if(is_string($value)){
 						if(count($o[$value]) > 1)	{
-							$obj .= "[{$row},1,'{$value}*',1,1,{$open_childs}],";	
-							$pid = $row++; 
+							$obj .= "[{$row},1,'{$value}*',1,1,{$open_childs}],";
+							$pid = $row++;
 							for($i = 0, $l = count($o[$value]); $i < $l; $i++){
 								$checked = ($o[$value][$i][1] == '' && $o[$value][$i][2] == '') ? 2 : 1;
 								$obj .= "[{$row},{$pid}," . sxd_esc($o[$value][$i][0]) . ",2,{$checked},{$o[$value][$i][2]}],";
@@ -1379,14 +1379,14 @@ class Sypex_Dumper {
 							}
 						}
 						else {
-							$value = $o[$value][0];	
+							$value = $o[$value][0];
 						}
 					}
 					//$pid = 1;
 					if (is_array($value)){
 						$checked = ($value[1] == '' && $value[2] == '') ? 2 : 1;
 						$obj .= "[{$row},1,'{$value[0]}',2,{$checked},{$value[2]}],";
-						$row++;	
+						$row++;
 					}
 				}
 			}
@@ -1397,13 +1397,13 @@ class Sypex_Dumper {
 				for($i = 0, $l = count($o); $i < $l; $i++){
 					$o[$i] = sxd_esc($o[$i], false);
 					$obj .= "[{$row},{$pid},'{$o[$i]}',{$info[$type][1]},1,0],";
-					$row++;	
+					$row++;
 				}
-			} 
+			}
 		}
 		$add = '';
 		if($tree == 'restore') $add = "z('autoinc').disabled = z('restore_type').disabled = " . ($obj ? 'false' : 'true') . ";";
-		return ($obj ? 'sxd.tree.' . $tree . '.drawTree([' . substr_replace($obj, ']',  -1) . ");" : "sxd.tree.{$tree}.error(sxd.lng('err_sxd2'));") . $add;	
+		return ($obj ? 'sxd.tree.' . $tree . '.drawTree([' . substr_replace($obj, ']',  -1) . ");" : "sxd.tree.{$tree}.error(sxd.lng('err_sxd2'));") . $add;
 	}
 	function getFileList(){
 		$files = array();
@@ -1430,16 +1430,16 @@ class Sypex_Dumper {
             closedir($handle);
         }
         if(count($sj['sj_backup']) > 0){
-        	ksort($sj['sj_backup']);	
+        	ksort($sj['sj_backup']);
 		}
         else {
-        	$sj['sj_backup'] = array(0 => '<b>No Saved Jobs</b><br>' . $this->LNG['no_saved']);	
+        	$sj['sj_backup'] = array(0 => '<b>No Saved Jobs</b><br>' . $this->LNG['no_saved']);
 		}
 		if(count($sj['sj_restore']) > 0){
-        	ksort($sj['sj_restore']);	
+        	ksort($sj['sj_restore']);
 		}
         else {
-        	$sj['sj_restore'] = array(0 => '<b>No Saved Jobs</b><br>' . $this->LNG['no_saved']);	
+        	$sj['sj_restore'] = array(0 => '<b>No Saved Jobs</b><br>' . $this->LNG['no_saved']);
 		}
 		return "sxd.clearOpt('sj_backup');sxd.clearOpt('sj_restore');sxd.addOpt(" . sxd_php2json($sj) . ");";
 	}
@@ -1453,11 +1453,11 @@ class Sypex_Dumper {
                     $temp = fgets($fp);
                     if(preg_match('/^(#SXD20\|.+?)\n/s', $temp, $m)){
                     	$h = explode('|', $m[1]);
-                    	$files[] = array($h[5], substr($h[4], 0, -3), $ext, $h[7], number_format($h[8], 0, '', ' '), filesize($this->CFG['backup_path'] . $file), $h[9], $file);	
+                    	$files[] = array($h[5], substr($h[4], 0, -3), $ext, $h[7], number_format($h[8], 0, '', ' '), filesize($this->CFG['backup_path'] . $file), $h[9], $file);
 					}
 					elseif(preg_match('/^(#SKD101\|.+?)\n/s', $temp, $m)){
                     	$h = explode('|', $m[1]);
-                    	$files[] = array($h[1], substr($h[3], 0, -3), $ext, $h[2], number_format($h[4], 0, '', ' '), filesize($this->CFG['backup_path'] . $file), 'SXD 1.0.x', $file);	
+                    	$files[] = array($h[1], substr($h[3], 0, -3), $ext, $h[2], number_format($h[4], 0, '', ' '), filesize($this->CFG['backup_path'] . $file), 'SXD 1.0.x', $file);
 					}
 					else {
 						$files[] = array($file, '-', $ext, '-', '-', filesize($this->CFG['backup_path'] . $file), '', $file);
@@ -1483,7 +1483,7 @@ class Sypex_Dumper {
 			switch($this->JOB['zip']) {
 				case 0 : $this->JOB['file_ext'] = 'sql'; break;
 				case 10: $this->JOB['file_ext'] = 'sql.bz2'; break;
-				default: $this->JOB['file_ext'] = 'sql.gz'; break; 
+				default: $this->JOB['file_ext'] = 'sql.gz'; break;
 			}
 		}
 		switch ($this->JOB['file_ext']){
@@ -1527,7 +1527,7 @@ function sxd_read_sql($f, &$seek, $ei, $delimiter = "\t;", $eol = "\n"){
 				return $q;
 			}
 		}
-		$r = 0;	
+		$r = 0;
 	}
 	if (!empty($l)) {
 		return $l;
@@ -1542,7 +1542,7 @@ function sxd_php2json($obj){
 	$is_obj = isset($obj[0]) && isset($obj[count($obj) - 1]) ? false : true;
 	$str = $is_obj ? '{' : '[';
     foreach ($obj AS $key  => $value) {
-    	$str .= $is_obj ? "'" . addcslashes($key, "\n\r\t'\\/") . "'" . ':' : ''; 
+    	$str .= $is_obj ? "'" . addcslashes($key, "\n\r\t'\\/") . "'" . ':' : '';
         if     (is_array($value))   $str .= sxd_php2json($value);
         elseif (is_null($value))    $str .= 'null';
         elseif (is_bool($value))    $str .= $value ? 'true' : 'false';
@@ -1591,7 +1591,7 @@ function sxd_esc($str, $quoted = true){
 	return $quoted ? "'" . addcslashes($str, "\\\0\n\r\t\'") . "'" : addcslashes($str, "\\\0\n\r\t\'");
 }
 function sxd_my_error(){
-	trigger_error(mysql_error(), E_USER_ERROR);	
+	trigger_error(mysql_error(), E_USER_ERROR);
 }
 function sxd_shutdown(){
 	global $SXD;

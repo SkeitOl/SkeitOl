@@ -47,8 +47,8 @@ do
 
     $src=$myrow["src_preview"];
 
-    if(strpos($src,array("http:","https:"))===false){
-        $src='http://skeitol.ru'.$src;
+    if(strpos($src,array("https:","https:"))===false){
+        $src='https://skeitol.ru'.$src;
     }
 
     $obj=array(

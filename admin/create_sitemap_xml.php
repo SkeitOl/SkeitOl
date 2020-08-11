@@ -20,15 +20,15 @@ return $xmlStr;
 }
 $s_map = '<?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-	http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">'."\r\n";
+      xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
+	https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">'."\r\n";
  
 // указываем главную страницу сайта
 $site_url='';
 if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$site_url .= 'https://';
-else  $site_url .= 'http://';
+else  $site_url .= 'https://';
  //fix
    $site_url = 'https://';
   $site_url.= $_SERVER['SERVER_NAME'].'/';
@@ -50,17 +50,17 @@ function printXMLData($tp,$site_url, $db)
 	$num_result = mysql_num_rows($result);
 	$s_map .= '<!-- '.$tp.' -->'."\r\n";
 	$s_map .= '<url>'."\r\n";
-	$s_map .= '<loc>'.$site_url.$tp.'/</loc>'."\r\n";	
+	$s_map .= '<loc>'.$site_url.$tp.'/</loc>'."\r\n";
 	$s_map .= '<lastmod>'.(date_format(date_create($row['TIMESTAMP_X']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
 	$s_map .= '<changefreq>weekly</changefreq>'."\r\n";
 	$s_map .= '<priority>0.90</priority>'."\r\n";
 	$s_map .= '</url>'."\r\n";
 	for ($i=0;$i<$num_result;$i++)
-	{	
+	{
 		$row = mysql_fetch_array($result);
 		if(!empty($row['url']))$url_page=$row['url'].'/';else $url_page=$row['id'].'/';
 		$s_map .= '<url>'."\r\n";
-		$s_map .= '<loc>'.$site_url.$tp.'/'.$url_page.'</loc>'."\r\n";	
+		$s_map .= '<loc>'.$site_url.$tp.'/'.$url_page.'</loc>'."\r\n";
 		$s_map .= '<lastmod>'.(date_format(date_create($row['TIMESTAMP_X']), 'Y-m-d\TH:i:s+03:00')).'</lastmod>'."\r\n";
 		$s_map .= '<changefreq>weekly</changefreq>'."\r\n";
 		$s_map .= '<priority>0.50</priority>'."\r\n";

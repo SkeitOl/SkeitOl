@@ -101,7 +101,7 @@
 		}
 		
 		/** get the real position of the input (well, anything really) **/
-		//http://www.quirksmode.org/js/findpos.html
+		//https://www.quirksmode.org/js/findpos.html
 		function findPosition (obj) {
 			var curleft = curtop = 0;
 			if (obj.offsetParent) {
@@ -163,7 +163,7 @@
 			var startindex = d.getDay();
 			var numdays = monthlengths[m];
 			
-			// http://en.wikipedia.org/wiki/Leap_year
+			// https://en.wikipedia.org/wiki/Leap_year
 			if (1 == m && ((y%4 == 0 && y%100 != 0) || y%400 == 0)) numdays = 29;
 			
 			// test for end dates (instead of just a year range)

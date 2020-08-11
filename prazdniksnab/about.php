@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/prazdniksnab/"><i style="background: url('http://morozko5.ru/img/logotype.png') left center no-repeat;height: 40px;width: 40px;display: inline-block;background-size: 162px;"></i></a>
+            <a class="navbar-brand" href="/prazdniksnab/"><i style="background: url('https://morozko5.ru/img/logotype.png') left center no-repeat;height: 40px;width: 40px;display: inline-block;background-size: 162px;"></i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -57,7 +57,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/"><img id="bx_cart_block" src="http://prazdniksnab.com/img/shopping_cart.png" style="margin: -2px 0 0 21px;cursor: pointer; border: none; width: 32px; height: 32px;" title="Ваша корзина" alt="Ваша корзина"></a></li>
+                <li><a href="../navbar/"><img id="bx_cart_block" src="https://prazdniksnab.com/img/shopping_cart.png" style="margin: -2px 0 0 21px;cursor: pointer; border: none; width: 32px; height: 32px;" title="Ваша корзина" alt="Ваша корзина"></a></li>
                 <?/*<li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
                 <li><a href="../navbar-fixed-top/">Fixed top</a></li>*/?>
             </ul>
@@ -67,21 +67,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <a href="/prazdniksnab/"><img src="http://morozko5.ru/img/logotype.png" height="70px"></a>
+                <a href="/prazdniksnab/"><img src="https://morozko5.ru/img/logotype.png" height="70px"></a>
             </div>
             <div class="col-md-4">
                 <div class="hd-m-trust">
                     <ul>
                         <li>
-                            <img src="http://prazdniksnab.com/img/g1.png" alt="ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ">
+                            <img src="https://prazdniksnab.com/img/g1.png" alt="ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ">
                             <p>ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ</p>
                         </li>
                         <li>
-                            <img src="http://prazdniksnab.com/img/g2.png" alt="ДОСТАВКА ПО РФ и СНГ">
+                            <img src="https://prazdniksnab.com/img/g2.png" alt="ДОСТАВКА ПО РФ и СНГ">
                             <p>НАДЕЖНЫЙ ПАРТНЕР</p>
                         </li>
                         <li>
-                            <img src="http://prazdniksnab.com/img/g3.png" alt="ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК">
+                            <img src="https://prazdniksnab.com/img/g3.png" alt="ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК">
                             <p>ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК</p>
                         </li>
                     </ul>

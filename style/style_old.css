@@ -19,7 +19,7 @@ body {
 	height:100%;
     background: #ccc url('/images/bg.gif');
 	font:14px 'Calibri', 'Century Gothic';
-	font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif; 
+	font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;
 }
 a img {
     border: none; /* Убираем рамку */
@@ -30,7 +30,7 @@ h1 {color: #4A4949;margin: auto auto auto 10px;font-weight: 300;}
 	margin:0px auto;
 }
 #content {
-	line-height: 1.38461538; 
+	line-height: 1.38461538;
 	color: #333;
 }
     #footer .title {
@@ -42,11 +42,11 @@ h1 {color: #4A4949;margin: auto auto auto 10px;font-weight: 300;}
 .cen{
 	width:100%;
 	background: #474747;
-	background:url('http://www.tn3gallery.com/wp-content/themes/tn3_long/images/top/texture3.jpg');
+	background:url('https://www.tn3gallery.com/wp-content/themes/tn3_long/images/top/texture3.jpg');
 	float:left;
 }
 .left-con{
-	width:700px; 
+	width:700px;
 	float:left;
     margin: 0px auto;
 }
@@ -62,7 +62,7 @@ header, nav ul{margin: 0;padding: 0;}
 header {position: relative;background: #474747;color: #EEEE00;font-weight: 100;}
 .clearfix {*zoom: 1;}
 .clearfix:before,.clearfix:after {content: " ";display: table;}
-.clearfix:after {clear: both;}	
+.clearfix:after {clear: both;}
 nav {height: 30px;width: 100%;background: #474747;}
 nav ul {height: 30px;}
 nav li {display: inline;float: left;}
@@ -165,7 +165,7 @@ color: #006fae;}
     }
 .title_block{
 text-align:center;
-}	
+}
 .news-item {
     margin: 10px;
     border: 1px solid rgb(216,216,216);
@@ -344,7 +344,7 @@ background-color: #fff;
     margin: 20px 10px 20px 50px;
 }
 /*End programm page*/
-.con-block {    
+.con-block {
     background-color: #fff;
     margin-bottom: 10px;
     padding:10px;
@@ -543,7 +543,7 @@ img {
 				height: 100%;
 				float: left;
 				border-left: 3px #EE8B0C solid;
-				display: inline-block;  margin: 0 10px 2px 0;  line-height: 22px;  padding: 0 10px;  color: #333333;  
+				display: inline-block;  margin: 0 10px 2px 0;  line-height: 22px;  padding: 0 10px;  color: #333333;
 				 text-decoration: none;
 				}
 /*Category*/
@@ -586,7 +586,7 @@ visibility: hidden;
 a.wk_ext_link, .link-out{
 border-bottom: 1px dashed #A7B7C9;
 padding-right: 8px;
-background-image: url("http://st0.vk.me/images/wikiextarr.gif");
+background-image: url("https://st0.vk.me/images/wikiextarr.gif");
 background-repeat: no-repeat;
 background-position: right 4px;
 text-decoration:none;color: #006fae;
@@ -617,9 +617,9 @@ section{
 			float:left;
 			width: 100%;
 			color: #7D7D7D;
-			
+
 		}
-		
+
 		.container {
 		padding-right: 15px;
 		padding-left: 15px;
@@ -636,7 +636,7 @@ section{
 		.col-lg-12 {
 			width: 100%;
 		}
-		
+
 		.navy-line {
 		width: 60px;
 		height: 1px;
@@ -652,7 +652,7 @@ section{
 		font-weight: 200;
 		color: #676a6c;
 		}
-		
+
 		.text-center{
 			text-align:center;
 		}
@@ -690,7 +690,7 @@ background: none;
 }
 .clear{
 	clear:both;
-	
+
 }
 	.col-sm-4 {
 width: 31%;

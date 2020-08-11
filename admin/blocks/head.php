@@ -9,7 +9,7 @@
 	<link rel="Stylesheet" type="text/css" href="style.css?005" />
 	<link rel="Stylesheet" type="text/css" href="/admin/css/font-awesome.min.css" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>/favicon.ico?001" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?echo "https://".$_SERVER['HTTP_HOST']."/";?>/favicon.ico?001" type="image/x-icon" />
 
 	<!--<script src="script/jquery-1.8.3.js"></script>-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -120,7 +120,7 @@ class DBArticles
 
 
 				?>
-				<div class='news-item' itemscope itemtype='http://schema.org/Article'>
+				<div class='news-item' itemscope itemtype='https://schema.org/Article'>
 					<div class="left_con">
 						<? $photo_img = strip_tags($item['src_preview']);
 						if (empty($photo_img)) $photo_img = "/images/favicon/apple-touch-icon-114x114.png"; ?>

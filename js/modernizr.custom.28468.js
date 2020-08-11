@@ -1,5 +1,5 @@
 /* Modernizr 2.5.3 (Custom Build) | MIT & BSD
- * Build: http://www.modernizr.com/download/#-cssanimations-csstransitions-shiv-cssclasses-testprop-testallprops-domprefixes-load
+ * Build: https://www.modernizr.com/download/#-cssanimations-csstransitions-shiv-cssclasses-testprop-testallprops-domprefixes-load
  */
 ; window.Modernizr = function (a, b, c)
 {
