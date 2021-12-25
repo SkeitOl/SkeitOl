@@ -5,11 +5,11 @@
  include("blocks/func/func.php"); ?>
 <!DOCTYPE html>
 <html>
-    <head> 
+    <head>
        <title>
- 		<?php 
+ 		<?php
          if(isset($id)){
-			$result = mysql_query("SELECT id,title,text,date FROM serials WHERE id=$id",$db);	  
+			$result = mysql_query("SELECT id,title,text,date FROM serials WHERE id=$id",$db);
             $myrow=mysql_fetch_array($result);
 			if($myrow['id']==''){unset($id);echo"Сериалы";}
 			else echo strip_tags($myrow['title']);}
@@ -18,8 +18,8 @@
         <link rel="stylesheet" type="text/css" href="style/style.css" />
         <link rel="SHORTCUT ICON" href="images/S.ico">
 		<meta charset="utf-8">
-		<!--[if lt IE 9]> 
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
+		<!--[if lt IE 9]>
+		<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
         <!-- Plagin view image -->
 		<script src="js/jquery-1.7.2.min.js"></script>
@@ -33,7 +33,7 @@
         <div class='left-con'>
 			<div class="div-hierarchy box-shadow2 links"><a href="index.php" title="Главная">Главная</a> → <a href="news.php" title="Новости">Сериалы</a></div>
 			<div class='con-block box-shadow2'>
-			<?php 
+			<?php
 			if(!isset($id))//Выводит список news
 			{
 				echo"<center><div class='title-small-block'>Сериалы</div> </center>";
@@ -51,7 +51,7 @@
 					}
 				}
 				$result = mysql_query("SELECT id,title,description,date FROM serials ORDER
-				BY id DESC LIMIT $startI,$endI",$db);	  
+				BY id DESC LIMIT $startI,$endI",$db);
 				$myrow=mysql_fetch_array($result);
 				$i=1;
 				do
@@ -63,13 +63,13 @@
 						<div class='news-main'>
 							<div class='news-text'>%s</div>
                                                 <div class='clear'></div>
-						</div>              
+						</div>
 					</div></a>",$myrow['id'],$myrow['title'],$myrow['date'],$myrow['description']);
 					$i++;
 				}
 				while($i<=$step && $myrow=mysql_fetch_array($result));
 				//
-				$result = mysql_query("SELECT COUNT(*) as count FROM serials",$db);	  
+				$result = mysql_query("SELECT COUNT(*) as count FROM serials",$db);
 				$row=mysql_fetch_array($result);
 				if($row['count']>$step)//"Записей больше".$step;
 				{
@@ -88,9 +88,9 @@
 									echo"<span class='no-link'>".($i)."</span>";
 							if($list==$n)echo"<span class='no-link'>></span>";
 							else echo"<a href=serials.php?list=".($list+1).">></a>";
-						echo"</span>";				
+						echo"</span>";
 					echo"</div>";
-				}		
+				}
 			}
 			else //Выводит данные
 			{
@@ -99,11 +99,11 @@
 				//echo"<div style='margin: 15px;'>";
 				echo"".$myrow['text'];
 				//echo" </div>";
-			}?> 
+			}?>
         </div>
         </div>
 		<div class='right-con'>
-			<?php include("blocks/rightblock.php");?>		
+			<?php include("blocks/rightblock.php");?>
 		</div>
 	</div>
     <?php include("blocks/footer.php"); ?>

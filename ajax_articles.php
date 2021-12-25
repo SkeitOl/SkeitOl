@@ -45,7 +45,7 @@ function PrintArticlesItem($myrow,$db){
 			$result1 = mysql_query("SELECT * FROM category WHERE id='$array1[$i]'",$db);
 			$row1 = mysql_fetch_array($result1);
 			$category_string.=$row1['name'].', ';
-			//if($i<count($array1)-1)echo ", ";									
+			//if($i<count($array1)-1)echo ", ";
 		}
 		$category_string=substr($category_string,0,-2);
 		$category_string.="</p></div>";
@@ -55,7 +55,7 @@ function PrintArticlesItem($myrow,$db){
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
 		$st_date= strftime('%d %h %Y %I:%M', strtotime($myrow['date']));
 		//date_format(date_create($myrow['date']), 'd-M-Y H:i')
-		?><a class='news-item-link' href='/articles/<?=$url_page?>/' itemscope itemtype='http://schema.org/Article'>
+		?><a class='news-item-link' href='/articles/<?=$url_page?>/' itemscope itemtype='https://schema.org/Article'>
 			<div class='news-item'>
 				<div class="left_con">
 					<? $photo_img=strip_tags($myrow['src_preview']);
@@ -63,7 +63,7 @@ function PrintArticlesItem($myrow,$db){
 					<span class="photo_img" style="background-image: url('<?=$photo_img?>')"></span>
 				</div>
 				<div class="right_con">
-					<div class='news-title'  itemprop='name'><?=$myrow['title']?></div>											
+					<div class='news-title'  itemprop='name'><?=$myrow['title']?></div>
 					<div>
 						<div class='news-data'><?=$st_date?><div class='view_block'><?=$myrow['views']?></div></div>
 						
@@ -84,7 +84,7 @@ $endI = $step - 1;
 if (isset($list)) {
 	if ($list <= 0) {
 		echo"Нет такой страницы!!!<br>Вывод первой страницы";
-	} 
+	}
 	else {
 		$startI = ($list - 1) * $step;
 		$endI = $startI + $step;

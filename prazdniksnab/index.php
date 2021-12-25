@@ -45,21 +45,21 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <a href="/prazdniksnab/"><img src="http://morozko5.ru/img/logotype.png" height="70px"></a>
+                    <a href="/prazdniksnab/"><img src="https://morozko5.ru/img/logotype.png" height="70px"></a>
                 </div>
                 <div class="col-md-4">
                     <div class="hd-m-trust">
                         <ul>
                             <li>
-                                <img src="http://prazdniksnab.com/img/g1.png" alt="ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ">
+                                <img src="https://prazdniksnab.com/img/g1.png" alt="ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ">
                                 <p>ВЫСОКОЕ КАЧЕСТВО ТОВАРОВ</p>
                             </li>
                             <li>
-                                <img src="http://prazdniksnab.com/img/g2.png" alt="ДОСТАВКА ПО РФ и СНГ">
+                                <img src="https://prazdniksnab.com/img/g2.png" alt="ДОСТАВКА ПО РФ и СНГ">
                                 <p>НАДЕЖНЫЙ ПАРТНЕР</p>
                             </li>
                             <li>
-                                <img src="http://prazdniksnab.com/img/g3.png" alt="ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК">
+                                <img src="https://prazdniksnab.com/img/g3.png" alt="ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК">
                                 <p>ОБУЧАЮЩИЕ КУРСЫ В ПОДАРОК</p>
                             </li>
                         </ul>

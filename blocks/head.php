@@ -1,7 +1,7 @@
 <?function request_url()
 {
   $result = ''; // Пока результат пуст
-  if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$result .= 'https://'; else $result .= 'http://';
+  if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$result .= 'https://'; else $result .= 'https://';
   // Имя сервера, напр. site.com или www.site.com
   $result .= $_SERVER['SERVER_NAME'];
   // Последняя часть запроса (путь и GET-параметры).

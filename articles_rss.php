@@ -8,7 +8,7 @@ echo <<<END
 <rss version="2.0">
 <channel>
     <title>skeitol.ru RSSFeed</title>
-    <link>http://skeitol.ru</link>
+    <link>https://skeitol.ru</link>
     <description>SkeitOl - cтатьи по программированию, созданию сайтов и многое другое</description>
 END;
 
@@ -30,8 +30,8 @@ if ($result = $mysqli->query('SELECT id,url,title,description,date FROM articles
      ?><item>
         <title><?=strip_tags($row['title'])?></title>
         <description><![CDATA[<?=strip_tags($row['description'])?>]]></description>
-        <link>http://skeitol.ru<?=$url_articles?></link>
-        <guid isPermaLink="true">http://skeitol.ru<?=$url_articles?></guid>
+        <link>https://skeitol.ru<?=$url_articles?></link>
+        <guid isPermaLink="true">https://skeitol.ru<?=$url_articles?></guid>
         <pubDate><?=date(DATE_FORMAT_RFC822,$row['date'])?></pubDate>
     </item><?
     }

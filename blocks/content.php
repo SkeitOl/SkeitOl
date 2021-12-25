@@ -134,9 +134,9 @@
                                     Адресс: г.Чебоксары, ул. Поселковая
                                 </p>
                                 <p class='title-footer-block' style='margin: -9px auto;'>
-                                    Соц. сети: <a href="http://vk.com/id16340049" target="_blank">
+                                    Соц. сети: <a href="https://vk.com/id16340049" target="_blank">
                                         <img src="images/vk.png" />
-                                    </a><a href="http://www.facebook.com/skeit.ol" target="_blank">
+                                    </a><a href="https://www.facebook.com/skeit.ol" target="_blank">
                                         <img src="images/fb.png" />
                                     </a>
                                 </p>

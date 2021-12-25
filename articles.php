@@ -2,7 +2,10 @@
 include("blocks/bd.php");
 
 $id = false;
+<<<<<<< HEAD
 $realId = 0;
+=======
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 
 if (isset($_GET['id'])) {
 	$id = mysql_real_escape_string($_GET['id']);
@@ -37,7 +40,11 @@ if ($id !== false) {
 			}
 		}
 		if ($myrow['id'] != ''){
+<<<<<<< HEAD
 			$realId=(int)$myrow['id'];
+=======
+			
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 			/*UPD 2016.02.24*/
 			/*UPD 2016.03.26 add specail  TIMESTAMP_X*/
 			$lastModified = strtotime($myrow['TIMESTAMP_X']);
@@ -63,8 +70,13 @@ session_start();
 
 if($realId>0 && !$_SESSION['view'][$realId])
 {
+<<<<<<< HEAD
 	$_SESSION['view'][$realId]=1;
 	$result3 = mysql_query("UPDATE articles SET views=views+1 WHERE id='$realId'", $db);
+=======
+	$_SESSION['view'][$id]=1;
+	$result3 = mysql_query("UPDATE articles SET views=views+1 WHERE id='$id'", $db);
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 }
 //include("blocks/func/func.php");
 ?><!DOCTYPE html>
@@ -74,7 +86,11 @@ if($realId>0 && !$_SESSION['view'][$realId])
 	if(empty($sys_keywords))$sys_keywords="Articles SkeitOl, Статьи, Статьи SkeitOl,Статьи SkeitOl Soft";
 	$sys_pages="articles";
 	if(empty($sys_pages_print))$sys_pages_print="Статьи";
+<<<<<<< HEAD
 	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v6" async></script><script
+=======
+	$sys_special_footer_text.='<script type="text/javascript" src="/js/articles.js?v5" async></script><script
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 	src="//www.google.com/recaptcha/api.js" async></script>';
 	include_once("blocks/head_optimize.php");
 ?>
@@ -88,7 +104,11 @@ if($realId>0 && !$_SESSION['view'][$realId])
 				<div class="left-con-block">
 					<div class='con-block' <?if (!isset($id)):?>style="background:none"<?endif;?> id="con_block_item">
 						<?php
+<<<<<<< HEAD
 						if ($realId===0)
+=======
+						if ($id === false)
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 						{
 							//Выводит список
 							$article->showArticlesList($myrow, $db);

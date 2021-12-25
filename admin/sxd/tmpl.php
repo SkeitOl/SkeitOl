@@ -3,7 +3,7 @@
 function sxd_tpl_page(){
 global $SXD;
 return <<<HTML
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -68,7 +68,7 @@ return <<<HTML
 		<table cellspacing="0" id="tab_log" style="display:none;">
 			<tr>
 				<td valign="top" colspan=2>
-					<div id=sxdGrid1></div> 
+					<div id=sxdGrid1></div>
 				</td>
 			</tr>
 			<tr><td colspan=2>
@@ -88,7 +88,7 @@ return <<<HTML
 		<table cellspacing="0" id="tab_result" style="display:none;">
 			<tr>
 				<td valign="top">
-					<div id=sxdGrid3></div> 
+					<div id=sxdGrid3></div>
 				</td>
 			</tr>
 			<tr><td>
@@ -99,7 +99,7 @@ return <<<HTML
 		<table cellspacing="0" id="tab_files" style="display:none;">
 			<tr>
 				<td valign="top" colspan=2>
-					<div id=sxdGrid2></div> 
+					<div id=sxdGrid2></div>
 				</td>
 			</tr>
 			<tr><td width="242"><form id="save_file" method="GET" style="visibility:hidden;display:inline;" target=save></form><input type="button" value="{$SXD->LNG['btn_delete']}" onclick="sxd.runFiles('delete')"></td><td width="290" align="right">
@@ -282,7 +282,7 @@ return <<<HTML
 <script type="text/javascript">
 sxd.init();
 sxd.backupUrl = '{$SXD->CFG['backup_url']}';
-sxd.tbar.init('sxdToolbar', {$SXD->VAR['toolbar']}); 
+sxd.tbar.init('sxdToolbar', {$SXD->VAR['toolbar']});
 {$SXD->VAR['combos']}
 sxd.actions.tab_backup();
 </script>
@@ -294,7 +294,7 @@ HTML;
 function sxd_tpl_auth($error = ''){
 global $SXD;
 return <<<HTML
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -304,7 +304,7 @@ return <<<HTML
 </head>
 <body>
 <div class="dialog" id="dia_auth">
-	<div class="header"><a href="http://sypex.net/">{$SXD->name}</a></div>
+	<div class="header"><a href="https://sypex.net/">{$SXD->name}</a></div>
 	<div class="content" id="div_1" style="line-height:50px;text-align:center;">{$SXD->LNG['js_required']}</div>
 	<div class="content" id="div_2" style="display:none;">
 		<form method="post">

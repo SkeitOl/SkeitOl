@@ -1,12 +1,12 @@
 /**
  * main.js
- * http://www.codrops.com
+ * https://www.codrops.com
  *
  * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
+ * https://www.opensource.org/licenses/mit-license.php
+ *
  * Copyright 2015, Codrops
- * http://www.codrops.com
+ * https://www.codrops.com
  */
 (function() {
 
@@ -46,7 +46,7 @@
 
 	/**
 	 * gets the viewport width and height
-	 * based on http://responsejs.com/labs/dimensions/
+	 * based on https://responsejs.com/labs/dimensions/
 	 */
 	function getViewport( axis ) {
 		var client, inner;
@@ -58,7 +58,7 @@
 			client = docElem['clientHeight'];
 			inner = window['innerHeight'];
 		}
-		
+
 		return client < inner ? inner : client;
 	}
 	function scrollX() { return window.pageXOffset || docElem.scrollLeft; }
@@ -110,7 +110,7 @@
 		// hamburger menu button (mobile) and close cross
 		menuCtrl.addEventListener('click', function() {
 			if( !classie.has(sidebarEl, 'sidebar--open') ) {
-				classie.add(sidebarEl, 'sidebar--open');	
+				classie.add(sidebarEl, 'sidebar--open');
 			}
 		});
 
@@ -122,7 +122,7 @@
 	}
 
 	function loadContent(item) {
-		// add expanding element/placeholder 
+		// add expanding element/placeholder
 		var dummy = document.createElement('div');
 		dummy.className = 'placeholder';
 
@@ -130,12 +130,12 @@
 		dummy.style.WebkitTransform = 'translate3d(' + (item.offsetLeft - 5) + 'px, ' + (item.offsetTop - 5) + 'px, 0px) scale3d(' + item.offsetWidth/gridItemsContainer.offsetWidth + ',' + item.offsetHeight/getViewport('y') + ',1)';
 		dummy.style.transform = 'translate3d(' + (item.offsetLeft - 5) + 'px, ' + (item.offsetTop - 5) + 'px, 0px) scale3d(' + item.offsetWidth/gridItemsContainer.offsetWidth + ',' + item.offsetHeight/getViewport('y') + ',1)';
 
-		// add transition class 
+		// add transition class
 		classie.add(dummy, 'placeholder--trans-in');
 
 		// insert it after all the grid items
 		gridItemsContainer.appendChild(dummy);
-		
+
 		// body overlay
 		classie.add(bodyEl, 'view-single');
 
@@ -148,7 +148,7 @@
 		}, 25);
 
 		onEndTransition(dummy, function() {
-			// add transition class 
+			// add transition class
 			classie.remove(dummy, 'placeholder--trans-in');
 			classie.add(dummy, 'placeholder--trans-out');
 			// position the content container
@@ -191,7 +191,7 @@
 				lockScroll = false;
 				window.removeEventListener( 'scroll', noscroll );
 			});
-			
+
 			// reset current
 			current = -1;
 		}, 25);

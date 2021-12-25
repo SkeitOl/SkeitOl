@@ -22,7 +22,7 @@ if (!function_exists('password_verify')){
 if(isset($_GET['exit'])){
 	header("HTTP/1.0 401 Unauthorized");
 	echo"<a href='../'>На главную</a>";
-	//header("Location: http://skeitol.ru");
+	//header("Location: https://skeitol.ru");
 	exit();
 }
 else{

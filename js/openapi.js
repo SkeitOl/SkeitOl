@@ -109,7 +109,7 @@ function applyMethod(strData, self) {
 // XDM object
 w.fastXDM = {
   _id: 0,
-  helperUrl: ((location.protocol === 'https:') ? 'https:' : 'http:') + '//vk.com/js/api/xdmHelper.js',
+  helperUrl: ((location.protocol === 'https:') ? 'https:' : 'https:') + '//vk.com/js/api/xdmHelper.js',
 
   Server: function(methods, filter, options) {
     this.methods = methods || {};
@@ -321,7 +321,7 @@ if(!VK.MD5){VK.MD5=function(n){var j=function(o,r){var q=(o&65535)+(r&65535),p=(
 
 /*
  * VKontakte Open API JavaScript library
- * http://vk.com/
+ * https://vk.com/
  */
 
 VK.extend = function(target, source, overwrite) {
@@ -334,7 +334,7 @@ VK.extend = function(target, source, overwrite) {
 };
 
 if (VK._protocol !== 'https:') {
-  VK._protocol = ((location.protocol === 'https:') ? 'https:' : 'http:');
+  VK._protocol = ((location.protocol === 'https:') ? 'https:' : 'https:');
 }
 
 if (!VK.xdConnectionCallbacks) {

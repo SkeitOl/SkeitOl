@@ -2,7 +2,7 @@
 header('Content-Type: text/html; charset= utf-8');
 include("blocks/bd.php");
 include("blocks/func/func.php"); ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Обратная связь</title>
@@ -58,7 +58,7 @@ include("blocks/func/func.php"); ?>
 				$("#myForm").submit(function () {
 				return false;
 				});
-			</script>			
+			</script>
 		</div>
 	</div>
 	<div class='right-con'>

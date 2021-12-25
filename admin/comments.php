@@ -6,7 +6,7 @@ if (!empty($_POST)) {
     if (!empty($_POST['delete'])) {
         $ID_ITEMS = ($_POST['ID']);
         if (count($ID_ITEMS) <= 0) {
-            header("Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
+            header("Location: https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
             die();
         }
         foreach ($ID_ITEMS as $key => $value) {
@@ -14,7 +14,7 @@ if (!empty($_POST)) {
         }
         if (!$result) echo "Не удалось удалить. " . mysql_error();
         else {
-            header("Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
+            header("Location: https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
             die();
         }
     }
@@ -22,7 +22,7 @@ if (!empty($_POST)) {
     if (!empty($_POST['CHANGE_APPROVED_TRUE'])) {
         $ID_ITEMS = ($_POST['ID']);
         if (count($ID_ITEMS) <= 0) {
-            header("Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
+            header("Location: https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
             die();
         }
         foreach ($ID_ITEMS as $key => $value) {
@@ -30,7 +30,7 @@ if (!empty($_POST)) {
         }
         if (!$result) echo "Не удалось одобрить записи. " . mysql_error();
         else {
-            header("Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
+            header("Location: https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/comments.php");
             die();
         }
     }
@@ -188,13 +188,13 @@ include('blocks/head.php'); ?>
         }
 
         #old_password:focus:invalid, .users_cart input[type='text']:focus:invalid, .users_cart input[type='email']:focus:invalid {
-            background: #fff url('http://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/invalid.png') no-repeat 98% center;
+            background: #fff url('https://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/invalid.png') no-repeat 98% center;
             box-shadow: 0 0 5px #d45252;
             border-color: #b03535;
         }
 
         .users_cart input[type='text']:required:valid, .users_cart input[type='text']:required:valid {
-            background: #fff url(http://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/valid.png) no-repeat 98% center;
+            background: #fff url(https://webdesigntutsplus.s3.amazonaws.com/tuts/214_html5_form_validation/demo/images/valid.png) no-repeat 98% center;
             box-shadow: 0 0 2px #5CD053;
             border-color: #5CD053;
         }

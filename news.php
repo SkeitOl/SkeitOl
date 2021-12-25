@@ -1,9 +1,9 @@
-<?php 
+<?php
 //header('Content-Type: text/html; charset= utf-8');
  if(isset($_GET['list']))$list=$_GET['list'];else $list=1;
  if(isset($_GET['id'])){$id=$_GET['id'];}if($id=='') unset($id);
  include("blocks/bd.php");
- include("blocks/func/func.php"); 
+ include("blocks/func/func.php");
 
  $sys_description="Новости и информационные ресурсы SkeitOl";
 	$sys_keywords="News SkeitOl, Новости, Новости SkeitOl, Новости SkeitOl Soft, skeitol";
@@ -20,15 +20,15 @@
 			if ($myrow['id'] == ''){
 				unset($id);
 				/*выводим 404*/
-				header("HTTP/1.0 404 Not Found"); 
-				header("HTTP/1.1 404 Not Found"); 
+				header("HTTP/1.0 404 Not Found");
+				header("HTTP/1.1 404 Not Found");
 				header("Status: 404 Not Found");
-				header("Location: http://skeitol.ru/error-pages/error404.htm");
-				die(); 
+				header("Location: https://skeitol.ru/error-pages/error404.htm");
+				die();
 				/*echo '<pre>';
-				print_r(get_headers('http://skeitol.ru'));*/exit();
+				print_r(get_headers('https://skeitol.ru'));*/exit();
 			}
-		} 
+		}
 		if ($myrow['id']){
 $id=$myrow['id'];
 				/*UPD 2016.02.24*/
@@ -71,7 +71,7 @@ $id=$myrow['id'];
         <div class='left-con'>
 			<div class="left-con-block">
 			<div class='con-block box-shadow2'>
-			<?php 
+			<?php
 			if(!isset($id))//Выводит список news
 			{
 				echo"<h1 class='title_block'>".$sys_pages_print."</h1>";
@@ -88,7 +88,7 @@ $id=$myrow['id'];
 						$endI=$startI+$step;
 					}
 				}
-				$result = mysql_query("SELECT * FROM news WHERE active=1 ORDER BY id DESC LIMIT $startI,$endI",$db);	  
+				$result = mysql_query("SELECT * FROM news WHERE active=1 ORDER BY id DESC LIMIT $startI,$endI",$db);
 				$myrow=mysql_fetch_array($result);
 				$i=0;
 				?>
@@ -116,7 +116,7 @@ $id=$myrow['id'];
 								%s
 							</div>
 							<div class='clear'></div>
-						</div>              
+						</div>
 					</div></a>",$url_page,$myrow['title'],date_format(date_create($myrow['date']),'d-M-Y H:i'),$myrow['description']);
 					*/
 					
@@ -124,7 +124,7 @@ $id=$myrow['id'];
 								echo'
 								<div class="col-sm-4 links-news wow slideInUp">
 									<div class="preview_block">
-										<a href="/news/'.$url_page.'/">											
+										<a href="/news/'.$url_page.'/">
 											<span class="photo_img" style="background-image: url('.strip_tags($myrow['src_preview']).')"></span>
 											<span class="title">'.strip_tags($myrow['title']).'</span>
 										</a>
@@ -146,7 +146,7 @@ $id=$myrow['id'];
 				</section>
 				<?
 				//
-				$result = mysql_query("SELECT COUNT(*) as count FROM news WHERE active=1",$db);	  
+				$result = mysql_query("SELECT COUNT(*) as count FROM news WHERE active=1",$db);
 				$row=mysql_fetch_array($result);
 				if($row['count']>$step)//"Записей больше".$step;
 				{
@@ -165,14 +165,14 @@ $id=$myrow['id'];
 									echo"<span class='no-link'>".($i)."</span>";
 							if($list==$n)echo"<span class='no-link'>></span>";
 							else echo"<a href=/news/?list=".($list+1).">></a>";
-						echo"</span>";				
+						echo"</span>";
 					echo"</div>";
-				}		
+				}
 			}
 			else //Выводит данные
 			{
 				echo"
-				<div itemscope='' itemtype='http://schema.org/NewsArticle'>
+				<div itemscope='' itemtype='https://schema.org/NewsArticle'>
 				<div class='title-con-block' itemprop='name'>".$myrow['title']."</div>
 				<div class='news-data'><span itemprop='dateCreated' style='display:none'>".(date_format(date_create($myrow['date']), 'Y-m-d'))."T".(date_format(date_create($myrow['date']), 'H:i'))."</span>".date_format(date_create($myrow['date']),'d-M-Y H:i')."</div>";
 				//echo"<div style='margin: 15px;'>";
@@ -184,7 +184,7 @@ $id=$myrow['id'];
 				height: 100%;
 				float: left;
 				border-left: 3px #EE8B0C solid;
-				display: inline-block;  margin: 0 10px 2px 0;  line-height: 22px;  padding: 0 10px;  color: #333333;  
+				display: inline-block;  margin: 0 10px 2px 0;  line-height: 22px;  padding: 0 10px;  color: #333333;
 				 text-decoration: none;
 				}
 				</style>";
@@ -201,7 +201,7 @@ float: left;}
 				margin: 0 10px 0 10px;
 				}
 				</style>
-				<div class='navig links'>";				
+				<div class='navig links'>";
 				$result = mysql_query("SELECT id,title,url FROM news WHERE active=1 AND id < ".$myrow['id']." ORDER BY id DESC LIMIT 1;",$db);
 				$row=mysql_fetch_array($result);
 				echo"<div>";
@@ -238,12 +238,12 @@ VK.Widgets.Comments('vk_comments', {limit: 10, width: '*', attach: '*'});
 				
 				</div>";
 				
-			}?> 
+			}?>
 			
         </div></div>
 		</div>
 		<div class='right-con'>
-			<div class="right-con-block"><?php include("blocks/rightblock.php");?></div>	
+			<div class="right-con-block"><?php include("blocks/rightblock.php");?></div>
 		</div>
 	</div>
 	</div>

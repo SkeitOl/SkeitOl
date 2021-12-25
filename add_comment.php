@@ -2,10 +2,14 @@
 
 /** @var SkeitOl\Core $SKEITOL */
 
+<<<<<<< HEAD
 if(! (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')) {
 	?><span class='text_error'>Permission denied!</span><?
 	die('');
 }
+=======
+
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 //if(isset($_POST['CAPTCHA']))
 $recaptcha = $_REQUEST['g-recaptcha-response'];
 if (!empty($recaptcha)) {
@@ -20,7 +24,13 @@ if (!empty($recaptcha)) {
 	//session_start();
 	//if($_POST['CAPTCHA']!=$_SESSION['code'])
 	if (!$res['success']) {
+<<<<<<< HEAD
 		?><span class='text_error'>CAPTCHA введена не верно!</span><?
+=======
+		?>
+		<span class='text_error'>CAPTCHA введена не верно!</span>
+		<?
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 	} else {
 		
 		//Ядро
@@ -47,9 +57,12 @@ if (!empty($recaptcha)) {
 		if (mb_strlen(strip_tags($text)) !== $length) {
 			die("<span class='text_error'>HTML теги запрещены!</span>");
 		}
+<<<<<<< HEAD
 		if (strripos($text, 'http://') !== false || strripos($text, 'https://') !== false) {
 			die("<span class='text_error'>Ссылки запрещены!</span>");
 		}
+=======
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 		
 		$id_item = (int)$_POST['ITEM_ID'];
 		if ($id_item <= 0) {
@@ -74,7 +87,11 @@ if (!empty($recaptcha)) {
 		// echo$sql."<br>";
 		//$result = mysql_query($sql, $db) or die('Запрос не удался: ' .
 		if (mysql_query($sql, $db)) {
+<<<<<<< HEAD
 			$to = "skeit.ol.mail@gmail.com";
+=======
+			$to = "skeit.ol@mail.ru";
+>>>>>>> 4a97cfd7f59fcb4040559db92172f5a7a54bab5e
 			$subject = 'Новый комментарий на сайте';
 			// текст письма
 			$message = '<html>

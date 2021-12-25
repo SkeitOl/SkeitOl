@@ -34,7 +34,7 @@ body .long_footer{margin-top:-217px;height:217px;}
 					<span><a href="/program/">Программы</a></span>
 					<span><a href="/news/">Новости</a></span>
 					<span><a href="/articles/">Статьи</a></span>
-					<span><a href="/site-map.html">Карта сайта</a></span>	
+					<span><a href="/site-map.html">Карта сайта</a></span>
 					<span><a href="/about/">О нас</a></span>
 					<div class="clear"></div>
 					<p><a href="/pages/5/">Условия использования информации</a></p>
@@ -49,9 +49,9 @@ body .long_footer{margin-top:-217px;height:217px;}
 				<div class="d1">
 					<span><a href="mailto:skeit.ol@mail.ru">
 					<img src="/images/email-32.png" class="social-links-f e-mail"><br>
-					skeit.ol@mail.ru</a></span>				<span><a href="http://vk.com/skeitol" target="_blank">
+					skeit.ol@mail.ru</a></span>				<span><a href="https://vk.com/skeitol" target="_blank">
 						<img src="/images/vkontakte.png" class="social-links-f vk" width="32" height="32" style="width: 32px; height: 32px;"><br>
-						Вконтакте</a></span>				<span><a href="http://www.facebook.com/skeit.ol" target="_blank">
+						Вконтакте</a></span>				<span><a href="https://www.facebook.com/skeit.ol" target="_blank">
 							<img src="/images/f32.png" class="social-links-f facebook"><br>
 							Facebook</a></span>
 					<ar> <p><a href="/feedback.php">Обратная связь</a></p></ar>
