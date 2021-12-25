@@ -1,7 +1,7 @@
 <?function request_url()
 {
   $result = ''; // Пока результат пуст
-  if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$result .= 'https://'; else $result .= 'http://';
+  if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=='on'))$result .= 'https://'; else $result .= 'https://';
   // Имя сервера, напр. site.com или www.site.com
   $result .= $_SERVER['SERVER_NAME'];  
   // Последняя часть запроса (путь и GET-параметры).
@@ -12,7 +12,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="<?echo(!empty($sys_title))?$sys_title:"SkeitOl - Soft";?>">
 	<meta property="og:url" content="<?=request_url()?>">
-	<?if(empty($og_image))$og_image="http://skeitol.ru/images/favicon/apple-touch-icon-144x144.png";?>
+	<?if(empty($og_image))$og_image="https://skeitol.ru/images/favicon/apple-touch-icon-144x144.png";?>
   	<meta property="og:image" content="<?=$og_image?>"/>
 	<meta property="og:description" content="<?echo $sys_description;?>">
 	<meta name="description" content="<?echo $sys_description;?>">
@@ -24,7 +24,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- -->
-	<link rel="shortcut icon" href="<?echo "http://".$_SERVER['HTTP_HOST']."/";?>favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?echo "https://".$_SERVER['HTTP_HOST']."/";?>favicon.ico" type="image/x-icon" />
 	<!--EDGE-->
 	<meta name="msapplication-TileColor"content="#fff"/>
 	<meta name="msapplication-square150x150logo" content="/images/favicon/apple-touch-icon-152x152.png"/>

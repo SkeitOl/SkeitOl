@@ -200,12 +200,12 @@ class Articles
         $cl= new \SkeitOl\Core();
 
 	echo"
-	<div itemscope='' itemtype='http://schema.org/Article'>
+	<div itemscope='' itemtype='https://schema.org/Article'>
 		<div class='title-con-block' ><span itemprop='name' itemprop='headline' >".$myrow['title']."</span></div>
 		<span style='display:none' itemprop='description'>".htmlspecialchars($myrow['description'])."</span>";
 		$photo_img=strip_tags($myrow['src_preview']);
 		if(empty($photo_img))$photo_img="/images/favicon/apple-touch-icon-114x114.png";
-		if($photo_img[0]=="/")$photo_img="http://".$_SERVER['SERVER_NAME'].$photo_img;
+		if($photo_img[0]=="/")$photo_img="https://".$_SERVER['SERVER_NAME'].$photo_img;
 		$size = getimagesize ($photo_img);
 		$sizes = explode('"', $size[3]);
 		?>
@@ -259,6 +259,9 @@ class Articles
 	/* Navigaciya */
 	?>
 	</div>
+	<div class="text-center">
+		<a target="_new" href="https://timeweb.com/ru/?i=45228&a=168"><img style="border:0px;" src="https://wm.timeweb.ru/images/posters/600x60/600x60.jpg"></a>
+	</div>
 	<div class="con-block box-shadow2">
 		<div class='navig links'>
 			<?
@@ -311,7 +314,7 @@ class Articles
 			//setlocale(LC_ALL, 'ru_RU.UTF-8');
 			foreach($ar_comments as $key=>$row) {?>
 				<div class="comment">
-					<div class="comment_up" <?if($row['DEPTH_LEVEL']>1):?>style="margin-left:20px"<?endif;?> itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/UserComments">
+					<div class="comment_up" <?if($row['DEPTH_LEVEL']>1):?>style="margin-left:20px"<?endif;?> itemprop="comment" itemscope="itemscope" itemtype="https://schema.org/UserComments">
 						<div class="comment__avatar">
 	                        <div>
 	                            <img width="47" alt="комментарий <?=($row['NICK'])?>" src="<?
@@ -427,7 +430,7 @@ class Articles
         $st_date = strftime('%d %h %Y %H:%M', strtotime($myrow['date']));
         //date_format(date_create($myrow['date']), 'd-M-Y H:i')
         ?>
-        <div class='news-item'  itemscope itemtype='http://schema.org/Article'>
+        <div class='news-item'  itemscope itemtype='https://schema.org/Article'>
             <div class="left_con">
                 <? $photo_img = strip_tags($myrow['src_preview']);
                 if (empty($photo_img)) $photo_img = "/images/favicon/apple-touch-icon-114x114.png"; ?>

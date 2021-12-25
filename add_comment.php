@@ -1,49 +1,81 @@
-<?
+<?php
+
+/** @var SkeitOl\Core $SKEITOL */
+
+if(! (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')) {
+	?><span class='text_error'>Permission denied!</span><?
+	die('');
+}
 //if(isset($_POST['CAPTCHA']))
-$recaptcha=$_POST['g-recaptcha-response'];
-if(!empty($recaptcha))
-{
+$recaptcha = $_REQUEST['g-recaptcha-response'];
+if (!empty($recaptcha)) {
 	
-    include("getCurlData.php");
-    $google_url="https://www.google.com/recaptcha/api/siteverify";
-    $secret='6LeaFBETAAAAANFgN9RxAb8-E5_nJjHd6A6wpJjD';
-    $ip=$_SERVER['REMOTE_ADDR'];
-    $url=$google_url."?secret=".$secret."&response=".$recaptcha."&remoteip=".$ip;
-    $res=getCurlData($url);
-    $res= json_decode($res, true);
+	include("getCurlData.php");
+	$google_url = "https://www.google.com/recaptcha/api/siteverify";
+	$secret = '6LeaFBETAAAAANFgN9RxAb8-E5_nJjHd6A6wpJjD';
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$url = $google_url . "?secret=" . $secret . "&response=" . $recaptcha . "&remoteip=" . $ip;
+	$res = getCurlData($url);
+	$res = json_decode($res, true);
 	//session_start();
 	//if($_POST['CAPTCHA']!=$_SESSION['code'])
-	if(!$res['success'])
-	{?>
-		<span class='text_error'>CAPTCHA введена не верно!</span>
-	<?
-	}
-	else
-	{
-
+	if (!$res['success']) {
+		?><span class='text_error'>CAPTCHA введена не верно!</span><?
+	} else {
+		
+		//Ядро
+		if (!require $_SERVER['DOCUMENT_ROOT'] . '/skeitol/prolog_before.php') {
+			die('Error include core');
+		}
+		
+		
 		//Проверим корректность ввода
-		$name=htmlspecialchars($_REQUEST['NICK']);
-
-		if((strlen($name)<=0 || strlen($name>=150)))die("<span class='text_error'>Имя пусто или слишком длинное!</span>");
-		$text=htmlspecialchars($_REQUEST['TEXT']);
-		if(!(strlen($text)>0 && strlen($text<1000)))die("<span class='text_error'>Текс пуст или слишком длинный!</span>");
-		$id_item=htmlspecialchars($_REQUEST['ITEM_ID']);
-		if(!($id_item!=0))die("<span class='text_error'>ID элемента пуст!</span>");
-
-		$email=htmlspecialchars($_REQUEST["EMAIL"]);
-
-		$dt=date("Y-m-d H:i:s");
+		$name = htmlspecialchars($_POST['NICK']);
+		$nLengthName = mb_strlen($name);
+		if ($nLengthName === 0 || $nLengthName >= 100) {
+			die("<span class='text_error'>Имя пусто или слишком длинное!</span>");
+		}
+		if (mb_strlen(strip_tags($name)) !== $nLengthName) {
+			die("<span class='text_error'>HTML теги запрещены!</span>");
+		}
+		
+		$text = $_POST['TEXT'];
+		$length = mb_strlen($text);
+		if ($length < 5) {
+			die("<span class='text_error'>Текс пуст или слишком длинный!</span>");
+		}
+		if (mb_strlen(strip_tags($text)) !== $length) {
+			die("<span class='text_error'>HTML теги запрещены!</span>");
+		}
+		if (strripos($text, 'http://') !== false || strripos($text, 'https://') !== false) {
+			die("<span class='text_error'>Ссылки запрещены!</span>");
+		}
+		
+		$id_item = (int)$_POST['ITEM_ID'];
+		if ($id_item <= 0) {
+			die("<span class='text_error'>ID элемента пуст!</span>");
+		}
+		
+		$email = htmlspecialchars($_POST['EMAIL']);
+		if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			die("<span class='text_error'>Не корректный e-mail!</span>");
+		}
+		
+		$dt = date("Y-m-d H:i:s");
+		
 		//mysql_query("SET NAMES utf8");
 		header('Content-Type: text/html; charset= utf-8');
 		include_once("blocks/bd.php");
-		$ip=$_SERVER["REMOTE_ADDR"];
-		$sql="INSERT INTO comments_articles (ID_ARTICLES,TEXT,NICK,EMAIL,DATE_TIME,APPROVED,IP) VALUES
-				  ('$id_item','$text','$name','$email','$dt','0','$_SERVER[REMOTE_ADDR]')";
-	 // echo$sql."<br>";
+		
+		$ip = $_SERVER['REMOTE_ADDR'];
+		
+		$sql = "INSERT INTO comments_articles (ID_ARTICLES,TEXT,NICK,EMAIL,DATE_TIME,APPROVED,IP) VALUES
+				  ('$id_item','" . mysql_real_escape_string($text) . "','" . mysql_real_escape_string($name) . "','$email','$dt','0','$ip')";
+		// echo$sql."<br>";
 		//$result = mysql_query($sql, $db) or die('Запрос не удался: ' .
-		if(mysql_query($sql, $db)){
-			$to = "skeit.ol@mail.ru";
-			$subject =  'Новый комментарий на сайте';
+		if (mysql_query($sql, $db)) {
+			$to = "skeit.ol.mail@gmail.com";
+			$subject = 'Новый комментарий на сайте';
 			// текст письма
 			$message = '<html>
 <head>
@@ -57,20 +89,23 @@ if(!empty($recaptcha))
       <th><b>Дата</b></th><th><b>Имя</b></th><th><b>Комменнтарий</b></th><th><b>IP</b></th>
     </tr>
     <tr>
-      <td>'.date("Y-m-d H:i:s").'</td><td>'.$name.'</td><td>'.$text.'</td><td>'.$ip.'</td>
+      <td>' . $dt . '</td><td>' . $name . '</td><td>' . $text . '</td><td>' . $ip . '</td>
     </tr>
   </table>
 </body>
 </html>
 ';
-			$headers = "From: " . strip_tags('info@skeitol.ru') . "\r\n";
+			$headers = 'From: ' . strip_tags('info@skeitol.ru') . "\r\n";
 			$headers .= "MIME-Version: 1.0\r\n";
 			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 			//$headers[] = 'Bcc: birthdaycheck@example.com';
-			mail($to,$subject, $message, $headers);
-				echo "1";//<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>";4
+			mail($to, $subject, $message, $headers);
+			echo '1';//<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>";4
+		} else {
+			echo "<span style='color:#ff0000;'>Ошибка отправление сообщения=(</span>";
 		}
-		else echo "<span style='color:#ff0000;'>Ошибка отправление сообщения=(</span>";
 	}
 	
-}else echo"<span class='text_error'>Нет CAPTCHA!</span>";?>
+} else {
+	echo "<span class='text_error'>Нет CAPTCHA!</span>";
+}

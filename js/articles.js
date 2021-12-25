@@ -12,7 +12,7 @@ function initEventPage(){
 				},
 				complete:function(event){
 					//console.log(event);
-					if(event.statusText=="OK"){
+					if(event.statusText==="success"){
 						if(event.responseText.length>0){
 							setTimeout(function(){
 								$("#list_block").html($("#list_block").html()+event.responseText);
@@ -56,7 +56,7 @@ function initEventPage(){
 					},
 					complete:function(event){
 						//console.log(event);
-						if(event.statusText=="OK"){
+						if(event.statusText==="success"){
 							if(event.responseText.length>0){
 								setTimeout(function(){
 									$("#con_block_item").html(event.responseText);

@@ -10,7 +10,7 @@
 					<span><a href='/program/'>Программы</a></span>
 					<span><a href='/news/'>Новости</a></span>
 					<span><a href='/articles/'>Статьи</a></span>
-					<span><a href='/site-map.html'>Карта сайта</a></span>	
+					<span><a href='/site-map.html'>Карта сайта</a></span>
 					<span><a href="/about/">О нас</a></span>
 					<div class="clear"></div>
 					<p><a href='/pages/5/'>Условия использования информации</a></p>
@@ -102,10 +102,10 @@
 				$f_bg_src.=$time_year.'/'.$m_arr[$time_year][$r];
 				break;
 			default:
-				$f_bg_src='http://files1.adme.ru/files/comment/part_1375/13740555-1380092876.jpeg';
+				$f_bg_src='https://files1.adme.ru/files/comment/part_1375/13740555-1380092876.jpeg';
 				break;
 		};
-//		$f_bg_src='http://files1.adme.ru/files/comment/part_1375/13740555-1380092876.jpeg';
+//		$f_bg_src='https://files1.adme.ru/files/comment/part_1375/13740555-1380092876.jpeg';
 	?>
 	<section class="module parallax parallax-1 services" style="background-image:url('<?php echo$f_bg_src;?>')">
 		<div class="background_f">
@@ -117,11 +117,11 @@
 				<div class="col-lg-12 m-b-lg text-center">
 					<p><strong>E-mail:</strong> <a href="mailto:info@skeitol.ru">info@skeitol.ru</a></p>
 					<p><a href='feedback.php'>Обратная связь</a></p>
-					<p><a href="http://vk.com/skeitol" target="_blank" class='social-links vk' title="SkeitOl VK" ><img title="SkeitOl VK" alt="SkeitOl VK" src="/images/vkontakte.png" width="32" height="32" style="width: 32px; height: 32px;" /></a></p>
-					<p><a class='social-links facebook' href="http://www.facebook.com/skeit.ol" target="_blank" title="SkeitOl facebook"><img alt="SkeitOl facebook" src="/images/facebook-32.png" title="SkeitOl facebook"/></a></p>
+					<p><a href="https://vk.com/skeitol" target="_blank" class='social-links vk' title="SkeitOl VK" ><img title="SkeitOl VK" alt="SkeitOl VK" src="/images/vkontakte.png" width="32" height="32" style="width: 32px; height: 32px;" /></a></p>
+					<p><a class='social-links facebook' href="https://www.facebook.com/skeit.ol" target="_blank" title="SkeitOl facebook"><img alt="SkeitOl facebook" src="/images/facebook-32.png" title="SkeitOl facebook"/></a></p>
 					<p><a class='social-links gplus' href="https://plus.google.com/+SkeitolRus/posts" target="_blank" title="SkeitOl gplus"><img alt="SkeitOl gplus" src="/images/gplus.png" title="SkeitOl gplus" /></a></p>
 				
-				</div>				
+				</div>
 				<div class="clear"></div>
                 <p>Отправляя любую форму на сайте,<br>вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</a></p>
 				<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?php echo date('Y')?></p></div>

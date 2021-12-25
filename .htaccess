@@ -1,9 +1,9 @@
 RewriteEngine On
-RewriteRule ^articles([^/]*)\.html$ /articles.php?id=$1 [L]
-RewriteRule ^news([^/]*)\.html$ /news.php?id=$1 [L]
+#RewriteRule ^articles([^/]*)\.html$ /articles.php?id=$1 [L]
+#RewriteRule ^news([^/]*)\.html$ /news.php?id=$1 [L]
 RewriteRule ^site-map([^/]*)\.html$ /site-map.php?id=$1 [L]
-RewriteRule ^program([^/]*)\.html$ /programm.php?id=$1 [L]
-RewriteRule ^pages([^/]*)\.html$ /index.php?id=$1 [L]
+#RewriteRule ^program([^/]*)\.html$ /programm.php?id=$1 [L]
+#RewriteRule ^pages([^/]*)\.html$ /index.php?id=$1 [L]
 
 RewriteRule ^eula/?$ index.php?id=1
 

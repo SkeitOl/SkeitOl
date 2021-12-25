@@ -6,20 +6,18 @@
  * Time: 22:54
  */?>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?=$title?></title>
-    <meta name="description" content="A responsive, magazine-like website layout with a grid item animation effect when opening the content" />
-    <meta name="keywords" content="grid, layout, effect, animated, responsive, magazine, template, web design" />
     <meta name="author" content="SkeitOl" />
     <link rel="shortcut icon" href="<?=SITE_DIR?>favicon.ico">
     <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/bc/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/bc/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/bc/css/style1.css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
     <script  src="<?=SITE_TEMPLATE_PATH?>/bc/js/modernizr.custom.js"></script>
 </head>
 <body>

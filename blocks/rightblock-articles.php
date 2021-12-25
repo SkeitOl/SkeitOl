@@ -1,8 +1,8 @@
-<?/*<div class='small-block'>	
-	<div class='title-small-block'><a href="programm.php">Программы</a></div>	
-		<div class='pr'>		
+<? /*<div class='small-block'>
+	<div class='title-small-block'><a href="programm.php">Программы</a></div>
+		<div class='pr'>
 			<noidex>
-			<ul>			
+			<ul>
 			<?php $result = mysql_query("SELECT id,title FROM programm ORDER BY id DESC LIMIT 0,3",$db);	  			$myrow=mysql_fetch_array($result);				do			{				printf("				<img src='/images/anim/%s.gif' alt='%s' widht=15px height=15px  align=left />				<li><a href='/program/%s/'>%s</a></li>",strtolower($myrow['title']),$myrow['title'],mb_strtolower($myrow['title']),$myrow['title']);			}			while($myrow=mysql_fetch_array($result))?>		</ul>
 			</noidex>
 		</div>
@@ -29,8 +29,8 @@
             <a href='/articles/?category=8'><span class="sml_bl_item"><span class="sml_bl_item_con" style="background-image:url('/images/articles/windows-8-logo.png')"></span></span></a>
         </div>
 	</noidex>
-</div>*/?>
-<?/*if(!isset($id)):?>
+</div>*/ ?>
+<? /*if(!isset($id)):?>
  <div class="small-block" <?if(!isset($_GET['show_test']))echo'style="display:none"';?>>
         <noidex>
         <h4>Фильтр</h4>
@@ -63,7 +63,7 @@
                 <?}
 
                 while ($row1 = mysql_fetch_array($result1));?>
-                <!-- 
+                <!--
                     
                     <a href='/articles/?category="<?=$row1['id']?>' title='<?=$row1['name']?>'><?=$row1['name']?></a> -->
             </div>
@@ -90,50 +90,63 @@
         </script>
         </noidex>
     </div>
-<?endif;*/?>
-<div class='small-block'>	
+<?endif;*/ ?>
+<div class='small-block'>
 	<div class='title-small-block'><a href="/articles/">Последние статьи</a></div>
-	<noidex><ul class="list-right-blocks"><?php
-	$st='';
-			if (isset($id)) {$st=' AND id<>'.$id;}
-		$result = mysql_query("SELECT id,title,url FROM articles WHERE active=1 ".$st." ORDER BY id DESC LIMIT 0,4",$db);
-		$myrow=mysql_fetch_array($result);do{
-		if(!empty($myrow['url']))$url_page=$myrow['url'];else $url_page=$myrow['id'];
-		printf("<li><a href='/articles/%s/'>%s</a></li>",$url_page,$myrow['title']);}while($myrow=mysql_fetch_array($result))?></ul></noidex>
+	<noidex>
+		<ul class="list-right-blocks"><?php
+			$st = '';
+			if ($id !== false) {
+				$st = ' AND id<>\'' . $id.'\'';
+			}
+			$result = mysql_query("SELECT id,title,url FROM articles WHERE active=1 " . $st . " ORDER BY id DESC LIMIT 0,4", $db);
+			$myrow = mysql_fetch_array($result);
+			do {
+				if (!empty($myrow['url'])) $url_page = $myrow['url']; else $url_page = $myrow['id'];
+				printf("<li><a href='/articles/%s/'>%s</a></li>", $url_page, $myrow['title']);
+			} while ($myrow = mysql_fetch_array($result)) ?></ul>
+	</noidex>
 </div>
 <style>
 
 </style>
-<div class='small-block selector <?if(isset($id)):?>hide<?endif;?>'>
+<div class='small-block selector <? if (isset($id)): ?>hide<? endif; ?>'>
 	<div class='title-small-block' onclick="diplayShowHide(this)">Тэги</div>
-    <noidex>
-        <div class="con_small_block">
-            <script type='text/javascript'>
-                function diplayShowHide(obj) {
-                    console.log(obj);//.find('.category-view')
-                    $(obj).parent().toggleClass('hide');
-                }
-            </script>
-<?
-//Все категории
-                            /*echo"
+	<noidex>
+		<div class="con_small_block">
+			<script type='text/javascript'>
+				function diplayShowHide(obj) {
+					$(obj).parent().toggleClass('hide');
+				}
+			</script>
+			<?
+			//Все категории
+			/*echo"
 
 <p><span class='links'><a href='#'onclick='diplay_hide();return false;'><b></b></a></span></p>
 <div id='block_id'>";*/
-        echo"<div class='category-view'>
+			echo "<div class='category-view'>
             <p style='border-left: 3px #57AA43 solid;padding-left: 10px;text-indent: 0px;'>";
-        $result1 = mysql_query("SELECT * FROM category", $db);
-        $row1 = mysql_fetch_array($result1);
-        do
-        {
-            echo "<a href='/articles/?category=" . $row1['id'] . "' title='" . $row1['name'] . "'>" . $row1['name'] . "</a>";
-        }
-        while ($row1 = mysql_fetch_array($result1));
-        echo"</p>
+			$result1 = mysql_query("SELECT * FROM category", $db);
+			$row1 = mysql_fetch_array($result1);
+			do {
+				echo "<a href='/articles/?category=" . $row1['id'] . "' title='" . $row1['name'] . "'>" . $row1['name'] . "</a>";
+			} while ($row1 = mysql_fetch_array($result1));
+			echo "</p>
             </div>
         </div>";
-        // 
-?></div>
+			//
+			?></div>
 	</noidex>
 
+</div>
+
+<div class="small-block selector">
+	<noidex>
+		<div class="con_small_block" style="text-align: center;">
+			<div>
+				<a target="_new" href="https://timeweb.com/ru/?i=45228&a=80"><img style="border:0px;" src="https://wm.timeweb.ru/images/posters/240x100/240x100-10.jpg"></a>
+			</div>
+		</div>
+	</noidex>
 </div>
