@@ -13,47 +13,52 @@ define('DOC_ROOT', $_SERVER['DOCUMENT_ROOT']);
 class Core
 {
 	var $defaultDirCache = '/skeitol/cache/';
-
+	
 	public function getCahcePath()
 	{
 		return $_SERVER['DOCUMENT_ROOT'] . $this->defaultDirCache;
 	}
-
-	private $DB_CONFIG = array();
-
+	
+	private $DB_CONFIG = [];
+	
 	function __construct()
 	{
 		$this->init();
 	}
-
+	
 	function __destruct()
 	{
 		unset($this->DB_CONFIG);
 	}
-
+	
 	private function init()
 	{
 		if (!require DOC_ROOT . '/skeitol/config.php') {
 			die('Error open SQLConnect config file');
 		}
+		global $DB;
 		if (!empty($DB)) {
-			$this->DB_CONFIG['host'] = ($DB['host']) ? $DB['host'] : 'localhost';
-			$this->DB_CONFIG['username'] = ($DB['username']) ? $DB['username'] : '';
-			$this->DB_CONFIG['passwd'] = ($DB['passwd']) ? $DB['passwd'] : '';
-			$this->DB_CONFIG['dbname'] = ($DB['dbname']) ? $DB['dbname'] : '';
-
-			if (empty($this->DB_CONFIG['username']) OR empty($this->DB_CONFIG['dbname']))
+			
+			$this->DB_CONFIG['host'] = $DB['host'] ?: 'localhost';
+			$this->DB_CONFIG['username'] = $DB['username'] ?: '';
+			$this->DB_CONFIG['passwd'] = $DB['passwd'] ?: '';
+			$this->DB_CONFIG['dbname'] = $DB['dbname'] ?: '';
+			
+			if (empty($this->DB_CONFIG['username']) or empty($this->DB_CONFIG['dbname'])) {
 				die('Error settings SQLConnect config file');
-
+			}
+			
 			if (!$this->objConnectServer()) {
 				die('Error connect DB');
 			}
-
-		} else die('Error DB settings');
-
-
+			
+		} else {
+			die('Error DB settings');
+		}
+		
+		
 	}
-
+	
 	public static function dump($var, $printr = false)
 	{
 		if (!$printr) {
@@ -68,7 +73,7 @@ class Core
 			echo '<pre>' . print_r($var, true) . '</pre>';
 		}
 	}
-
+	
 	/**
 	 * @return mysqli
 	 */
@@ -81,22 +86,23 @@ class Core
 		}
 		return $mysqli;
 	}
-
+	
 	/**
 	 * Запрос к БД
 	 *
 	 * @param $string SQL-строка запроса
+	 *
 	 * @return array|bool
 	 */
 	public function SQLQuery($string)
 	{
 		if (!empty($string)) {
-			$dataArr = array();
+			$dataArr = [];
 			$mysqli = $this->objConnectServer();
-
+			
 			// Посылаем запрос серверу
 			if ($result = $mysqli->query($string)) {
-
+				
 				// Выбираем результаты запроса:
 				while ($row = $result->fetch_assoc()) {
 					$dataArr[] = $row;
@@ -106,36 +112,37 @@ class Core
 			}
 			// Закрываем соединение
 			$mysqli->close();
-
+			
 			return $dataArr;
 		}
 		return false;
 	}
-
+	
 	public function __debugInfo()
 	{
 		return [
-			'DB_CONFIG' => array('1'),
+			'DB_CONFIG' => ['1'],
 		];
 	}
-
+	
 	/**
 	 * Выводим список из БД таблицы
 	 */
-
+	
 	/**
-	 * @param $table_name
+	 * @param       $table_name
 	 * @param array $arr_params =array('select'=>array('*'),
-	 * 'filter'=>array(),
-	 * 'order'=>array(),
-	 * 'limit'=>array('top'=>'1','bottom'=>'10'),
+	 *                          'filter'=>array(),
+	 *                          'order'=>array(),
+	 *                          'limit'=>array('top'=>'1','bottom'=>'10'),
+	 *
 	 * @return array|bool
 	 */
-	public function GetList($table_name, $arr_params = array()
+	public function GetList($table_name, $arr_params = []
 		//$arr_select = array('*'), $arr_filter = array(),$arr_order = array(),$arr_limit=array()
 	)
 	{
-		$arr_data = array();
+		$arr_data = [];
 		if ($table_name) {
 			$select_default = '*';
 			$select = '';
@@ -148,9 +155,10 @@ class Core
 					}
 					$select = mb_substr($select, 0, -2);
 				}
-
-			if (!$select) $select = $select_default;
-
+			
+			if (!$select)
+				$select = $select_default;
+			
 			$filter = '';
 			//if($_SERVER['REMOTE_ADDR']=='5.158.233.184'){ SkeiOl::dump($arr_params);}
 			if (!empty($arr_params['filter']))
@@ -160,11 +168,12 @@ class Core
 					foreach ($arr_params['filter'] as $key => $item) {
 						if ($i != 0)
 							$filter .= ' AND ';
-
+						
 						$def_operator = '=';
-						if (in_array($key[0], array('>', '!', '<'))) {
+						if (in_array($key[0], ['>', '!', '<'])) {
 							$rep_length = 1;
-							if ($key[1] == '=') $rep_length = 2;
+							if ($key[1] == '=')
+								$rep_length = 2;
 							if ($key[0] == '!') {
 								$def_operator = '<>';
 							} else {
@@ -172,7 +181,7 @@ class Core
 								$key = substr($key, $rep_length);
 							}
 						}
-						if (!in_array(gettype($item), array('integer', 'double'))) {
+						if (!in_array(gettype($item), ['integer', 'double'])) {
 							if (gettype($item) == 'array') {
 								$def_operator = 'in';
 								$titem = '';
@@ -185,12 +194,12 @@ class Core
 								$item = "'" . htmlspecialchars($item) . "'";
 							}
 						}
-
+						
 						$filter .= htmlspecialchars($key) . ' ' . $def_operator . ' ' . $item;
 						$i++;
 					}
 				}
-
+			
 			$order = '';
 			if (!empty($arr_params['order']))
 				if (is_array($arr_params['order']) && count($arr_params['order']) > 0) {
@@ -212,9 +221,9 @@ class Core
 							$limit .= ',' . ($arr_params['limit']['bottom']);
 					}
 				}
-
+			
 			$sql_query = 'SELECT ' . $select . ' FROM ' . $table_name . ' ';
-
+			
 			if ($filter) {
 				$sql_query .= 'WHERE ' . $filter . ' ';
 			}
@@ -224,15 +233,15 @@ class Core
 			if ($limit) {
 				$sql_query .= 'LIMIT ' . $limit . ' ';
 			}
-
-
+			
+			
 			//Запрос к БД
 			//if($_SERVER['REMOTE_ADDR']=='5.158.233.184'){ SkeiOl::dump($sql_query);}
-
-
+			
+			
 			$arr_data = $this->SQLQuery($sql_query);
-
-
+			
+			
 		}
 		return $arr_data;
 	}
