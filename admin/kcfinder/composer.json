@@ -12,7 +12,7 @@
         "file manager",
         "file explorer"
     ],
-    "homepage": "http://kcfinder.sunhater.com",
+    "homepage": "https://kcfinder.sunhater.com",
     "time": "2014-08-24",
     "license": [
         "GPL-3.0+",
@@ -22,7 +22,7 @@
         {
             "name": "Pavel Tzonkov",
             "email": "sunhater@sunhater.com",
-            "homepage": "http://sunhater.com",
+            "homepage": "https://sunhater.com",
             "role": "Developer"
         }
     ],

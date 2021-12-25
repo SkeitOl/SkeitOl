@@ -5,18 +5,18 @@
   *      @desc Persian(Farsi) localization file
   *   @package KCFinder
   *   @version 2.2
-  *    @author Hamid Kamalpour <djhamidfatal@gmail.com><http://www.ssfmusic.com>
+  *    @author Hamid Kamalpour <djhamidfatal@gmail.com><https://www.ssfmusic.com>
   * @copyright 2010 KCFinder Project
-  *   @license http://www.opensource.org/licenses/gpl-2.0.php GPLv2
-  *   @license http://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
-  *      @link http://kcfinder.sunhater.com
+  *   @license https://www.opensource.org/licenses/gpl-2.0.php GPLv2
+  *   @license https://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
+  *      @link https://kcfinder.sunhater.com
   */
 
 $lang = array(
     '_locale' => "fa_IR.UTF-8",
     '_charset' => "utf-8",
 
-    // Date time formats. See http://www.php.net/manual/en/function.strftime.php
+    // Date time formats. See https://www.php.net/manual/en/function.strftime.php
     '_dateTimeFull' => "%A, %B %e, %Y %H:%M",
     '_dateTimeMid' => "%a %b %e %Y %H:%M",
     '_dateTimeSmall' => "%Y/%m/%d %H:%M",

@@ -5,8 +5,8 @@
   * @desc Japanese localization
   * @package KCFinder
   * @author yama yamamoto@kyms.ne.jp
-  * @license http://www.opensource.org/licenses/gpl-2.0.php GPLv2
-  * @license http://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
+  * @license https://www.opensource.org/licenses/gpl-2.0.php GPLv2
+  * @license https://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
   */
 
 $lang = array(
@@ -14,7 +14,7 @@ $lang = array(
     '_locale' => "ja_JP.UTF-8",  // UNIX localization code
     '_charset' => "utf-8",       // Browser charset
 
-    // Date time formats. See http://www.php.net/manual/en/function.strftime.php
+    // Date time formats. See https://www.php.net/manual/en/function.strftime.php
     '_dateTimeFull' => "%Y/%m/%d %H:%M",
     '_dateTimeMid' => "%Y/%m/%d %H:%M",
     '_dateTimeSmall' => "%Y/%m/%d %H:%M",

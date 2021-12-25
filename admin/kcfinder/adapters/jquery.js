@@ -1,5 +1,5 @@
 /*! jQuery adapter for KCFinder
- *  http://kcfinder.sunhater.com
+ *  https://kcfinder.sunhater.com
  *  Pavel Tzonkov <sunhater@sunhater.com>
  */
 /*  BASE USAGE:

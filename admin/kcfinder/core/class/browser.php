@@ -7,9 +7,9 @@
   *   @version 3.12
   *    @author Pavel Tzonkov <sunhater@sunhater.com>
   * @copyright 2010-2014 KCFinder Project
-  *   @license http://opensource.org/licenses/GPL-3.0 GPLv3
-  *   @license http://opensource.org/licenses/LGPL-3.0 LGPLv3
-  *      @link http://kcfinder.sunhater.com
+  *   @license https://opensource.org/licenses/GPL-3.0 GPLv3
+  *   @license https://opensource.org/licenses/LGPL-3.0 LGPLv3
+  *      @link https://kcfinder.sunhater.com
   */
 
 namespace kcfinder;
@@ -653,7 +653,7 @@ class browser extends uploader {
         )
             return json_encode(array('version' => $this->session['checkVersion']));
 
-        $ver = phpGet::get("http://kcfinder.sunhater.com/checkVersion.php");
+        $ver = phpGet::get("https://kcfinder.sunhater.com/checkVersion.php");
 
         if (isset($ver) && preg_match('/^\d+\.\d+$/', $ver)) {
             $this->session['checkVersion'] = $ver;

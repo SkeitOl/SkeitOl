@@ -7,7 +7,7 @@ namespace kcfinder;
  * Based on the Ruby Implementation by Steven Sykes (https://github.com/sdsykes/fastimage)
  *
  * Copyright (c) 2012 Tom Moor
- * Tom Moor, http://tommoor.com
+ * Tom Moor, https://tommoor.com
  *
  * MIT Licensed
  * @version 0.1
@@ -31,9 +31,9 @@ class fastImage
     if ($this->handle) $this->close();
 
     $this->uri = $uri;
-    // Joy - this is a fix for URLs missing "http:"
+    // Joy - this is a fix for URLs missing "https:"
     if ($uri[0] == '/' && $uri[1] == '/') {
-      $uri = 'http:' . $uri;
+      $uri = 'https:' . $uri;
     }
 
     $this->handle = fopen(

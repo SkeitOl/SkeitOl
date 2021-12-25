@@ -1,3 +1,6 @@
+.gitignore.swp
+/images/
+/f/
 /.idea/*
 /plushevik/*
 logs/*

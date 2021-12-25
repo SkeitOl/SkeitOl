@@ -7,9 +7,9 @@
   *   @version 2.52
   *    @author Pavel Tzonkov <sunhater@sunhater.com>
   * @copyright 2010-2014 KCFinder Project
-  *   @license http://www.opensource.org/licenses/gpl-2.0.php GPLv2
-  *   @license http://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
-  *      @link http://kcfinder.sunhater.com
+  *   @license https://www.opensource.org/licenses/gpl-2.0.php GPLv2
+  *   @license https://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
+  *      @link https://kcfinder.sunhater.com
   *
   * This file is the place you can put any code (at the end of the file),
   * which will be executed before any other. Suitable for:

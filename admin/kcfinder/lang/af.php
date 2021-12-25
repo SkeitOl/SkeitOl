@@ -10,7 +10,7 @@ $lang = array(
     '_locale' => "af-ZA.UTF-8",
     '_charset' => "utf-8",
 
-    // Date time formats. See http://www.php.net/manual/en/function.strftime.php
+    // Date time formats. See https://www.php.net/manual/en/function.strftime.php
     '_dateTimeFull' => "%d %B %Y %H:%M",
     '_dateTimeMid' => "%d %b %Y %H:%M",
     '_dateTimeSmall' => "%d %b %Y %H:%M",

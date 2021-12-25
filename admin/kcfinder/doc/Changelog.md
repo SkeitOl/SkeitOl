@@ -8,7 +8,7 @@
 3.20-test1: 2014-08-19
 ----------------------
 * "`DOCUMENT_ROOT` is symlink" bugfix
-* Uniform is replaced with my alternative - transForm (http://jquery.sunhater.com/transForm)
+* Uniform is replaced with my alternative - transForm (https://jquery.sunhater.com/transForm)
 * Improved image viewer
 * Improved drag & drop upload functionality. Progress bars in a dialog box.
 * Supports drag & drop images from external html page

@@ -1,6 +1,6 @@
 /*
  * jQuery TransForm plugin v1.0
- * http://jquery.sunhater.com/transForm
+ * https://jquery.sunhater.com/transForm
  * 2014-08-01
  *
  * Copyright (c) 2014 Pavel Tzonkov <sunhater@sunhater.com>

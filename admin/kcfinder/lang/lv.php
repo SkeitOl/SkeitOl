@@ -11,7 +11,7 @@ $lang = array(
     '_locale' => "lv_LV.UTF-8",  // UNIX localization code
     '_charset' => "utf-8",       // Browser charset
 
-    // Date time formats. See http://www.php.net/manual/en/function.strftime.php
+    // Date time formats. See https://www.php.net/manual/en/function.strftime.php
     '_dateTimeFull' => "%A, %Y. gada %e. %B",
     '_dateTimeMid' => "%a, %Y. %e. %b",
     '_dateTimeSmall' => "%Y.%m.%d %H:%M",

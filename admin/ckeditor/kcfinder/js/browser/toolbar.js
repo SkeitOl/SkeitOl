@@ -7,9 +7,9 @@
   *   @version 2.52
   *    @author Pavel Tzonkov <sunhater@sunhater.com>
   * @copyright 2010-2014 KCFinder Project
-  *   @license http://www.opensource.org/licenses/gpl-2.0.php GPLv2
-  *   @license http://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
-  *      @link http://kcfinder.sunhater.com
+  *   @license https://www.opensource.org/licenses/gpl-2.0.php GPLv2
+  *   @license https://www.opensource.org/licenses/lgpl-2.1.php LGPLv2
+  *      @link https://kcfinder.sunhater.com
   */?>
 
 browser.initToolbar = function() {
@@ -56,7 +56,7 @@ browser.initToolbar = function() {
 
     $('#toolbar a[href="kcact:about"]').click(function() {
         var html = '<div class="box about">' +
-            '<div class="head"><a href="http://kcfinder.sunhater.com" target="_blank">KCFinder</a> ' + browser.version + '</div>';
+            '<div class="head"><a href="https://kcfinder.sunhater.com" target="_blank">KCFinder</a> ' + browser.version + '</div>';
         if (browser.support.check4Update)
             html += '<div id="checkver"><span class="loading"><span>' + browser.label("Checking for new version...") + '</span></span></div>';
         html +=
@@ -88,7 +88,7 @@ browser.initToolbar = function() {
                         return;
                     }
                     if (browser.version < data.version)
-                        span.html('<a href="http://kcfinder.sunhater.com/download" target="_blank">' + browser.label("Download version {version} now!", {version: data.version}) + '</a>');
+                        span.html('<a href="https://kcfinder.sunhater.com/download" target="_blank">' + browser.label("Download version {version} now!", {version: data.version}) + '</a>');
                     else
                         span.html(browser.label("KCFinder is up to date!"));
                     browser.showDialog();

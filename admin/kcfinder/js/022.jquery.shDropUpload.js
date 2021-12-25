@@ -1,6 +1,6 @@
 /*
  * jQuery shDropUpload v1.2
- * http://jquery.sunhater.com/shDropUpload
+ * https://jquery.sunhater.com/shDropUpload
  * 2014-08-12
  *
  * Copyright (c) 2014 Pavel Tzonkov <sunhater@sunhater.com>

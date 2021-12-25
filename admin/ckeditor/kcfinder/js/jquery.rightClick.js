@@ -4,10 +4,10 @@
  * Version 1.01
  *
  * Cory S.N. LaViska
- * A Beautiful Site (http://abeautifulsite.net/)
+ * A Beautiful Site (https://abeautifulsite.net/)
  * 20 December 2008
  *
- * Visit http://abeautifulsite.net/notebook/68 for more information
+ * Visit https://abeautifulsite.net/notebook/68 for more information
  *
  * License:
  * This plugin is dual-licensed under the GNU General Public License and the MIT License

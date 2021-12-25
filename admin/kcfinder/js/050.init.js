@@ -5,9 +5,9 @@
   *   @version 3.12
   *    @author Pavel Tzonkov <sunhater@sunhater.com>
   * @copyright 2010-2014 KCFinder Project
-  *   @license http://opensource.org/licenses/GPL-3.0 GPLv3
-  *   @license http://opensource.org/licenses/LGPL-3.0 LGPLv3
-  *      @link http://kcfinder.sunhater.com
+  *   @license https://opensource.org/licenses/GPL-3.0 GPLv3
+  *   @license https://opensource.org/licenses/LGPL-3.0 LGPLv3
+  *      @link https://kcfinder.sunhater.com
   */
 
 _.init = function() {
@@ -53,9 +53,9 @@ _.checkAgent = function() {
         ($.agent.opera && (parseInt($.agent.version) < 10)) ||
         ($.agent.firefox && (parseFloat($.agent.firefox) < 1.8))
     ) {
-        var html = '<div style="padding:10px">Your browser is not capable to display KCFinder. Please update your browser or install another one: <a href="http://www.mozilla.com/firefox/" target="_blank">Mozilla Firefox</a>, <a href="http://www.apple.com/safari" target="_blank">Apple Safari</a>, <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a>, <a href="http://www.opera.com/browser" target="_blank">Opera</a>.';
+        var html = '<div style="padding:10px">Your browser is not capable to display KCFinder. Please update your browser or install another one: <a href="https://www.mozilla.com/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.apple.com/safari" target="_blank">Apple Safari</a>, <a href="https://www.google.com/chrome" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/browser" target="_blank">Opera</a>.';
         if ($.agent.msie && !$.agent.opera)
-            html += ' You may also install <a href="http://www.google.com/chromeframe" target="_blank">Google Chrome Frame ActiveX plugin</a> to get Internet Explorer 6, 7, 8 working.';
+            html += ' You may also install <a href="https://www.google.com/chromeframe" target="_blank">Google Chrome Frame ActiveX plugin</a> to get Internet Explorer 6, 7, 8 working.';
         html += '</div>';
         $('body').html(html);
         return false;

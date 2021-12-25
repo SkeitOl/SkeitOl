@@ -9,7 +9,7 @@ $lang = array(
     '_locale' => "sv_SE.UTF-8",  // UNIX localization code
     '_charset' => "utf-8",       // Browser charset
 
-    // Date time formats. See http://www.php.net/manual/en/function.strftime.php
+    // Date time formats. See https://www.php.net/manual/en/function.strftime.php
     '_dateTimeFull' => "den %e %B %Y",
     '_dateTimeMid' => "%e %b %Y",
     '_dateTimeSmall' => "%Y-%m-%d %H:%M",

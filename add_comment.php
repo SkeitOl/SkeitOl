@@ -2,7 +2,10 @@
 
 /** @var SkeitOl\Core $SKEITOL */
 
-
+if(! (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')) {
+	?><span class='text_error'>Permission denied!</span><?
+	die('');
+}
 //if(isset($_POST['CAPTCHA']))
 $recaptcha = $_REQUEST['g-recaptcha-response'];
 if (!empty($recaptcha)) {
@@ -17,9 +20,7 @@ if (!empty($recaptcha)) {
 	//session_start();
 	//if($_POST['CAPTCHA']!=$_SESSION['code'])
 	if (!$res['success']) {
-		?>
-		<span class='text_error'>CAPTCHA введена не верно!</span>
-		<?
+		?><span class='text_error'>CAPTCHA введена не верно!</span><?
 	} else {
 		
 		//Ядро
@@ -46,6 +47,9 @@ if (!empty($recaptcha)) {
 		if (mb_strlen(strip_tags($text)) !== $length) {
 			die("<span class='text_error'>HTML теги запрещены!</span>");
 		}
+		if (strripos($text, 'http://') !== false || strripos($text, 'https://') !== false) {
+			die("<span class='text_error'>Ссылки запрещены!</span>");
+		}
 		
 		$id_item = (int)$_POST['ITEM_ID'];
 		if ($id_item <= 0) {
@@ -70,7 +74,7 @@ if (!empty($recaptcha)) {
 		// echo$sql."<br>";
 		//$result = mysql_query($sql, $db) or die('Запрос не удался: ' .
 		if (mysql_query($sql, $db)) {
-			$to = "skeit.ol@mail.ru";
+			$to = "skeit.ol.mail@gmail.com";
 			$subject = 'Новый комментарий на сайте';
 			// текст письма
 			$message = '<html>
