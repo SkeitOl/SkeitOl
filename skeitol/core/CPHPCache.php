@@ -23,7 +23,7 @@ class CPHPCache
 	private $fileMD5Str = "file_cache";
 	private $dirSeparator = "/";
 	
-	private $defaultDirCache = "/skeitol/cache/cphp/";
+	private $defaultDirCache = "/skeitol/cache/cphp";
 	
 	/**
 	 * CCachePHP constructor.
@@ -51,7 +51,7 @@ class CPHPCache
 		$this->fileName = md5($id . $time . $dir . $this->fileMD5Str);
 		
 		
-		$this->fullFileName = $this->dirName . $this->fileName;
+		$this->fullFileName = $this->dirName . $this->fileName . '.php';
 		
 		//Есть ли директория
 		if (!file_exists($this->dirName)) {
@@ -62,21 +62,14 @@ class CPHPCache
 			return false;
 		}
 		
-		//Есть ли данные
-		$handle = fopen($this->fullFileName, "r");
-		$s = '';
-		while (!feof($handle)) {
-			$s = fgets($handle);
-		}
-		fclose($handle);
+		$data = $this->read();
 		
-		if (!empty($s)) {
-			$data = @unserialize($s);
-			if (($data !== false) && !empty($data["timeDestroy"]) && $data["timeDestroy"] > time() && isset($data["data"])) {
-				return true;
-			}
+		if ($data === '') {
+			unlink($this->fullFileName);
+			return false;
 		}
-		return $res;
+		
+		return true;
 	}
 	
 	/**
@@ -84,30 +77,8 @@ class CPHPCache
 	 */
 	public function GetVars()
 	{
-		$res = false;
-		//Есть ли файл
-		if (!file_exists($this->fullFileName)) {
-			return false;
-		}
-		
-		//Есть ли данные
-		$handle = fopen($this->fullFileName, "r");
-		$s = '';
-		while (!feof($handle)) {
-			$s = fgets($handle);
-		}
-		fclose($handle);
-		
-		if (!empty($s)) {
-			$data = @unserialize($s);
-			if ($data !== false) {
-				if (isset($data["timeDestroy"]) && isset($data["data"])) {
-					return $data["data"];
-				}
-				
-			}
-		}
-		return $res;
+		$data = $this->read();
+		return is_array($data) ? $data['data'] : false;
 	}
 	
 	/**
@@ -146,19 +117,27 @@ class CPHPCache
 		$destroeTime = $timeNow + $this->time;
 		
 		$arRes = [
-			'datecreate'  => $timeNow,
-			'timeDestroy' => $destroeTime,
-			'content'     => ob_get_contents(),
-			'data'        => ($var !== false ? $var : $this->vars)
+			'content' => ob_get_contents(),
+			'data'    => ($var !== false ? $var : $this->vars)
 		];
 		
 		if (isset($var)) {
-			$fp = fopen($this->fullFileName, "w");
+			$fp = fopen($this->fullFileName, 'wb+');
 			
-			$arRes = serialize($arRes);
+			static $search = ["\\", "'", "\0"];
+			static $replace = ["\\\\", "\\'", "'.chr(0).'"];
+			
+			
+			$contents = "<?";
+			$contents .= "\nif(\$INCLUDE_FROM_CACHE!='Y')return false;";
+			$contents .= "\n\$dateCreate = '" . str_pad($timeNow, 12, "0", STR_PAD_LEFT) . "';";
+			$contents .= "\n\$dateDestroy = '" . str_pad($destroeTime, 12, "0", STR_PAD_LEFT) . "';";
+			$contents .= "\n\$data = '" . str_replace($search, $replace, serialize($arRes)) . "';";
+			$contents .= "\nreturn true;";
+			$contents .= "\n?>";
 			
 			// записываем в файл текст
-			fwrite($fp, $arRes);
+			fwrite($fp, $contents);
 			// закрываем
 			fclose($fp);
 			unset($fp);
@@ -171,6 +150,33 @@ class CPHPCache
 			ob_end_clean();
 		}
 	}
+	
+	protected function read()
+	{
+		//Есть ли файл
+		if (!file_exists($this->fullFileName)) {
+			return false;
+		}
+		
+		$dateCreate = 0;
+		$dateDestroy = 0;
+		$data = '';
+		$INCLUDE_FROM_CACHE = 'Y';
+		if (!@include($this->fullFileName)) {
+			return false;
+		}
+		
+		$dateDestroy = (int)$dateDestroy;
+		
+		if ($dateDestroy > time()) {
+			$data = $data ? unserialize($data) : '';
+		} else {
+			$data = '';
+		}
+		
+		return $data;
+	}
+	
 	
 	public function AbortDataCache()
 	{

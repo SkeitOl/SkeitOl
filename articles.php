@@ -15,9 +15,11 @@ if (isset($_GET['id'])) {
 include_once($_SERVER['DOCUMENT_ROOT'] . "/modules/functions.php");
 
 $article = new Articles();
-/*if ($_REQUEST['PHPSESSID'] = '2b1f4e5fd0898b69c081b79861892dad') {
+/*
+if ($_REQUEST['PHPSESSID'] = '2b1f4e5fd0898b69c081b79861892dad') {
 
-}*/
+}
+*/
 
 if ($id !== false) {
 	/*
@@ -39,6 +41,26 @@ if ($id !== false) {
 		
 		if (!$arArticle) {
 			$cache->AbortDataCache();
+		} else {
+			//сразу получим доп. поля
+			$realId = (int)$arArticle['id'];
+			
+			$arArticle['COUNT_COMMENTS'] = 0;
+			if ($d = $connection->query("SELECT COUNT(*) FROM comments_articles WHERE APPROVED='1' AND ID_ARTICLES=$realId")->fetch()) {
+				$arArticle['COUNT_COMMENTS'] = (int)$d['COUNT(*)'];
+			}
+			
+			$arArticle['CATEGORIES'] = [];
+			
+			if ($arArticle['category']) {
+				$arr_category = unserialize($arArticle['category']);
+				if ($arr_category && is_array($arr_category)) {
+					$res = $connection->query("SELECT * FROM category WHERE id=" . implode(',', $arr_category));
+					while ($item = $res->fetch()) {
+						$arArticle['CATEGORIES'][] = $item;
+					}
+				}
+			}
 		}
 		
 		$cache->EndDataCache($arArticle);
@@ -88,7 +110,7 @@ if ($realId > 0 && !$_SESSION['view'][$realId]) {
 }
 
 ?><!DOCTYPE html>
-<html lang="ru">
+	<html lang="ru">
 <?php
 if (empty($sys_description)) {
 	$sys_description = "Статьи и информационные ресурсы SkeitOl";
@@ -132,7 +154,7 @@ include_once("blocks/head_optimize.php");
 			</div>
 		</div>
 	</div>
-	<?php //include("blocks/footer.php"); ?>
+<?php //include("blocks/footer.php"); ?>
 <?php
 
 $long_footer = true;
