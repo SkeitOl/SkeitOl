@@ -25,7 +25,7 @@ class Cbresult
 	public function fetch()
 	{
 		if ($this->query) {
-			return $this->query->fetch_assoc();
+			return is_bool($this->query) ?: $this->query->fetch_assoc();
 		}
 		
 		return $this->query;

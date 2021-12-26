@@ -24,38 +24,48 @@ if ($id !== false) {
 	* смотрим есть ли id или url
 	*/
 	$tempId = (int)$id;
-	$myrow = [];
 	
-	if ($tempId > 0) {
+	$arArticle = [];
+	
+	$cache = new \SkeitOl\CPHPCache();
+	if ($cache->InitCache(84600, $id, '/articles')) {
+		$arArticle = $cache->GetVars();
+	} elseif ($cache->StartDataCache()) {
+		
 		$arArticle = $connection->query("SELECT * FROM articles WHERE id=$tempId AND active=1")->fetch();
-	}
-	if (!$arArticle) {
-		$arArticle = $connection->query("SELECT * FROM articles WHERE url='$id' AND active=1")->fetch();
 		if (!$arArticle) {
-			unset($id);
-			/*выводим 404*/
-			header("HTTP/1.0 404 Not Found");
-			header("HTTP/1.1 404 Not Found");
-			header("Status: 404 Not Found");
-			//header("Location: https://skeitol.ru/error-pages/error404.htm");
-			//die(); exit();
-			
-			echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/error-pages/error404.htm');
-			die();
+			$arArticle = $connection->query("SELECT * FROM articles WHERE url='$id' AND active=1")->fetch();
 		}
+		
+		if (!$arArticle) {
+			$cache->AbortDataCache();
+		}
+		
+		$cache->EndDataCache($arArticle);
 	}
-	if ($arArticle) {
+	
+	if (!$arArticle) {
+		unset($id);
+		/*выводим 404*/
+		header("HTTP/1.0 404 Not Found");
+		header("HTTP/1.1 404 Not Found");
+		header("Status: 404 Not Found");
+		echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/error-pages/error404.htm');
+		
+		include_once($_SERVER['DOCUMENT_ROOT'] . '/skeitol/epilog_after.php');
+	} else {
+		
 		$realId = (int)$arArticle['id'];
-		/*UPD 2016.02.24*/
-		/*UPD 2016.03.26 add specail  TIMESTAMP_X*/
+		
 		$lastModified = strtotime($arArticle['TIMESTAMP_X']);
+		
 		header("Cache-Control: public");
 		header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
+		
 		if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $lastModified) {
 			header('HTTP/1.1 304 Not Modified');
 			exit();
 		}
-		
 		
 		$sys_title = ($arArticle['meta_title']) ?: strip_tags($arArticle['title']);
 		if (!empty($arArticle['meta_keywords'])) {
@@ -90,6 +100,7 @@ $sys_pages = "articles";
 if (empty($sys_pages_print)) {
 	$sys_pages_print = "Статьи";
 }
+
 $sys_special_footer_text .= '<script type="text/javascript" src="/js/articles.js?v6" async></script><script src="//www.google.com/recaptcha/api.js" async></script>';
 
 include_once("blocks/head_optimize.php");

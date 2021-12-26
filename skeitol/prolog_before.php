@@ -16,6 +16,7 @@ try {
 	session_start();
 	include_once 'core/connection.php';
 	include_once 'core/cbresult.php';
+	include_once 'core/CPHPCache.php';
 	
 } catch (\Exception $ex) {
 	echo $ex->getMessage();

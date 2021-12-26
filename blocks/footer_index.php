@@ -129,7 +129,7 @@
 		</div>
 	</section>
 <div style="display:none">
-<?php include_once($_SERVER['DOCUMENT_ROOT']."analyticstracking.php") ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT']."/analyticstracking.php") ?>
 </div>
 <!--UpButton-->
 <div id="upbutton">
