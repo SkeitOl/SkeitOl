@@ -19,11 +19,11 @@ body .long_footer{margin-top:-217px;height:217px;}
 	#content_r,#content_r_long{overflow:auto;padding:0;}
 }
 </style>
-<section class="footer_new premium-domains <? if($long_footer)echo"long_footer";?>">
+<section class="footer_new premium-domains <?php if($long_footer)echo"long_footer";?>">
 	<div style="background: #f6f5f3;border-top: 1px solid #e9e9e8;">
 		<div class="container">
 			<div class="col-lg-12 text-center">
-				<?include_once("blocks/breadcrumb_footer.php");?>
+				<?php include_once("blocks/breadcrumb_footer.php");?>
 			</div>
 			<div class="col-lg-12 text-center">
 				<h3>Основные разделы</h3>
@@ -40,7 +40,7 @@ body .long_footer{margin-top:-217px;height:217px;}
 					<p><a href="/pages/5/">Условия использования информации</a></p>
 				</div>
 			</div>
-			<div class="clear"></div><?/*
+			<div class="clear"></div><?php/*
 			<div class="col-lg-12 text-center">
 				<h3>Контакты</h3>
 			</div>
@@ -58,7 +58,7 @@ body .long_footer{margin-top:-217px;height:217px;}
 				</div>
 			</div>*/?>
 			<div class="clear"></div>
-            <p class="small-text">Отправляя любую форму на сайте, вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</a></p>
+            <p class="small-text">Отправляя любую форму на сайте, вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</p>
 			<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?=date('Y')?></p></div>
 		</div>
 		</div>
@@ -69,7 +69,7 @@ body .long_footer{margin-top:-217px;height:217px;}
 		#upbutton img {opacity: 0.6;}
 	</style>
 <div id="upbutton">
-    <img src="/images/up2.png" width="25" height="25" style="margin: 5px;" />
+    <img src="/images/up2.png" width="25" height="25" style="margin: 5px;"  alt="up"/>
 </div>
 <!-- End UpButton-->
 <div style="display:none"><!-- Google analyticstracking -->
@@ -78,7 +78,11 @@ body .long_footer{margin-top:-217px;height:217px;}
 <!-- Yandex.Metrika informer --><a async href="https://metrika.yandex.ru/stat/?id=24809018&amp;from=informer"target="_blank" rel="nofollow"><img src="https://mc.yandex.ru/informer/24809018/3_0_FFFFFFFF_FFFFFFFF_0_pageviews"style="width:88px; height:31px; border:0;" alt="Яндекс.Метрик" /></a><!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter24809018 = new Ya.Metrika({ id:24809018, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/24809018" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 </div>
 <script defer src="/js/jquery-1.7.2.min.js" ></script>
-<?if(!empty($sys_special_footer_text))echo $sys_special_footer_text;?>
+<?php
+if(!empty($sys_special_footer_text)) {
+	echo $sys_special_footer_text;
+} ?>
 <script defer src="/js/all.js?v1"></script>
-</body>
-</html>
+<?php
+echo '</body>';
+echo '</html>';

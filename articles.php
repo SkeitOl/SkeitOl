@@ -30,7 +30,7 @@ if ($id !== false) {
 	$arArticle = [];
 	
 	$cache = new \SkeitOl\CPHPCache();
-	if ($cache->InitCache(84600, $id, '/articles')) {
+	if ($cache->InitCache(3600, $id, '/articles/'.$id)) {
 		$arArticle = $cache->GetVars();
 	} elseif ($cache->StartDataCache()) {
 		
@@ -45,9 +45,24 @@ if ($id !== false) {
 			//сразу получим доп. поля
 			$realId = (int)$arArticle['id'];
 			
+			
+			if ($prev = $connection->query("SELECT id,title,url FROM articles WHERE id < $realId AND active=1 ORDER BY id DESC LIMIT 1;")->fetch()) {
+				$arArticle['PREV'] = $prev;
+			}
+			
+			if ($next = $connection->query("SELECT id,title,url FROM articles WHERE id > " . $realId . " AND active=1 ORDER BY id LIMIT 1;")->fetch()) {
+				$arArticle['NEXT'] = $next;
+			}
+			
 			$arArticle['COUNT_COMMENTS'] = 0;
-			if ($d = $connection->query("SELECT COUNT(*) FROM comments_articles WHERE APPROVED='1' AND ID_ARTICLES=$realId")->fetch()) {
+			if ($d = $connection->query("SELECT COUNT(*) FROM comments_articles WHERE APPROVED=1 AND ID_ARTICLES=$realId")->fetch()) {
 				$arArticle['COUNT_COMMENTS'] = (int)$d['COUNT(*)'];
+			}
+			if ($arArticle['COUNT_COMMENTS'] > 0) {
+				$res = $connection->query("SELECT * FROM comments_articles WHERE APPROVED=1 AND ID_ARTICLES=$realId ORDER BY id DESC LIMIT 10");
+				while ($item = $res->fetch()) {
+					$arArticle['COMMENTS'][] = $item;
+				}
 			}
 			
 			$arArticle['CATEGORIES'] = [];
@@ -110,7 +125,7 @@ if ($realId > 0 && !$_SESSION['view'][$realId]) {
 }
 
 ?><!DOCTYPE html>
-	<html lang="ru">
+<html lang="ru">
 <?php
 if (empty($sys_description)) {
 	$sys_description = "Статьи и информационные ресурсы SkeitOl";
@@ -154,7 +169,7 @@ include_once("blocks/head_optimize.php");
 			</div>
 		</div>
 	</div>
-<?php //include("blocks/footer.php"); ?>
+	<?php //include("blocks/footer.php"); ?>
 <?php
 
 $long_footer = true;

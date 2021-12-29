@@ -29,10 +29,8 @@ function request_url()
 	<meta property="og:description" content="<?php echo $sys_description; ?>">
 	<meta name="description" content="<?php echo $sys_description; ?>">
 	<meta name="keywords" content="<?php echo $sys_keywords; ?>">
-	<meta http-equiv="content-language" content="ru">
 	<meta name="author" content="SkeitOl">
 	<meta name="copyright" content="Все права принадлежат SkeitOl">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- -->

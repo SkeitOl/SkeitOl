@@ -123,7 +123,7 @@
 				
 				</div>
 				<div class="clear"></div>
-                <p>Отправляя любую форму на сайте,<br>вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</a></p>
+                <p>Отправляя любую форму на сайте,<br>вы соглашаетесь с <a target="_blank" href='/privacy.php'>политикой конфиденциальности</a><br> и с <a  target="_blank" href='/agreement.php'>пользовательским соглашением</a> данного сайта.</p>
 				<div class="col-lg-12 text-center small-text"><p>© SkeitOl 2012 - <?php echo date('Y')?></p></div>
 			</div>
 		</div>

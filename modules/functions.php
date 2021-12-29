@@ -219,8 +219,11 @@ class Articles
 		self::includeCoreSkeitOl(true);
 		$cl = new \SkeitOl\Core();
 		
-		echo "<div itemscope='' itemtype='https://schema.org/Article'>
-		<div class='title-con-block' ><span itemprop='name' itemprop='headline' >" . $myrow['title'] . "</span></div>
+		echo "
+<div itemscope='' itemtype='https://schema.org/Article'>
+		<div class='title-con-block' >
+			<span itemprop='name' itemprop='headline' >" . $myrow['title'] . "</span>
+		</div>
 		<span style='display:none' itemprop='description'>" . htmlspecialchars($myrow['description']) . "</span>";
 		
 		$photo_img = strip_tags($myrow['src_preview']);
@@ -249,58 +252,63 @@ class Articles
 		<div itemprop="articleBody"><?= $myrow['text'] ?></div>
 		<meta itemprop='interactionCount' content='UserComments:<?= $myrow['COUNT_COMMENTS'] ?: 0 ?>'/>
 		<br>
-		<div class='author-view'><span itemprop='author'><?= $myrow['author'] ?></span></div><br/>
+		<div class='author-view'><span itemprop='author'><?= $myrow['author'] ?></span></div>
+		<br/>
 		<?php
 		/* Category */
 		if ($myrow['CATEGORIES']) { ?>
 			<div class='category-view'>
-			<p style='border-left: 3px #57AA43 solid;padding-left: 10px;text-indent: 0px;'>
-				<?php
-				foreach ($myrow['CATEGORIES'] as $arCat) {
-					?>
-					<script>document.write("<a href='/articles/?category=<?=$arCat['id']?>' title='тег <?=$arCat['name'] ?>'><?=$arCat['name']?></a>");</script>
+				<p style='border-left: 3px #57AA43 solid;padding-left: 10px;text-indent: 0px;'>
 					<?php
-				}
-				?></p></div><?php
+					foreach ($myrow['CATEGORIES'] as $arCat) {
+						?>
+						<script>document.write("<a href='/articles/?category=<?=$arCat['id']?>' title='тег <?=$arCat['name'] ?>'><?=$arCat['name']?></a>");</script>
+						<?php
+					}
+					?>
+				</p>
+			</div>
+			<?php
 		}
-		?></div><?php
-		/* Navigaciya */
 		?>
-		</div>
+		<?php
+		/* Navigaciya */
 		
+		echo '</div>';
+		?>
+
+
 		<div class="text-center">
 			<a target="_new" href="https://timeweb.com/ru/?i=45228&a=168"><img style="border:0px;" src="https://wm.timeweb.ru/images/posters/600x60/600x60.jpg"></a>
 		</div>
 		
-		<div class="con-block box-shadow2">
-			<div class='navig links'>
-				<?
-				$row = $cl->GetList("articles", ["order" => ["id" => "DESC"], "select" => ["id", "title", "url"], "filter" => ["<=id" => (int)$myrow['id'], "active" => 1], "limit" => ["top" => '1', 'bottom' => "1"],]);
-				
-				//			if($_SERVER['REMOTE_ADDR']=="5.158.233.184"){
-				//                \SkeitOl\SkeiOl::dump($row);
-				//            }
-				echo "<div>";
-				if ($row) {
-					$row = $row[0];
-					if (!empty($row['url']))
-						$url_page = $row['url']; else $url_page = $row['id'];
-					echo "<a href='/articles/" . $url_page . "/' name='" . strip_tags($row['title']) . "' title='" . strip_tags($row['title']) . "'>Предыдущая статья<abbr>" . strip_tags($row['title']) . "</abbr></a>";
-				}
-				echo "</div>";
-				
-				$row = $cl->GetList("articles", ["order" => ["id" => ""], "select" => ["id", "title", "url"], "filter" => [">=id" => (int)$myrow['id'], "active" => 1], "limit" => ["top" => '1', 'bottom' => "2"],]);
-				
-				echo "<div>";
-				
-				if ($row) {
-					$row = $row[0];
-					if (!empty($row['url']))
-						$url_page = $row['url']; else $url_page = $row['id'];
-					echo "<a href='/articles/" . $url_page . "/' name='" . strip_tags($row['title']) . "' title='" . strip_tags($row['title']) . "'>Следующая статья<abbr>" . strip_tags($row['title']) . "</abbr></a>";
-				} ?>
+		<?php
+		if ($myrow['PREV'] || $myrow['NEXT']) {
+			?>
+			<div class="con-block box-shadow2">
+				<div class='navig links'>
+					<?php
+					if ($myrow['PREV']) {
+						$url_page = $myrow['PREV']['url'] ?: $myrow['PREV']['id'];
+						
+						echo "<div>";
+						echo "<a href='/articles/" . $url_page . "/' title='" . strip_tags($myrow['PREV']['title']) . "'>Предыдущая статья<abbr>" . strip_tags($myrow['PREV']['title']) . "</abbr></a>";
+						echo "</div>";
+					}
+					
+					if ($myrow['NEXT']) {
+						$url_page = $myrow['NEXT']['url'] ?: $myrow['NEXT']['id'];
+						
+						echo "<div>";
+						echo "<a href='/articles/" . $url_page . "/' title='" . strip_tags($myrow['NEXT']['title']) . "'>Следующая статья<abbr>" . strip_tags($myrow['NEXT']['title']) . "</abbr></a>";
+						echo "</div>";
+					}
+					?>
+				</div>
 			</div>
-		</div>
+			<?php
+		}
+		?>
 		</div>
 		<?/* Social
 	<div class="con-block box-shadow2">
@@ -314,27 +322,26 @@ class Articles
 	</div>*/ ?>
 
 		<div class="con-block box-shadow2">
-			<?
-			$ar_comments = $cl->GetList("comments_articles", ["order" => ["id" => "desc"], "filter" => ["ID_ARTICLES" => $myrow['id'], "APPROVED" => '1'], "limit" => ["top" => '0', 'bottom' => "10"]]);
-			?>
-			<h4 class='socl'>Комментарии: <span itemprop="interactionCount"><?= count($ar_comments) ?></span></h4>
-			<?
-			if (count($ar_comments) == 0) {
-				echo "<p>Коментарий пока нет, стань первым!</p>";
+			<h4 class='socl'>Комментарии: <span itemprop="interactionCount"><?= count($myrow['COMMENTS']) ?></span></h4>
+			<?php
+			if (!$myrow['COMMENTS']) {
+				echo "<p>Комментарий пока нет, стань первым!</p>";
 			} else {
 				?>
 				<div class="comments">
 					<?
 					//setlocale(LC_ALL, 'ru_RU.UTF-8');
-					foreach ($ar_comments as $key => $row) { ?>
+					foreach ($myrow['COMMENTS'] as $key => $row) { ?>
 						<div class="comment">
 							<div class="comment_up" <? if ($row['DEPTH_LEVEL'] > 1): ?>style="margin-left:20px"<? endif; ?> itemprop="comment" itemscope="itemscope" itemtype="https://schema.org/UserComments">
 								<div class="comment__avatar">
 									<div>
-										<img width="47" alt="комментарий <?= ($row['NICK']) ?>" src="<?
-										if (empty($row['SRC_IMG']))
+										<img width="47" alt="комментарий <?= ($row['NICK']) ?>" src="<?php
+										if (empty($row['SRC_IMG'])) {
 											echo '/images/iron_ma.png';
-										else echo $row['SRC_IMG'];
+										} else {
+											echo $row['SRC_IMG'];
+										}
 										?>">
 									</div>
 								</div>
@@ -347,9 +354,7 @@ class Articles
 									echo "short_comment_text" ?>"><?
 									if (strlen($row['TEXT']) > 700) {
 										?>
-										<span class="show_all_text"><span class="show_all_text_desc">показать всё</span></span>
-										
-										<?
+										<span class="show_all_text"><span class="show_all_text_desc">показать всё</span></span><?php
 									}
 									echo $row['TEXT']; ?></div>
 							</div>
@@ -359,7 +364,8 @@ class Articles
 					} ?>
 				</div>
 				<?
-			} ?>
+			}
+			?>
 			<div>
 				<div class="comment_block">
 					<h3 class="comment_block-title<?/*add_com_link*/ ?>" <?/*onclick="ShowHideElement('#block_add_com')">*/ ?>>
@@ -373,13 +379,13 @@ class Articles
 							<div class="row">
 								<div class="col-4 col-xs-1">
 									<div class="row con-pg">
-										<label for="com_name">Имя<span class="required">*</span>:</label></div>
+										<label for="com_nick">Имя<span class="required">*</span>:</label></div>
 								</div>
 								<div class="col-4 col-xs-1">
 									<div class="row con-pg"><input required id="com_nick" type="text" name="NICK"></div>
 								</div>
 								<div class="col-4 col-xs-1">
-									<div class="row con-pg text-align-right text-align-left-xs"><label for="com_name">E-mail:</label>
+									<div class="row con-pg text-align-right text-align-left-xs"><label for="com_email">E-mail:</label>
 									</div>
 								</div>
 								<div class="col-4 col-xs-1">
@@ -399,7 +405,8 @@ class Articles
 							<div class="row">
 								<div class="col-4 col-xs-1">
 									<div class="row con-pg">
-										<label for="com_captch">CAPTCHA<span class="required">*</span>:</label></div>
+										<label<?/* for="com_captch"*/ ?>>CAPTCHA<span class="required">*</span>:</label>
+									</div>
 								</div>
 								<div class="col-8 col-xs-1">
 									<div class="row con-pg">
@@ -415,7 +422,7 @@ class Articles
 									<div class="row con-pg">
 										<label for="checkbox-agree"><input id="checkbox-agree" type="checkbox" class="form__input" name="agree" value="Y" required="" aria-required="true">Я
 											согласен с условиями <a target="_blank" class="link" href="/privacy.php">политики
-												конфиденциальности</label></div>
+												конфиденциальности</a></label></div>
 								</div>
 							</div>
 							<?/*
@@ -433,7 +440,8 @@ class Articles
 				</div>
 			</div>
 		</div>
-		<? if ($myrow['RECOMMENDATIONS']) {
+		<?
+		/*if ($myrow['RECOMMENDATIONS']) {
 		$RECOMMENDATIONS_ID_ARR = unserialize($myrow['RECOMMENDATIONS']);
 		if (is_array($RECOMMENDATIONS_ID_ARR) && count($RECOMMENDATIONS_ID_ARR) > 0) {
 			$RECOMMENDATIONS = $cl->GetList("articles", ["select" => ["id", "title", "date", "url", "category", "views", "src_preview"], "order" => ["date" => "desc"], "filter" => ["id" => $RECOMMENDATIONS_ID_ARR, "active" => '1'], "limit" => ["top" => '0', 'bottom' => "10"]]);
@@ -453,7 +461,7 @@ class Articles
 				<?
 			}
 		}
-	}
+	}*/
 		/*EndStartIDArticlesShow*/
 	}
 	
