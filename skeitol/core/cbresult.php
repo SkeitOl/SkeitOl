@@ -12,6 +12,7 @@ class Cbresult
 	 * @var mysqli_result
 	 */
 	protected $query;
+	protected $messageError;
 	
 	/**
 	 * @param mysqli_result $res

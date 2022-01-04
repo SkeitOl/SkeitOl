@@ -103,4 +103,22 @@ class Connection
 	{
 		return new Cbresult($this->getConnection()->query($strQuery));
 	}
+	
+	/**
+	 * @return string
+	 */
+	public function getError()
+	{
+		return $this->mysqli ? $this->mysqli->error : '';
+	}
+	
+	/**
+	 * @param string $s
+	 *
+	 * @return string
+	 */
+	public function real_escape_string($s)
+	{
+		return $this->mysqli->real_escape_string($s);
+	}
 }

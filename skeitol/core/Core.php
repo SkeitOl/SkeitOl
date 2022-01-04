@@ -33,30 +33,7 @@ class Core
 	
 	private function init()
 	{
-		if (!require DOC_ROOT . '/skeitol/config.php') {
-			die('Error open SQLConnect config file');
-		}
-		global $DB;
-		if (!empty($DB)) {
-			
-			$this->DB_CONFIG['host'] = $DB['host'] ?: 'localhost';
-			$this->DB_CONFIG['username'] = $DB['username'] ?: '';
-			$this->DB_CONFIG['passwd'] = $DB['passwd'] ?: '';
-			$this->DB_CONFIG['dbname'] = $DB['dbname'] ?: '';
-			
-			if (empty($this->DB_CONFIG['username']) or empty($this->DB_CONFIG['dbname'])) {
-				die('Error settings SQLConnect config file');
-			}
-			
-			if (!$this->objConnectServer()) {
-				die('Error connect DB');
-			}
-			
-		} else {
-			die('Error DB settings');
-		}
-		
-		
+	
 	}
 	
 	public static function dump($var, $printr = false)
@@ -92,30 +69,11 @@ class Core
 	 *
 	 * @param $string SQL-строка запроса
 	 *
-	 * @return array|bool
+	 * @return Cbresult
 	 */
 	public function SQLQuery($string)
 	{
-		if (!empty($string)) {
-			$dataArr = [];
-			$mysqli = $this->objConnectServer();
-			
-			// Посылаем запрос серверу
-			if ($result = $mysqli->query($string)) {
-				
-				// Выбираем результаты запроса:
-				while ($row = $result->fetch_assoc()) {
-					$dataArr[] = $row;
-				}
-				// Освобождаем память
-				$result->close();
-			}
-			// Закрываем соединение
-			$mysqli->close();
-			
-			return $dataArr;
-		}
-		return false;
+		return Connection::getInstance()->query($string);
 	}
 	
 	public function __debugInfo()
@@ -237,7 +195,6 @@ class Core
 			
 			//Запрос к БД
 			//if($_SERVER['REMOTE_ADDR']=='5.158.233.184'){ SkeiOl::dump($sql_query);}
-			
 			
 			$arr_data = $this->SQLQuery($sql_query);
 			
