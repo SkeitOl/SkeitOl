@@ -206,18 +206,13 @@ class Articles
 	/*Выводит статью*/
 	function showArticlesID(
 		/*Массив полученный при sql запросе*/
-		$myrow,
-		/*Подключение к базе данных*/
-		$db)
+		$myrow)
 	{
 		/*StartIDArticlesShow*/
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
 		$st_date = strftime('%d %h %Y %H:%M', strtotime($myrow['date']));
 		$date_publisher = (date_format(date_create($myrow['date']), 'Y-m-d')) . "T" . (date_format(date_create($myrow['date']), 'H:i'));
 		
-		
-		self::includeCoreSkeitOl(true);
-		$cl = new \SkeitOl\Core();
 		
 		echo "
 <div itemscope='' itemtype='https://schema.org/Article'>

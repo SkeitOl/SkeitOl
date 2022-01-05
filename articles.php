@@ -9,7 +9,7 @@ $id = false;
 $realId = 0;
 
 if (isset($_GET['id'])) {
-	$id = mysql_real_escape_string($_GET['id']);
+	$id = ($_GET['id']);
 }
 
 include_once($_SERVER['DOCUMENT_ROOT'] . "/modules/functions.php");
@@ -30,13 +30,15 @@ if ($id !== false) {
 	$arArticle = [];
 	
 	$cache = new \SkeitOl\CPHPCache();
-	if ($cache->InitCache(3600, $id, '/articles/'.$id)) {
+	$cacheId = md5($id);
+	if ($cache->InitCache(3600, $cacheId, '/articles/' . $cacheId)) {
 		$arArticle = $cache->GetVars();
 	} elseif ($cache->StartDataCache()) {
 		
 		$arArticle = $connection->query("SELECT * FROM articles WHERE id=$tempId AND active=1")->fetch();
 		if (!$arArticle) {
-			$arArticle = $connection->query("SELECT * FROM articles WHERE url='$id' AND active=1")->fetch();
+			$rId = $connection->real_escape_string($id);
+			$arArticle = $connection->query("SELECT * FROM articles WHERE url='$rId' AND active=1")->fetch();
 		}
 		
 		if (!$arArticle) {
@@ -158,7 +160,7 @@ include_once("blocks/head_optimize.php");
 							$article->showArticlesList($arArticle, $db);
 						} else {
 							//Выводит данные по id
-							$article->showArticlesID($arArticle, $db);
+							$article->showArticlesID($arArticle);
 						}
 						?>
 					</div>

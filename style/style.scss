@@ -754,8 +754,7 @@ pre {
 
 img {
   max-width: 100%;
-  width: auto \9
-;
+  width: auto;
   border: 0
 }
 
@@ -1866,4 +1865,26 @@ pre {
   padding: 10px;
   margin: 5px 10px;
   text-align: center;
+}
+
+.main_page_slider .item {
+  min-height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main_page_slider {
+  min-height: 300px
+}
+
+.main_page_slider .item .t {
+  font-size: 1.85rem;
+  text-shadow: 0 1px 3px #000;
+  color: #fff;
+  margin: 1.5em;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
 }
