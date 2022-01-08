@@ -168,32 +168,50 @@ class Articles
 			
 		} else {
 			include_once($_SERVER['DOCUMENT_ROOT'] . "/blocks/bd.php");
-			$result1 = mysql_query("SELECT id,name FROM category WHERE id='" . $_GET['category'] . "'", $db);
-			$row = mysql_fetch_array($result1);
-			if ($result1 && $row['id'] != "") {
-				echo "<p><b>Статьи на тему: <span style='color:#FF3535'>" . $row['name'] . "</span></b></p>";
+			
+			$category = [];
+			$categoryId = (int)$_REQUEST['category'];
+			if ($categoryId > 0) {
+				$category = [];
+				
+				$cache = new \SkeitOl\CPHPCache();
+				if ($cache->InitCache(3600, $categoryId, '/category')) {
+					$category = $cache->GetVars();
+				} elseif ($cache->StartDataCache()) {
+					
+					$category = \SkeitOl\Connection::getInstance()->query("SELECT * FROM category WHERE id='$categoryId'")->fetch();
+					
+					if (!$category) {
+						$cache->AbortDataCache();
+					}
+					
+					$cache->EndDataCache($category);
+				}
+				
+				
+			}
+			
+			if ($category) {
+				echo "<p><b>Статьи на тему: <span style='color:#FF3535'>" . $category['name'] . "</span></b></p>";
 				echo "<div class='links'>";
-				$array1 = [];
-				//WHERE category='".$row['name']."'"
-				$result1 = mysql_query("SELECT * FROM articles ORDER BY date DESC", $db);
-				$r = mysql_fetch_array($result1);
-				$b = false;
-				do {
-					$b = false;
-					$array1 = unserialize($r['category']);
-					for ($i = 0; $i < count($array1); $i++) {
-						if ($array1[$i] == $row['id']) {
-							$b = true;
-							break;
+				$res = \SkeitOl\Connection::getInstance()->query("SELECT * FROM articles ORDER BY date DESC");
+				while ($item = $res->fetch()) {
+					if ($item['category']) {
+						$b = false;
+						$array1 = unserialize($item['category']);
+						if ($array1) {
+							for ($i = 0; $i < count($array1); $i++) {
+								if ($array1[$i] == $categoryId) {
+									$b = true;
+									break;
+								}
+							}
+						}
+						if ($b) {
+							$this->PrintArticlesItem($item);
 						}
 					}
-					if ($b) {
-						$this->PrintArticlesItem($r, $db);
-						/*
-						if(!empty($r['url']))$url_page=$r['url'];else $url_page=$r['id'];
-						echo"<li><a href='/articles/".$url_page."/' title='" . $r['title'] . "'>" . $r['title'] . "</a></li>";*/
-					}
-				} while ($r = mysql_fetch_array($result1));
+				}
 				
 				echo "</div>";
 			} else echo "<p>Неизвестная категория.</p>";
@@ -366,7 +384,7 @@ class Articles
 					<h3 class="comment_block-title<?/*add_com_link*/ ?>" <?/*onclick="ShowHideElement('#block_add_com')">*/ ?>>
 						Добавить комментарий</h3>
 					<div id="block_add_com"<? /*style="display:none"*/ ?>>
-						<form action="/add_comment.php" id="form_add_com" class="form_com" method="post" onsubmit="submitS(this);return false">
+						<form action="/ajax/add_comment.php" id="form_add_com" class="form_com" method="post" onsubmit="submitS(this);return false">
 							<input type="hidden" name="IP" value="<?= $_SERVER['REMOTE_ADDR'] ?>">
 							<input type="hidden" name="ITEM_ID" value="<?= $myrow['id'] ?>">
 							<input type="hidden" name="type" value="articles">
@@ -461,25 +479,35 @@ class Articles
 	}
 	
 	/*Вывод записи*/
-	public function PrintArticlesItem($myrow, $db)
+	public function PrintArticlesItem($myrow, $db = null)
 	{
-		if (empty($myrow))
+		if (empty($myrow)) {
 			return "";
+		}
 		$array1 = [];
-		$array1 = unserialize($myrow['category']);
+		if ($myrow['category']) {
+			$array1 = unserialize($myrow['category']);
+		}
 		$category_string = '';
 		if (count($array1) > 0) {
-			$category_string = "<div class='tags'>";
-			for ($i = 0; $i < count($array1); $i++) {
-				$result1 = mysql_query("SELECT * FROM category WHERE id='$array1[$i]'", $db);
-				$row1 = mysql_fetch_array($result1);
-				$category_string .= '<span class="item">' . $row1['name'] . '</span>';
-				//if($i<count($array1)-1)echo ", ";
+			$categories = [];
+			$res = \SkeitOl\Connection::getInstance()->query('SELECT id,name FROM category WHERE id IN (' . (implode(',', $array1)) . ')');
+			while ($item = $res->fetch()) {
+				$categories[] = $item;
 			}
-			$category_string .= "</div>";
+			if ($categories) {
+				$category_string = "<div class='tags'>";
+				foreach ($categories as $category) {
+					$category_string .= '<span class="item">' . $category['name'] . '</span>';
+				}
+				$category_string .= "</div>";
+			}
 		}
-		if (!empty($myrow['url']))
-			$url_page = $myrow['url']; else $url_page = $myrow['id'];
+		if (!empty($myrow['url'])) {
+			$url_page = $myrow['url'];
+		} else {
+			$url_page = $myrow['id'];
+		}
 		
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
 		$st_date = strftime('%d %h %Y %H:%M', strtotime($myrow['date']));

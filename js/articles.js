@@ -137,14 +137,20 @@ function initArticlesEvent(){
 			setTimeout(function(){$("#com_text").removeAttr("style");$("#res_comm").hide();}, 3000);
 			return false;
 		}
-		$.post($("#form_add_com").attr("action"), $("#form_add_com").find('input,textarea').serialize()//$("#form_add_com :input, #form_add_com :textarea").serializeArray()
-			, function (info) {
-				if(info=="1"){
-					$("#form_add_com").remove();
-					$("#res_comm").html("<span class='text_good'>После проверки сообщения модератором оно будет добавленно.</span>");}
-				else {$("#res_comm").html(info);
-					grecaptcha.reset();
+		const $form=$("#form_add_com");
+		$.post($form.attr("action"), $form.serializeArray()//$("#form_add_com :input, #form_add_com :textarea").serializeArray()
+			, function (result) {
+				if (result) {
+					if (!result.status || (result.status && result.status !== 'ok')) {
+						$("#res_comm").html("<span class='text_error'>" + result.message + "</span>");
+					} else {
+						$("#res_comm").html("<span class='text_good'>" + result.message + "</span>");
+						$form[0].reset();
+					}
+				} else {
+					$("#res_comm").html("<span class='text_good'>Ошибка отправки запроса</span>");
 				}
+				grecaptcha.reset();
 			});
 	});
 }

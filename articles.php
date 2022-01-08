@@ -21,6 +21,8 @@ if ($_REQUEST['PHPSESSID'] = '2b1f4e5fd0898b69c081b79861892dad') {
 }
 */
 
+$sys_title = "Статьи";
+
 if ($id !== false) {
 	/*
 	* смотрим есть ли id или url
@@ -116,8 +118,30 @@ if ($id !== false) {
 			$og_image = $arArticle['src_preview'];
 		}
 	}
-} else {
-	$sys_title = "Статьи";
+}
+
+
+$categoryId = (int)$_REQUEST['category'];
+if ($categoryId > 0) {
+	$category = [];
+	
+	$cache = new \SkeitOl\CPHPCache();
+	if ($cache->InitCache(3600, $categoryId, '/category')) {
+		$category = $cache->GetVars();
+	} elseif ($cache->StartDataCache()) {
+		
+		$category = \SkeitOl\Connection::getInstance()->query("SELECT * FROM category WHERE id='$categoryId'")->fetch();
+		
+		if (!$category) {
+			$cache->AbortDataCache();
+		}
+		
+		$cache->EndDataCache($category);
+	}
+	
+	if ($category) {
+		$sys_title = "Статьи на тему: {$category['name']}";
+	}
 }
 
 
@@ -140,7 +164,7 @@ if (empty($sys_pages_print)) {
 	$sys_pages_print = "Статьи";
 }
 
-$sys_special_footer_text .= '<script type="text/javascript" src="/js/articles.js?v6" async></script><script src="//www.google.com/recaptcha/api.js" async></script>';
+$sys_special_footer_text .= '<script type="text/javascript" src="/js/articles.js?v10" async></script><script src="//www.google.com/recaptcha/api.js" async></script>';
 
 include_once("blocks/head_optimize.php");
 
