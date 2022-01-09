@@ -1,8 +1,6 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/skeitol/prolog_before.php');
 include("lock.php");
-//Ядро
-if(!require_once($_SERVER["DOCUMENT_ROOT"]."/skeitol/prolog_before.php"))
-    die("Error include core");
 
 // упрощенная функция scandir
 function myscandir($dir)
@@ -34,11 +32,6 @@ function clear_dir($dir)
 if($_REQUEST["del_type"]=="all"){
     clear_dir($SKEITOL->getCahcePath());
 }
-
-header('Content-Type: text/html; charset= utf-8');/*
-
-	  ini_set("display_errors",1);
-	  error_reporting(E_ALL);*/
 
 ?>
 <!DOCTYPE>

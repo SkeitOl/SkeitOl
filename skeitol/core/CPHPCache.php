@@ -197,4 +197,34 @@ class CPHPCache
 	{
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
+	
+	
+	public static function clearDir($dir)
+	{
+		if ($dir[0] !== '/') {
+			$dir = '/' . $dir;
+		}
+		$allPath = $_SERVER['DOCUMENT_ROOT'] . '/skeitol/cache/cphp' . $dir;
+		
+		if (is_dir($allPath)) {
+			
+			function dirDel($dir)
+			{
+				$d = opendir($dir);
+				while (($entry = readdir($d)) !== false) {
+					if ($entry != "." && $entry != "..") {
+						if (is_dir($dir . "/" . $entry)) {
+							dirDel($dir . "/" . $entry);
+						} else {
+							unlink($dir . "/" . $entry);
+						}
+					}
+				}
+				closedir($d);
+				rmdir($dir);
+			}
+			
+			dirDel($dir);
+		}
+	}
 }

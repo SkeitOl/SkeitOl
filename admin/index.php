@@ -10,26 +10,26 @@ if (isset($_POST['act'])) {
 	if ($act == '')
 		unset($act);
 }
-if (!isset($act)) {
-	if (isset($_GET['act'])) {
-		$act = $_GET['act'];
-		if ($act == '')
-			unset($act);
+if (!isset($act) && isset($_GET['act'])) {
+	$act = $_GET['act'];
+	if ($act == '') {
+		unset($act);
 	}
 }
 if (isset($_POST['tp'])) {
 	$tp = $_POST['tp'];
+	if ($tp == '') {
+		unset($tp);
+	}
+}
+if (!isset($tp) && isset($_GET['tp'])) {
+	$tp = $_GET['tp'];
 	if ($tp == '')
 		unset($tp);
 }
-if (!isset($tp)) {
-	if (isset($_GET['tp'])) {
-		$tp = $_GET['tp'];
-		if ($tp == '')
-			unset($tp);
-	}
-}
-//session_start();
+
+$connection = \SkeitOl\Connection::getInstance();
+
 if (isset($_SESSION['step']) && (!empty($_SESSION['step'])))
 	$step = $_SESSION['step'];
 else $step = 10;
@@ -126,7 +126,7 @@ $sys_special_head_text = @'
 		}
 	</script>
 	<!-- Content-->
-	<div id="content">
+	<div id="content" class="container-sm container-fluid">
 		<?php
 		//Вывод  краткого списка записей на главной странице
 		function PrintShortLinks($num)
@@ -134,7 +134,7 @@ $sys_special_head_text = @'
 			$res = \SkeitOl\Connection::getInstance()->query("SELECT * FROM $num ORDER BY id DESC LIMIT 0,5");
 			if ($res) {
 				?>
-				<table class="small-table links">
+				<table class="table table-striped">
 					<thead>
 					<tr>
 						<th class='align-center' width="10%">ID</th>
@@ -149,7 +149,7 @@ $sys_special_head_text = @'
 							<td class='align-center'>" . $myrow['id'] . "</td>
 							<td class='align-left'><a href='index.php?act=update&tp=" . $num . "&id=" . $myrow['id'] . "'>" . strip_tags($myrow['title']) . "</a></td>
 							<td class='align-center'><input type='checkbox' disabled='disabled'";
-						echo(($myrow[active]) ? "checked" : "");
+						echo(($myrow['active']) ? "checked" : "");
 						echo "></td></tr>";
 					}
 					?>
@@ -161,21 +161,19 @@ $sys_special_head_text = @'
 		
 		if (!(isset($act) && isset($tp))) {
 			?>
-			<h2>Добро пожаловать в панель администрирования.</h2>
-			<div class="box">
-				<p>Инструменты:</p>
-				<ul class="list_ul">
-					<li><a class="link" target="_blank" href="/admin/2.php" title="Загрузка файлов">Загрузка файлов</a>
-					</li>
-					<li>
-						<a class="link" target="_blank" href="/admin/create_sitemap_xml.php" title="Генерация sitemap.xml">Генерация
-							<span style="color:#000;">sitemap.xml</span></a></li>
-					<li><a class="link" href="category.php">Категории[Статьи]</a></li>
-					<li><a class="link" href="/admin/sxd/">Sypex Dumper 2.0.11</a></li>
-					<li><a class="link" href="/admin/cache.php">Cache</a></li>
-				</ul>
+			<div class="my-3">
+				<h3>Инструменты:</h3>
+				<div class="list-group list-group-horizontal-md">
+					<a class="list-group-item list-group-item-action" target="_blank" href="/admin/2.php" title="Загрузка файлов">Загрузка
+						файлов</a>
+					<a class="list-group-item list-group-item-action" target="_blank" href="/admin/create_sitemap_xml.php" title="Генерация sitemap.xml">Генерация
+						<span style="color:#000;">sitemap.xml</span></a></li>
+					<a class="list-group-item list-group-item-action" href="category.php">Категории[Статьи]</a>
+					<a class="list-group-item list-group-item-action" href="/admin/sxd/">Sypex Dumper 2.0.11</a>
+					<a class="list-group-item list-group-item-action" href="/admin/cache.php">Cache</a>
+				</div>
 			</div>
-			<div>
+			<div class="my-5 border p-4">
 				<?php
 				$comments_articles = [];
 				
@@ -195,7 +193,7 @@ $sys_special_head_text = @'
 					<a href="/admin/comments.php" class="link">комментарии</a><span class="count"><?= $allNotApproved ?></span>
 				</h2>
 				<?php if ($allNotApproved > 0): ?>
-					<table class="small-table links">
+					<table class="table table-striped">
 						<thead>
 						<tr>
 							<th>ID</th>
@@ -221,26 +219,26 @@ $sys_special_head_text = @'
 					</table>
 				<?php endif; ?>
 			</div>
-			<ul class="bloks-small">
-				<li>
-					<h2><a href="index.php?act=update&tp=articles" title="Статьи">Статьи</a></h2>
-					<?php PrintShortLinks("articles"); ?>
-				</li>
-				<li>
-					<h2><a href="index.php?act=update&tp=news" title="Новости">Новости</a></h2>
-					<?php PrintShortLinks("news"); ?>
-				</li>
-				<div style="clear:both"></div>
-				<li>
-					<h2><a href="index.php?act=update&tp=pages" title="Страницы">Страницы</a></h2>
-					<?php PrintShortLinks("pages"); ?>
-				</li>
-				<li>
-					<h2><a href="index.php?act=update&tp=program" title="Программы">Программы</a></h2>
-					<?php PrintShortLinks("programm"); ?>
-				</li>
-			</ul>
-			<div class="clear"></div>
+			<div class="my-5 border p-4">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<h2><a href="index.php?act=update&tp=articles" title="Статьи">Статьи</a></h2>
+						<?php PrintShortLinks("articles"); ?>
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<h2><a href="index.php?act=update&tp=news" title="Новости">Новости</a></h2>
+						<?php PrintShortLinks("news"); ?>
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<h2><a href="index.php?act=update&tp=pages" title="Страницы">Страницы</a></h2>
+						<?php PrintShortLinks("pages"); ?>
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<h2><a href="index.php?act=update&tp=program" title="Программы">Программы</a></h2>
+						<?php PrintShortLinks("programm"); ?>
+					</div>
+				</div>
+			</div>
 		
 		<?php
 		}
@@ -312,19 +310,18 @@ $sys_special_head_text = @'
 				break;
 		}
 		?>
-		<? php/*Выводим breab*/
+		<?php
+		/*Выводим breab*/
 		?>
 			<div class="div-hierarchy links">
 				<a href="/admin/" title="Главная">Главная</a> &gt;
 				<a href="/admin/index.php?act=update&tp=<?= $tp ?>"><?= ($GLOBAL_SETTINGS["DETAIL_PROPERTY_PRINT"]["ELEMENTS"]) ?></a>
 			</div>
 			<?php
+		
 		switch ($act) {
 		case 'add':
-			$sql = "SHOW TABLE STATUS LIKE '" . $tp . "'";
-			$result = mysql_query($sql);
-			$array = mysql_fetch_array($result);
-			$ai = $array['Auto_increment'];
+			$ai = $connection->query("SHOW TABLE STATUS LIKE '" . $connection->real_escape_string($tp) . "'")->fetch()['Auto_increment'];
 			echo "<h3>Добавление новой записи №" . $ai . ":</h3><br>";
 			
 			$admin_class->PrintFormAddOrEdit($myrow, $id, $tp, $act);
@@ -334,86 +331,6 @@ $sys_special_head_text = @'
 			<label><input type='checkbox' id='check_link'/>Не уходить со страницы</label>
 			<div style='clear:both;'></div>
 			<?php
-			
-			
-			/*
-		 echo"<form id='myForm' action='add_tp.php' method='post'>";?>
-		 <ul class="tabs">
-			 <li><a href="#tab1">Основные</a></li>
-			 <li><a href="#tab2">SEO</a></li>
-			 <li><a href="#tab3">Медиа</a></li>
-		 </ul>
-		 <div class="tab_container">
-		 <div id="tab1" class="tab_content">
-		 <?
-		 if($tp=='articles'){
-				 $result = mysql_query("SELECT * FROM category",$db);
-				 $myrow=mysql_fetch_array($result);
-				 echo"<div class='side-by-side clearfix'>
-				 <div>
-				   <em>Категории</em>
-				   <select data-placeholder='Выбор категории' class='chosen-select' multiple style='width:350px;' tabindex='1' name=category_m[]>
-					 <option value=''></option>";
-				 do
-				 {
-					 $f='';
-					 echo"<option value=".$myrow['id']." ".$f.">".$myrow['name']."</option>";
-				 }
-				 while($myrow=mysql_fetch_array($result));
-				 echo"
-					   </select>
-					 </div>
-				   </div>";
-		 }
-				 
-				 
-				 $active_p_bool="";
-				 $active_p='';
-				 if(isset($myrow[active]))
-				 {
-					 $active_p_bool='<input name="active_p_bool" type="hidden" value="1"/>';
-					 if(($myrow[active]))
-						 $active_p='checked';
-					 else $active_p='';
-				 }
-/*
-				 print <<<ADD
-				 
-					 <p><b>Заголовок:</b><textarea  name="title" rows="2"></textarea></p>
-					 <p><b>Дата:</b><input name="date" id="calendar" type="text" value="$dat" /></p>
-					 <p><b>Отоброжать:</b><input name="active_p" type="checkbox" $active_p value='1' /></p>
-					 $active_p_bool
-					 <p><b>Краткое описание с тегами:</b><br/><textarea name="description" id="description" rows="3"></textarea></p>
-					 <p><b>Полное описание с тэгами:</b><br/>
-						 <div class="edit-button">
-							 <button onclick='add_html_box("b")'>&lt;b>&lt;/b></button>
-							 <button onclick='add_html_box("img")'>&lt;img/></button>
-							 <button onclick='add_html_box("p")'>&lt;p>&lt;/p></button>
-							 <button onclick='add_html_box("h1")'>&lt;h1>&lt;/h1></button>
-							 <button onclick='add_html_box("h2")'>&lt;h2>&lt;/h2></button>
-							 <button onclick='add_html_box("h3")'>&lt;h3>&lt;/h3></button>
-							 <button onclick='add_html_box("a")'>&lt;a/></button>
-							 <button onclick='add_html_box("a-out")'>&lt;a out/></button>
-						 </div>
-						 <textarea name="text" rows="8" id="text-box"></textarea></p>
-					 <p><b>Автор:</b><input type="text" name="author" value="$DEFAULT_AUTHOR"/></p>
-					 <input value="$id" type="hidden" name="id"/>
-					 <input name="tp" type="text" style="display:none;" value="$tp">
-					 <input name="activ" type="text" style="display:none;" value="$act">
-				 </div>
-					 <div id="tab2" class="tab_content">
-						 <p><b>meta_keywords:</b><br><input type="text" class="text-input" name="meta_keywords" value="$myrow[meta_keywords]"/></p>
-						 <p><b>meta_description:</b><br><input type="text" class="text-input" name="meta_description" value="$myrow[meta_description]"/></p>
-					 </div>
-					 <div id="tab3" class="tab_content">
-					 </div>
-				 </div>
-			 </form>
-			 <button id='sub' class='save_bth'>Добавить</button>
-<label><input type='checkbox' id='check_link'/>Не уходить со страницы</label>
-ADD;
-*/
-			
 			break;
 			case 'del':
 				echo "<h3><span id='result'>Удаление записи:</span></h3>
@@ -462,36 +379,75 @@ ADD;
 		if (!isset($id)) {
 			?><h3><span id='result'>Список записей:</span></h3><?php
 			/*навигация*/
-			//if(isset($_GET['step']))$step=$_GET['step'];else $step=10;
+			$list = $_GET['list'] ?: 1;
 			
-			//if(isset($_POST['list']))$list=$_POST['list'];else
-			if (isset($_GET['list']))
-				$list = $_GET['list']; else $list = 1;
-			$result = mysql_query("SELECT COUNT(*) as count FROM " . $tp . " ", $db);
-			$row = mysql_fetch_array($result);
-			
-			if ($row['count'] > $step) {
-				$i = 1;
-				echo "<p id='ComboBox1'>Страница <b>№$list</b></p>";
-				echo "<div style='position: relative;width: 100%; margin: 0px auto;text-align: center;overflow: auto;'>";
-				echo "<span class='navigation'>";
-				if ($list == 1)
-					echo "<span class='no-link'><</span>";
-				else echo "<a href=index.php?act=" . $act . "&tp=" . $tp . "&list=" . ($list - 1) . "><</a>";
+			$row = $connection->query('SELECT COUNT(*) as count FROM ' . $connection->real_escape_string($tp))->fetch();
+		if ($row['count'] > $step) {
+			$i = 1;
+			echo "<p id='ComboBox1'>Страница <b>№$list</b></p>";
+			?>
+			<nav aria-label="Page navigation example">
+				<?php
 				$n = (int)($row['count'] / $step);
-				if ($row['count'] % $step > 0)
+				if ($row['count'] % $step > 0) {
 					$n++;
-				for ($i = 1; $i <= $n; $i++)
-					if ($i != $list)
-						echo "<a href=index.php?act=" . $act . "&tp=" . $tp . "&list=" . ($i) . ">" . ($i) . "</a>";
-					else
-						echo "<span class='no-link'>" . ($i) . "</span>";
-				if ($list == $n)
-					echo "<span class='no-link'>></span>";
-				else echo "<a href=index.php?act=" . $act . "&tp=" . $tp . "&list=" . ($list + 1) . ">></a>";
-				echo "</span>";
-				echo "</div>";
-			}
+				}
+				?>
+				<ul class="pagination">
+					<li class="page-item<?= ($list == 1) ? ' active' : '' ?>">
+						<?php
+						if ($list == 1) {
+							?>
+							<span class="page-link" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</span>
+							<?php
+						} else {
+							?>
+							<a class="page-link" href="index.php?act=<?= $act . "&tp=" . $tp . "&list=" . ($list - 1) ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+							<?php
+						}
+						?>
+
+					</li>
+					<?php
+					for ($i = 1; $i <= $n; $i++) {
+						?>
+					<li class="page-item<?= ($i != $list) ? '' : ' active' ?>">
+						<?php
+						if ($i != $list) {
+							echo "<a class=\"page-link\" href=index.php?act=" . $act . "&tp=" . $tp . "&list=" . ($i) . ">" . ($i) . "</a>";
+						} else {
+							echo "<span class=\"page-link\">" . ($i) . "</span>";
+						}
+						?></li><?php
+					}
+					
+					
+					?>
+					<li class="page-item<?= ($list == $n) ? ' active' : '' ?>">
+						<?php
+						if ($list == $n) {
+							echo "<span class=\"page-link\">";
+						} else {
+							echo "<a class=\"page-link\" href=index.php?act=" . $act . "&tp=" . $tp . "&list=" . ($list + 1) . " aria-label=\"Next\">";
+						}
+						?>
+						<span aria-hidden="true">&raquo;</span>
+						<?php
+						if ($list == $n) {
+							echo '</span>';
+						} else {
+							echo '</a>';
+						}
+						?>
+					</li>
+				</ul>
+			</nav>
+			<?php
+		}
 			
 			/**/
 			/*Список по $step*/
@@ -505,14 +461,7 @@ ADD;
 					$endI = $startI + $step;
 				}
 			}
-			include_once("blocks/bd.php");
-			$result = mysql_query("SELECT id,title,date FROM $tp ORDER BY id DESC LIMIT $startI,$endI", $db);
-			if (!$result) {
-				$message = 'Неверный запрос: ' . mysql_error() . "\n";
-				$message .= 'Запрос целиком: ' . $query;
-				die($message);
-			}
-			$myrow = mysql_fetch_array($result);
+			$res = $connection->query("SELECT id,title,date FROM $tp ORDER BY id DESC LIMIT $startI,$endI");
 			$i = 1;
 			?>
 			<form action="add_tp.php" method="post">
@@ -520,18 +469,16 @@ ADD;
 				<table class='table'>
 					<thead>
 					<tr>
-						<th width="10%">
-						</td>
-						<th width="15%"><b>ID</b>
-						</td>
-						<th width='15%'><b>Дата</b>
-						</td>
-						<th width="60%"><b>Заголовок</b>
-						</td>
+						<th width="10%"></th>
+						<th width="15%"><b>ID</b></th>
+						<th width='15%'><b>Дата</b></th>
+						<th width="60%"><b>Заголовок</b></th>
 					</tr>
 					</thead>
 					<tbody>
-					<?php do {
+					<?php
+					
+					while ($myrow = $res->fetch()) {
 						echo "<tr>
 												<td><input type='checkbox' name='items[]' value='" . $myrow['id'] . "'></td>
 												<td>" . $myrow['id'] . "</td>
@@ -539,21 +486,20 @@ ADD;
 												<td class='table-left-text links'><a href='index.php?act=update&tp=$tp&id=" . $myrow['id'] . "'>" . strip_tags($myrow['title']) . "</a></td>
 											</tr>";
 						$i++;
-					} while ($i <= $step && $myrow = mysql_fetch_array($result));
+					}
 					?>
 					</tbody>
 				</table>
 				<p>
-					<input type="submit" name="edit_items" class="save_bth" value="Редактировать"/>
-					<input type="submit" name="delet_items" value="Удалить" onclick="if(confirm('Удалить безвозвратно?')) return true; else return false;"/>
+					<input type="submit" name="edit_items" class="btn save_bth btn-success" value="Редактировать"/>
+					<input type="submit" name="delet_items" class="btn btn-danger" value="Удалить" onclick="if(confirm('Удалить безвозвратно?')) return true; else return false;"/>
 				</p>
 			</form>
 		
 		<?php
 		}
 		else {
-			$result = mysql_query("SELECT * FROM $tp WHERE id=$id");
-			$myrow = mysql_fetch_array($result);
+			$myrow = $connection->query("SELECT * FROM $tp WHERE id=$id")->fetch();
 			?>
 			<?php
 			if (!empty($myrow['url']))

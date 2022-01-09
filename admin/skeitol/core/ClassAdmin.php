@@ -51,45 +51,54 @@ class ClassAdmin
 	{
 		?>
 		<form id='myForm' action='add_tp.php' method='post' enctype="multipart/form-data">
-			<ul class="tabs">
-				<li><a href="#tab1">Основные</a></li>
-				<li><a href="#tab2">SEO</a></li>
-				<li><a href="#tab_sys_settings">Свойства</a></li>
-				<li><a href="#tab3">Медиа</a></li>
-			</ul>
-			<div class="tab_container">
-				<div id="tab1" class="tab_content">
-					<table class="edit_box_admin"><?
+			<nav>
+				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Основные</button>
+					<button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="nav-home" aria-selected="true">SEO</button>
+					<button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab_sys_settings" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Свойства</button>
+					<button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Медиа</button>
+				</div>
+			</nav>
+			<div class="tab-content">
+				<div id="tab1" class="tab-pane fade show active"  role="tabpanel" aria-labelledby="nav-home-tab">
+					<table class="edit_box_admin table"><?
 						if ($tp == 'articles') {
-							$array1 = unserialize($myrow['category']);/**/
-							include($_SERVER['DOCUMENT_ROOT'] . "/admin/blocks/bd.php");
-							$res = mysql_query("SELECT * FROM category", $db);
-							$cat_row = mysql_fetch_array($res);
-							$i = 1; ?>
-							<tr>
-								<td width="10%"><b>Категории:</b></td>
-								<td width="90%">
-									<div class='side-by-side clearfix'>
-										<div>
-											<select data-placeholder='Выбор категории' class='chosen-select' multiple style='width:350px;' tabindex='1' name=category_m[]>
-												<option value=''></option><?
-												do {
-													$f = '';
-													if (count($array1) > 0)
-														for ($i = 0; $i < count($array1); $i++)
-															if ($cat_row['id'] == $array1[$i]) {
-																$f = 'selected';
-																break;
-															}
-													echo "<option value=" . $cat_row['id'] . " " . $f . ">" . $cat_row['name'] . "</option>";
-												} while ($cat_row = mysql_fetch_array($res));
-												?>
-											</select>
+							$array1 = [];
+							$cat_row = [];
+							$res = \SkeitOl\Connection::getInstance()->query("SELECT * FROM category");
+							while ($item = $res->fetch()) {
+								$cat_row[$item['id']] = $item;
+							}
+							
+							
+							if ($val = $myrow['category']) {
+								$array1 = unserialize($val);
+							}
+							$i = 1;
+							if ($cat_row) {
+								?>
+								<tr>
+									<td width="10%"><b>Категории:</b></td>
+									<td width="90%">
+										<div class='side-by-side clearfix'>
+											<div>
+												<select data-placeholder='Выбор категории' class='chosen-select' multiple style='width:350px;' tabindex='1' name=category_m[]>
+													<option value=''></option><?
+													foreach ($cat_row as $row) {
+														$f = '';
+														if (in_array($row['id'], $array1)) {
+															$f = 'selected';
+														}
+														echo "<option value=" . $row['id'] . " " . $f . ">" . $row['name'] . "</option>";
+													}
+													?>
+												</select>
+											</div>
 										</div>
-									</div>
-								</td>
-							</tr>
-						<?
+									</td>
+								</tr>
+								<?
+							}
 						}
 						//$result=mysql_query("SELECT * FROM $this->tp WHERE id=$id");
 						//$myrow= mysql_fetch_array($result);
@@ -249,13 +258,13 @@ class ClassAdmin
 										</script>
 									</td>
 								</tr>*/ ?>
-					</table><? if ($id):?>
+					</table><? if ($id): ?>
 						<input value="<?= $id ?>" type="hidden" name="id"/>
-					<?endif; ?>
+					<? endif; ?>
 					<input name="tp" type="text" style="display:none;" value="<?= $tp ?>">
 					<input name="activ" type="text" style="display:none;" value="<?= $act ?>">
 				</div>
-				<div id="tab2" class="tab_content">
+				<div id="tab2" class="tab-pane fade"  role="tabpanel" aria-labelledby="nav-home-tab">
 					<p>
 						<b>meta_title<span class="help_text" title="Загаловок окна браузера">?</span>:</b><br><input type="text" name="meta_title" class="text-input" value="<?= $myrow[meta_title] ?>"/>
 					</p>
@@ -266,7 +275,7 @@ class ClassAdmin
 						<b>meta_description:</b><br><input type="text" name="meta_description" class="text-input" value="<?= $myrow[meta_description] ?>"/>
 					</p>
 				</div>
-				<div id="tab_sys_settings" class="tab_content">
+				<div id="tab_sys_settings" class="tab-pane fade"  role="tabpanel" aria-labelledby="nav-home-tab">
 					<p><b>Количество
 							просмотров:</b><br><input type="text" name="views" class="text-input" value="<?= $myrow['views'] ?>"/>
 					</p>
@@ -283,11 +292,11 @@ class ClassAdmin
 					<div>
 						<p><b>Рекомендации:</b></p>
 						<ul id="PROP_RECOMMENDATIONS">
-							<? foreach ($RECOMMENDATIONS as $value):?>
+							<? foreach ($RECOMMENDATIONS as $value): ?>
 								<li>
 									<input type="text" name="RECOMMENDATIONS[]" class="text-input" value="<?= $value ?>"/>
 								</li>
-							<?endforeach; ?>
+							<? endforeach; ?>
 							<li><input type="text" name="RECOMMENDATIONS[]" class="text-input" value=""/></li>
 						</ul>
 						<p>
@@ -355,7 +364,7 @@ class ClassAdmin
 							}</style>
 					</div>
 				</div>
-				<div id="tab3" class="tab_content">
+				<div id="tab3" class="tab-pane fade"  role="tabpanel" aria-labelledby="nav-home-tab">
 					<p>Мультемедиа файлы к записи:</p>
 					<?
 					//echo $_SERVER['DOCUMENT_ROOT'].'<br>';
@@ -417,14 +426,14 @@ class ClassAdmin
 							</p>
 
 						</div>
-					<?
+						<?
 					}
 					//print_r($files2);
 					?>
 				</div>
 			</div>
-			<input type="submit" class="save_bth" id='sub' value="Сохранить изменения">
+			<input type="submit" class="save_bth btn btn-success" id='sub' value="Сохранить изменения">
 		</form>
-	<?
+		<?
 	}
 }

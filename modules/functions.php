@@ -288,12 +288,10 @@ class Articles
 		/* Navigaciya */
 		
 		echo '</div>';
+		echo '</div>';
 		?>
 
-
-		<div class="text-center">
-			<a target="_new" href="https://timeweb.com/ru/?i=45228&a=168"><img style="border:0px;" src="https://wm.timeweb.ru/images/posters/600x60/600x60.jpg"></a>
-		</div>
+		
 		
 		<?php
 		if ($myrow['PREV'] || $myrow['NEXT']) {
@@ -322,6 +320,19 @@ class Articles
 			<?php
 		}
 		?>
+		<div>
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5355618604929475"
+					crossorigin="anonymous"></script>
+			<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-5355618604929475"
+				 data-ad-slot="6700933317"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
 		</div>
 		<?/* Social
 	<div class="con-block box-shadow2">
