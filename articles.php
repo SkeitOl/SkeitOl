@@ -164,7 +164,7 @@ if (empty($sys_pages_print)) {
 	$sys_pages_print = "Статьи";
 }
 
-$sys_special_footer_text .= '<script type="text/javascript" src="/js/articles.js?v10" async></script><script src="//www.google.com/recaptcha/api.js" async></script>';
+$sys_special_footer_text .= '<script src="//code.jquery.com/jquery-1.10.2.js"></script><script type="text/javascript" src="/js/articles.js?v10" async></script><script src="//www.google.com/recaptcha/api.js" async></script>';
 
 include_once("blocks/head_optimize.php");
 

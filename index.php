@@ -77,9 +77,9 @@ if ($arPage) {
 			<div class="item" style="background-image: url('/images/bc/383844447.jpg')">
 				<a class="t" href="/articles/kak-poluchit-prev-yu-kartinku-youtube-rolika/">Как получить превью-картинку
 					youtube-ролика</a></div>
-			<div class="item" style="background-image: url('/images/articles/98/11231231232312123.png')">
+			<?/*<div class="item" style="background-image: url('/images/articles/98/11231231232312123.png')">
 				<a class="t" href="/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/">Sublime
-					Text 2 - 3 Лицензионные ключи</a></div>
+					Text 2 - 3 Лицензионные ключи</a></div>*/?>
 			<div class="item" style="background-image: url('/images/articles/112/bx_click.png')">
 				<a class="t" href="/articles/creat_event_on_click_at_cms_1s_bitriks/">Обработчика события клика в CMS
 					1С-Битрикс</a></div>

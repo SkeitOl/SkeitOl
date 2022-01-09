@@ -19,14 +19,17 @@ class Articles
 	}
 	
 	/*Выводит статьи*/
-	public function showArticlesList($myrow, $db)
+	public function showArticlesList($myrow = [], $db = null)
 	{
-		if (isset($_GET['list']))
+		if (isset($_GET['list'])) {
 			$list = htmlspecialchars($_GET['list']);
-		else
+		} else {
 			$list = 1;
+		}
+		
 		$sort["VALUE"] = "";
 		$sort["NAME"] = "";
+		
 		if (isset($_GET['sort'])) {
 			switch (htmlspecialchars($_GET['sort'])) {
 				case"pop":
@@ -35,8 +38,9 @@ class Articles
 					break;
 			};
 		}
-		if (empty($sort["VALUE"]))
+		if (empty($sort["VALUE"])) {
 			unset($sort);
+		}
 		
 		if ($_GET['type'] != "ajax_ls_only") {
 			
@@ -290,7 +294,6 @@ class Articles
 		echo '</div>';
 		echo '</div>';
 		?>
-
 		
 		
 		<?php
