@@ -20,7 +20,7 @@ body .long_footer{margin-top:-217px;height:217px;}
 }
 </style>
 <section class="footer_new premium-domains <? if($long_footer)echo"long_footer";?>">
-	<div style="background: #f6f5f3;border-top: 1px solid #e9e9e8;">
+	<div>
 		<div class="container">
 			<div class="col-lg-12 text-center">
 				<?include_once("blocks/breadcrumb_footer.php");?>

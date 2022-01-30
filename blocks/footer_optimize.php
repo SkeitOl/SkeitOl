@@ -1,26 +1,5 @@
-<style>
-html, body {
-height: 100%;
-}
-#content_r{overflow:auto;padding-bottom: 170px;}
-#content_r_long{overflow:auto;padding-bottom:217px;}
-.wrapper-container {
-min-height: 100%;
-}
-.footer_new{
-position: relative;
-margin-top: -170px;
-height: 170px;
-clear:both;}
-body .long_footer{margin-top:-217px;height:217px;}
-@media screen and (max-width: 620px){
-	.footer_new,body .long_footer{position:relative;margin:0;height:auto;clear:both;}
-	.wrapper-container {min-height:auto;}
-	#content_r,#content_r_long{overflow:auto;padding:0;}
-}
-</style>
 <section class="footer_new premium-domains <?php if($long_footer)echo"long_footer";?>">
-	<div style="background: #f6f5f3;border-top: 1px solid #e9e9e8;">
+	<div>
 		<div class="container">
 			<div class="col-lg-12 text-center">
 				<?php include_once("blocks/breadcrumb_footer.php");?>
