@@ -2,6 +2,27 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/skeitol/prolog_before.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/lock.php");
 
+/*
+ *
+ */
+
+ob_start([&$APPLICATION, "EndBufferContent"]);
+$APPLICATION->buffered = true;
+define("BX_BUFFER_USED", true);
+
+register_shutdown_function(
+	function () {
+		define("BX_BUFFER_SHUTDOWN", true);
+		for ($i = 0, $n = ob_get_level(); $i < $n; $i++) {
+			ob_end_flush();
+		}
+	}
+);
+
+/*
+ *
+ */
+
 /*Классы для работы*/
 include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/skeitol/core/ClassAdmin.php");
 
@@ -65,9 +86,6 @@ $sys_special_head_text = @'
 
 ?>
 <?php include('blocks/header.php'); ?>
-	<!-- END LEFT block-->
-	<!-- LEFT block -->
-<?php include('blocks/lefttd.php'); ?>
 	<!-- END LEFT block-->
 	<!-- Message-->
 	<div class="toast-container toast-position-top-right"></div>

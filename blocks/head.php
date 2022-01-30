@@ -44,8 +44,9 @@
 	<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png"/>
 	<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png"/>
 	<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png"/>
+	<?/*
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5355618604929475"
-			crossorigin="anonymous"></script>
+			crossorigin="anonymous"></script>?*/?>
 	<?php if (!empty($sys_special_head_text))
 		echo $sys_special_head_text; ?>
 </head>

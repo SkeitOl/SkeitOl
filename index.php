@@ -77,9 +77,10 @@ if ($arPage) {
 			<div class="item" style="background-image: url('/images/bc/383844447.jpg')">
 				<a class="t" href="/articles/kak-poluchit-prev-yu-kartinku-youtube-rolika/">Как получить превью-картинку
 					youtube-ролика</a></div>
-			<?/*<div class="item" style="background-image: url('/images/articles/98/11231231232312123.png')">
+			<? php/*<div class="item" style="background-image: url('/images/articles/98/11231231232312123.png')">
 				<a class="t" href="/articles/sublime-text-3-x-universal-nye-licenzionnye-klyuchi-dlya-windows-mac-i-linux/">Sublime
-					Text 2 - 3 Лицензионные ключи</a></div>*/?>
+					Text 2 - 3 Лицензионные ключи</a></div>*/
+			?>
 			<div class="item" style="background-image: url('/images/articles/112/bx_click.png')">
 				<a class="t" href="/articles/creat_event_on_click_at_cms_1s_bitriks/">Обработчика события клика в CMS
 					1С-Битрикс</a></div>
@@ -94,10 +95,10 @@ if ($arPage) {
 				<?php
 				$lastArticles = [];
 				$cache = new \SkeitOl\CPHPCache();
-				if ($cache->InitCache(3600, 'lastArticles', '/articles/last')) {
+				if ($cache->InitCache(3600, 'lastArticles9', '/articles/last')) {
 					$lastArticles = $cache->GetVars();
 				} elseif ($cache->StartDataCache()) {
-					$res = \SkeitOl\Connection::getInstance()->query("SELECT * FROM articles WHERE active=1 ORDER BY date DESC LIMIT 0,3");
+					$res = \SkeitOl\Connection::getInstance()->query("SELECT * FROM articles WHERE active=1 ORDER BY date DESC LIMIT 0,9");
 					while ($item = $res->fetch()) {
 						$lastArticles[] = $item;
 					}
@@ -115,24 +116,38 @@ if ($arPage) {
 						} else {
 							$url_page = $myrow['id'];
 						}
+						$photo_img = strip_tags($myrow['src_preview']) ?: "/images/favicon/apple-touch-icon-114x114.png";
+						
+						$url_page = "/articles/$url_page/";
+						
+						$title = strip_tags($myrow['title']);
+						
+						$data = date_create($myrow['date']);
+						$sDate = (date_format($data, 'Y-m-d')) . 'T' . (date_format($data, 'H:i'));
+						$sPrintDate = (date_format($data, 'd-m-Y H:i'));
 						?>
-						<div class="col-sm-4 links-news wow slideInUp">
-						<div class="preview_block">
-							<a href="/articles/<?= $url_page ?>/">
-								<span class="photo_img" style="background-image: url('<?= strip_tags($myrow['src_preview']) ?>')"></span>
-								<span class="title"><?= strip_tags($myrow['title']) ?></span>
-							</a>
+						<div class="col-3">
+							<div class="links-news wow slideInUp">
+								<a href="<?= $url_page ?>">
+									<div class="preview_block">
+										<div class="photo_img" style="background-image: url('<?= $photo_img ?>')"></div>
+										<div class="title">
+											<div class="links-news__text"><?= $title ?></div>
+										</div>
+									</div>
+									<div class="links-news__text">
+										<div class="news-data">
+											<span itemprop="dateCreated" style="display:none"><?= $sDate ?></span>
+											<time datetime="<?= $sDate ?>"></time>
+											<?= $sPrintDate ?>
+											<div class="view_block"><?= $myrow['views'] ?></div>
+										</div>
+										<p><?= strip_tags($myrow['description']) ?></p>
+									</div>
+								</a>
+							</div>
 						</div>
 						<?php
-						echo '
-									<div class="news-data">
-										<span itemprop="dateCreated" style="display:none">' . (date_format(date_create($myrow['date']), 'Y-m-d')) . 'T' . (date_format(date_create($myrow['date']), 'H:i')) . '</span><time datetime="' . (date_format(date_create($myrow['date']), 'Y-m-d')) . 'T' . (date_format(date_create($myrow['date']), 'H:i')) . '"></time>' . (date_format(date_create($myrow['date']), 'd-m-Y H:i')) . '
-										<div class="view_block">' . $myrow['views'] . '</div>
-									</div>
-									<p>' . strip_tags($myrow['description']) . '</p>
-								
-								';
-						?></div><?
 					}
 				}
 				?>
@@ -168,21 +183,40 @@ if ($arPage) {
 				
 				if ($lastNews) {
 					foreach ($lastNews as $myrow) {
-						if (!empty($myrow['url']))
-							$url_page = $myrow['url']; else $url_page = $myrow['id'];
-						echo '
-								<div class="col-sm-4 links-news wow slideInUp">
+						if (!empty($myrow['url'])) {
+							$url_page = $myrow['url'];
+						} else {
+							$url_page = $myrow['id'];
+						}
+						$url_page = "/news/$url_page/";
+						
+						$photo_img = strip_tags($myrow['src_preview']) ?: "/images/favicon/apple-touch-icon-114x114.png";
+						
+						$data = date_create($myrow['date']);
+						$sDate = (date_format($data, 'Y-m-d')) . 'T' . (date_format($data, 'H:i'));
+						$sPrintDate = (date_format($data, 'd-m-Y H:i'));
+						?>
+						<div class="col-3">
+							<div class="links-news wow slideInUp">
+								<a href="<?= $url_page ?>">
 									<div class="preview_block">
-										<a href="/news/' . $myrow['id'] . '/">
-											<span class="photo_img" style="background-image: url(' . strip_tags($myrow['src_preview']) . ')"></span>
-											<span class="title">' . strip_tags($myrow['title']) . '</span>
-										</a>
+										<div class="photo_img" style="background-image: url('<?= $photo_img ?>')"></div>
+										<div class="title">
+											<div class="links-news__text"><?= strip_tags($myrow['title']) ?></div>
+										</div>
 									</div>
-									
-									<div class="news-data"><span itemprop="dateCreated" style="display:none">' . (date_format(date_create($myrow['date']), 'Y-m-d')) . 'T' . (date_format(date_create($myrow['date']), 'H:i')) . '</span><time datetime="' . (date_format(date_create($myrow['date']), 'Y-m-d')) . 'T' . (date_format(date_create($myrow['date']), 'H:i')) . '"></time>' . (date_format(date_create($myrow['date']), 'd-m-Y H:i')) . '</div>
-									<p>' . strip_tags($myrow['description']) . '</p>
-								</div>
-								';
+									<div class="links-news__text">
+										<div class="news-data">
+											<span itemprop="dateCreated" style="display:none"><?= $sDate ?></span>
+											<time datetime="<?= $sDate ?>"></time>
+											<?= $sPrintDate ?>
+										</div>
+										<p><?= strip_tags($myrow['description']) ?></p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<?php
 					}
 				}
 				?>

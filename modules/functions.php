@@ -323,31 +323,6 @@ class Articles
 			<?php
 		}
 		?>
-		<div>
-			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5355618604929475"
-					crossorigin="anonymous"></script>
-			<ins class="adsbygoogle"
-				 style="display:block"
-				 data-ad-client="ca-pub-5355618604929475"
-				 data-ad-slot="6700933317"
-				 data-ad-format="auto"
-				 data-full-width-responsive="true"></ins>
-			<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-		</div>
-		</div>
-		<?/* Social
-	<div class="con-block box-shadow2">
-		<h4 class='socl'>Понравилась статья? Поделись в социальных сетях:</h4>
-		<div id='vk_like'></div>
-
-		<script type='text/javascript'>
-			window.onload=function() {
-			VK.Widgets.Like('vk_like', {type: 'mini', verb: 1});};
-		</script>
-	</div>*/ ?>
-
 		<div class="con-block box-shadow2">
 			<h4 class='socl'>Комментарии: <span itemprop="interactionCount"><?= count($myrow['COMMENTS']) ?></span></h4>
 			<?php
@@ -467,7 +442,17 @@ class Articles
 				</div>
 			</div>
 		</div>
-		<?
+		</div>
+		<?/* Social
+	<div class="con-block box-shadow2">
+		<h4 class='socl'>Понравилась статья? Поделись в социальных сетях:</h4>
+		<div id='vk_like'></div>
+
+		<script type='text/javascript'>
+			window.onload=function() {
+			VK.Widgets.Like('vk_like', {type: 'mini', verb: 1});};
+		</script>
+	</div>*/
 		/*if ($myrow['RECOMMENDATIONS']) {
 		$RECOMMENDATIONS_ID_ARR = unserialize($myrow['RECOMMENDATIONS']);
 		if (is_array($RECOMMENDATIONS_ID_ARR) && count($RECOMMENDATIONS_ID_ARR) > 0) {
@@ -529,10 +514,9 @@ class Articles
 		?>
 		<div class='news-item' itemscope itemtype='https://schema.org/Article'>
 			<div class="left_con">
-				<? $photo_img = strip_tags($myrow['src_preview']);
-				if (empty($photo_img))
-					$photo_img = "/images/favicon/apple-touch-icon-114x114.png"; ?>
-				<?/*<span class="photo_img" style="background-image: url('<?=$photo_img?>')"></span>*/
+				<?
+				$photo_img = strip_tags($myrow['src_preview'])?:"/images/favicon/apple-touch-icon-114x114.png";
+				/*<span class="photo_img" style="background-image: url('<?=$photo_img?>')"></span>*/
 				?><a class='news-item-link' href='/articles/<?= $url_page ?>/'>
                 <span class="photo_img lazy_load"
 					  style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"

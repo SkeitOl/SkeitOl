@@ -15,6 +15,7 @@ if (!defined('DOC_ROOT')) {
 try {
 	session_start();
 	include_once 'core/connection.php';
+	include_once 'core/application.php';
 	include_once 'core/cbresult.php';
 	include_once 'core/CPHPCache.php';
 	
