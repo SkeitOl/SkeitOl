@@ -294,7 +294,14 @@ class Articles
 		echo '</div>';
 		echo '</div>';
 		?>
-		
+		<!-- Yandex Native Ads C-A-1503119-2 -->
+		<div id="id-C-A-1503119-2"></div>
+		<script>window.yaContextCb.push(()=>{
+				Ya.Context.AdvManager.renderWidget({
+					renderTo: 'id-C-A-1503119-2',
+					blockId: 'C-A-1503119-2'
+				})
+			})</script>
 		
 		<?php
 		if ($myrow['PREV'] || $myrow['NEXT']) {

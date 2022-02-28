@@ -11,7 +11,9 @@ $sys_title = "SkeitOl - cтатьи по программированию, со�
 $sys_description = "Программы и информационные ресурсы SkeitOl";
 $sys_keywords = "SkeitOl, SkeitOl Soft";
 $sys_pages = "pages";
-$sys_special_head_text = '';
+$sys_special_head_text = '<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>';
 
 
 ?><!doctype html>
@@ -155,7 +157,7 @@ if ($arPage) {
 			<div class="clear"></div>
 			<p><a href='/articles/' title="Все статьи">Все статьи</a></p>
 		</div>
-	</section>
+	</section><?/*
 	<section class="gray-section services">
 		<div class="container">
 			<div class="col-lg-12 text-center">
@@ -225,6 +227,14 @@ if ($arPage) {
 			<p><a href='/news/' title="Все новости">Все новости</a></p>
 		</div>
 	</section>
+*/?>
+<section>
+	<div class="container">
+		<br><br>
+		<div id="yandex_rtb_R-A-1503119-1"></div>
+		<script>window.yaContextCb.push(()=>{Ya.Context.AdvManager.render({renderTo: 'yandex_rtb_R-A-1503119-1',blockId: 'R-A-1503119-1'})})</script>
+	</div>
+</section>
 <?php
 }
 include("blocks/footer.php"); ?>

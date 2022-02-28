@@ -36,15 +36,14 @@
 						<li><a href="mailto:info@skeitol.ru" target="_blank">
 							<span class="img_b"><img src="/images/email-32.png" class="social-links-f e-mail"></span>
 							<span class="text_n">info@skeitol.ru</span></a></li>
-						<li><a href="https://vk.com/skeitol" target="_blank"><span class="img_b">
+						<?/*<li><a href="https://vk.com/skeitol" target="_blank"><span class="img_b">
 							<img src="/images/vkontakte.png" class="social-links-f vk"></span>
 							<span class="text_n">Вконтакте</span></a></li>
-						<?/*<li><a href="https://www.facebook.com/skeit.ol" target="_blank">
+						<li><a href="https://www.facebook.com/skeit.ol" target="_blank">
 							<span class="img_b">
 								<img src="/images/f32.png" class="social-links-f facebook"></span>
 							<span class="text_n">Facebook</span></a></li>*/?>
 					</ul>
-					<br><br><br>
 				</div>
 			</div>
 		</section>

@@ -85,6 +85,8 @@ function request_url()
 			}
 		}
 	} ?>
+	<script>window.yaContextCb=window.yaContextCb||[]</script>
+	<script src="https://yandex.ru/ads/system/context.js" async></script>
 	<!-- Apple Touch Icons -->
 	<link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png"/>
 	<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png"/>
