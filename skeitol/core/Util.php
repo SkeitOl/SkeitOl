@@ -38,4 +38,18 @@ class Util
 		}
 		return $size;
 	}
+
+
+	/**
+	 * выводим 404
+	 * @return void
+	 */
+	public static function set404(){
+		header("HTTP/1.0 404 Not Found");
+		header("HTTP/1.1 404 Not Found");
+		header("Status: 404 Not Found");
+		echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/error-pages/error404.htm');
+
+		include_once($_SERVER['DOCUMENT_ROOT'] . '/skeitol/epilog_after.php');
+	}
 }

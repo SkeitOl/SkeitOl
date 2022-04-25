@@ -18,7 +18,8 @@ try {
 	include_once 'core/application.php';
 	include_once 'core/cbresult.php';
 	include_once 'core/CPHPCache.php';
-	
+	include_once 'core/Util.php';
+
 } catch (\Exception $ex) {
 	echo $ex->getMessage();
 }

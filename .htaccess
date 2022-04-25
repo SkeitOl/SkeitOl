@@ -1,25 +1,149 @@
-RewriteEngine On
-#RewriteRule ^articles([^/]*)\.html$ /articles.php?id=$1 [L]
-#RewriteRule ^news([^/]*)\.html$ /news.php?id=$1 [L]
-RewriteRule ^site-map([^/]*)\.html$ /site-map.php?id=$1 [L]
-#RewriteRule ^program([^/]*)\.html$ /programm.php?id=$1 [L]
-#RewriteRule ^pages([^/]*)\.html$ /index.php?id=$1 [L]
+Options -Indexes
+ErrorDocument 404 /error-pages/error404.htm
 
-RewriteRule ^eula/?$ index.php?id=1
+RedirectMatch 404 readme\.md$
+RedirectMatch 404 package\.json$
+RedirectMatch 404 package-lock\.json$
+RedirectMatch 404 composer\.json$
+RedirectMatch 404 composer\.lock
+RedirectMatch 404 \/\.git
 
-RewriteRule ^articles/rss/?$ articles_rss.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-RewriteRule ^program/?$ programm.php
-RewriteRule ^program/timer_off/?$ programm.php?id=1
-RewriteRule ^program/sked/?$ programm.php?id=2
-RewriteRule ^program/htmlcolor/?$ programm.php?id=4
-RewriteRule ^program/baldahelper/?$ programm.php?id=3
+      # Удалить index.php из всех адресов
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [L,NE,R=301]
 
-RewriteRule ^news/?$ news.php
-RewriteRule ^news/([-_A-z0-9]+)/?$ news.php?id=$1 [L]
-RewriteRule ^articles/?$ articles.php
-RewriteRule ^articles/([-_A-z0-9]+)/?$ articles.php?id=$1 [L]
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    RewriteCond %{SCRIPT_FILENAME} !-d
 
-RewriteRule ^pages/([-_A-z0-9]+)/?$ index.php?id=$1 [L]
-AddDefaultCharset utf-8
-AddType 'text/html; charset=utf-8' .html .htm .shtml
+    RewriteRule ^articles\.php\?id\=(.*)$ /articles/$1/ [R=301,L]
+
+    #RewriteRule ^articles([^/]*)\.html$ /articles.php?id=$1 [L]
+    #RewriteRule ^news([^/]*)\.html$ /news.php?id=$1 [L]
+    RewriteRule ^site-map([^/]*)\.html$ /site-map.php?id=$1 [L]
+    #RewriteRule ^program([^/]*)\.html$ /programm.php?id=$1 [L]
+    #RewriteRule ^pages([^/]*)\.html$ /index.php?id=$1 [L]
+
+    RewriteRule ^eula/?$ index.php?id=1
+
+    RewriteRule ^articles/rss/?$ articles_rss.php
+
+    RewriteRule ^program/?$ programm.php
+    RewriteRule ^program/timer_off/?$ programm.php?id=1
+    RewriteRule ^program/sked/?$ programm.php?id=2
+    RewriteRule ^program/htmlcolor/?$ programm.php?id=4
+    RewriteRule ^program/baldahelper/?$ programm.php?id=3
+
+    RewriteRule ^news/?$ news.php
+    RewriteRule ^news/([-_A-z0-9]+)/?$ news.php?id=$1 [L]
+
+    RewriteRule ^articles/?$ articles.php
+    RewriteRule ^articles/([-_A-z0-9]+)/?$ articles.php?id=$1 [L]
+    #RewriteRule ^articles/([-_A-z0-9]+)/?(.*)?$ articles.php?id=$1&$2 [L]
+    RewriteRule ^pages/([-_A-z0-9]+)/?$ index.php?id=$1 [L]
+    AddDefaultCharset utf-8
+    AddType 'text/html; charset=utf-8' .html .htm .shtml
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+
+	ExpiresActive on
+	ExpiresDefault                                    "access plus 1 year"
+
+	# DATA
+	ExpiresByType text/xml                            "access plus 0 seconds"
+	ExpiresByType text/html                           "access plus 0 seconds"
+	ExpiresByType text/plain                          "access plus 0 seconds"
+	ExpiresByType application/xml                     "access plus 0 seconds"
+	ExpiresByType application/json                    "access plus 0 seconds"
+	ExpiresByType application/rss+xml                 "access plus 1 hour"
+	ExpiresByType application/atom+xml                "access plus 1 hour"
+	ExpiresByType text/x-component                    "access plus 1 hour"
+
+	# MANIFEST
+	ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
+	ExpiresByType text/cache-manifest                 "access plus 0 seconds"
+
+	# SCRIPTS
+	ExpiresByType text/css                            "access plus 1 year"
+	ExpiresByType text/javascript                     "access plus 1 year"
+	ExpiresByType application/javascript              "access plus 1 year"
+	ExpiresByType application/x-javascript            "access plus 1 year"
+
+	# IMAGES
+	ExpiresByType image/gif                           "access plus 1 year"
+	ExpiresByType image/png                           "access plus 1 year"
+	ExpiresByType image/jpe                           "access plus 1 year"
+	ExpiresByType image/jpg                           "access plus 1 year"
+	ExpiresByType image/jpeg                          "access plus 1 year"
+	ExpiresByType image/jp2                           "access plus 1 year"
+	ExpiresByType image/pipeg                         "access plus 1 year"
+	ExpiresByType image/bmp                           "access plus 1 year"
+	ExpiresByType image/tiff                          "access plus 1 year"
+	ExpiresByType image/svg+xml                       "access plus 1 year"
+	ExpiresByType image/vnd.microsoft.icon            "access plus 1 year"
+
+	# ICONS
+	ExpiresByType image/ico                           "access plus 1 year"
+	ExpiresByType image/icon                          "access plus 1 year"
+	ExpiresByType text/ico                            "access plus 1 year"
+	ExpiresByType image/x-ico                         "access plus 1 year"
+	ExpiresByType image/x-icon                        "access plus 1 year"
+	ExpiresByType application/ico                     "access plus 1 year"
+
+	# AUDIO
+	ExpiresByType audio/ogg                           "access plus 1 year"
+	ExpiresByType audio/basic                         "access plus 1 year"
+	ExpiresByType audio/mid                           "access plus 1 year"
+	ExpiresByType audio/midi                          "access plus 1 year"
+	ExpiresByType audio/mpeg                          "access plus 1 year"
+	ExpiresByType audio/x-aiff                        "access plus 1 year"
+	ExpiresByType audio/x-mpegurl                     "access plus 1 year"
+	ExpiresByType audio/x-pn-realaudio                "access plus 1 year"
+	ExpiresByType audio/x-wav                         "access plus 1 year"
+
+	# VIDEO
+	ExpiresByType video/ogg                           "access plus 1 year"
+	ExpiresByType video/mp4                           "access plus 1 year"
+	ExpiresByType video/webm                          "access plus 1 year"
+	ExpiresByType video/x-msvideo                     "access plus 1 year"
+	ExpiresByType video/mpeg                          "access plus 1 year"
+	ExpiresByType video/quicktime                     "access plus 1 year"
+	ExpiresByType video/x-la-asf                      "access plus 1 year"
+	ExpiresByType video/x-ms-asf                      "access plus 1 year"
+	ExpiresByType x-world/x-vrml                      "access plus 1 year"
+
+	# FONTS
+	ExpiresByType font/truetype                       "access plus 1 year"
+	ExpiresByType font/opentype                       "access plus 1 year"
+	ExpiresByType application/x-font-ttf              "access plus 1 year"
+	ExpiresByType application/x-font-woff             "access plus 1 year"
+	ExpiresByType application/font-woff               "access plus 1 year"
+	ExpiresByType application/vnd.ms-fontobject       "access plus 1 year"
+
+	# FLASH
+	ExpiresByType application/x-shockwave-flash       "access plus 1 year"
+	ExpiresByType video/x-flv                         "access plus 1 year"
+
+	# OTHERS
+	ExpiresByType application/pdf                     "access plus 1 year"
+	ExpiresByType image/vnd.wap.wbmp                  "access plus 1 year"
+	ExpiresByType application/vnd.wap.wbxml           "access plus 1 year"
+	ExpiresByType application/smil                    "access plus 1 year"
+
+	<IfModule mod_headers.c>
+		Header append Cache-Control "public"
+	</IfModule>
+
+	<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
+      Header set Cache-Control "max-age=31536000"
+    </FilesMatch>
+
+</IfModule>
