@@ -4,27 +4,31 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/lock.php");
 
 $connection = \SkeitOl\Connection::getInstance();
 
-/*New*/
-if (!empty($_POST['items']) && !empty($_POST['tp']) && !empty($_POST['delet_items']) && $_POST['items']) {
+$tp = $connection->real_escape_string($_POST['tp']);
+
+/* list */
+if ($_POST['items'] && $tp && !empty($_POST['delet_items'])) {
 	$result = false;
-	$_POST['items'] = (array)$_POST['items'];
-	$n = count($_POST['items']);
+	$items = (array)$_POST['items'];
+	$n = count($items);
 	for ($i = 0; $i < $n; $i++) {
-		$id = (int)$_POST['items'][$i];
+		$id = (int)$items[$i];
 		if ($id > 0) {
-			$result = $connection->query("DELETE FROM " . $connection->real_escape_string($_POST['tp']) . " WHERE id='" . $id . "'")->fetch();
-			\SkeitOl\CPHPCache::clearDir('/articles');
+			$result = $connection->query("DELETE FROM $tp WHERE id='" . $id . "'")->fetch();
+
 		}
 	}
+
 	if ($result) {
-		echo "1";
+		header("Location: https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?act=update&tp=$tp");
+		\SkeitOl\CPHPCache::clearDir('/' . $tp);
 	} else {
 		echo "-1";
+		$message = 'Неверный запрос: ' . $connection->getError();
+		echo $message;
 	}
 }
-/*.New*/
-/*OLD*/
-
+/* element */
 if (isset($_POST['activ'])) {
 	if ($_POST['activ'] === "del") {
 		if (isset($_POST['id'])) {
@@ -32,12 +36,12 @@ if (isset($_POST['activ'])) {
 			foreach ($_POST['id'] as $key => $value) {
 				$value = (int)$value;
 				if ($value) {
-					$result = $connection->query("DELETE FROM " . $connection->real_escape_string($_POST['tp']) . " WHERE id='" . $value . "'");
+					$result = $connection->query("DELETE FROM $tp WHERE id='" . $value . "'");
 				}
 			}
 			if ($result == 'true') {
 				echo "1";
-				//\SkeitOl\CPHPCache::clearDir('/articles');
+				\SkeitOl\CPHPCache::clearDir('/' . $tp);
 			} else {
 				echo "-1";
 			}
@@ -63,8 +67,6 @@ if (isset($_POST['activ'])) {
 		}
 
 		$id = (int)$_POST['id'];
-
-		$tp = $connection->real_escape_string($_POST['tp']);
 
 
 		if ($tp && $fields['title']) {
@@ -109,9 +111,6 @@ if (isset($_POST['activ'])) {
 				 */
 				//рекомендации
 
-				/*?>
-<pre><?print_r($_FILES)?></pre>
-				<?*/
 				//Нужно ли удалить прошлый превью файл
 				if (!empty($_POST['clear_preview'])) {
 					$fields['src_preview'] = '';
@@ -193,7 +192,7 @@ if (isset($_POST['activ'])) {
 			}
 			if ($result) {
 				echo "1";
-				\SkeitOl\CPHPCache::clearDir('/articles');
+				\SkeitOl\CPHPCache::clearDir('/' . $tp);
 			} else {
 				echo "-1";
 				$message = 'Неверный запрос: ' . $connection->getError();
